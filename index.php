@@ -1,3 +1,14 @@
+<?php 
+// MI CONEXION ANDRES MAITA
+  $server = 'localhost';
+  $username = 'root';
+  $password = '';
+  $database = 'servielectra';
+
+$conn = mysqli_connect($server, $username, $password);
+mysqli_select_db($conn, $database);
+ ?>
+ <!-- END MI CONEXION ANDRES MAITA -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -344,8 +355,57 @@
       <!--================End Feature Area =================-->
 
       <!--================Testimonials Area =================-->
+      <style type="text/css">
+        .div-img-testimonio{
+          position: relative;
+          width: 100px;
+        height: 100px;
+        }
+      .img-detalle-testimonio{
+   
+        width: 80px;
+        height: 80px;
+        border-radius: 50px;
+      }
+      </style>
+
       <section class="testimonials_area p_120">
         <div class="container">
+          <div class="testi_slider owl-carousel">
+        <?php 
+        $sql="SELECT * FROM ARTICLESBLOG LIMIT 5";
+             $result=$conn->query($sql);
+             if($result->num_rows>0){
+               while($row=$result->fetch_assoc()){ 
+                 $id_articulo=$row['IDARTICULO'];
+                 $titulo=ucfirst(strtolower($row['TITLE']));
+                 $des=utf8_decode($row['DESCRIPTION']);
+                 $descripcion=ucfirst(strtolower($row['DESCRIPTION']));
+                 $descripcion_150caracteres = substr($descripcion, 0, 150);
+                 $contenido=ucfirst(strtolower($row['CONTENT']));
+                 $fecha=$row['DATE'];
+                 $fecha=substr($fecha, 0, 11);
+                 $imagen=$row['IMAGE'];
+                 $autor=$row['AUTOR'];
+                ?> 
+            <div class="item">
+              <div class="testi_item">
+                <div class="media">
+                  <div class="div-img-testimonio d-flex">
+                    <img class="img-detalle-testimonio" src="admin/blog/img/<?php echo $imagen ?>" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p><?php echo $descripcion_150caracteres ?>...</p>
+                    <h4><?php echo $autor ?></h4>
+                    <h5><?php echo $fecha ?></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <?php } } ?>
+          </div>
+        </div>
+<!--         <div class="container">
           <div class="testi_slider owl-carousel">
             <div class="item">
               <div class="testi_item">
@@ -376,7 +436,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
       <!--================End Testimonials Area =================-->
 
