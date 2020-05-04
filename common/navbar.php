@@ -1,0 +1,94 @@
+<!--================Header Menu Area =================-->
+<?php
+include 'common/conexion.php';
+$facebook="";
+$twitter="";
+$linkedin="";
+$instagram="";
+$sql="SELECT * FROM `CONFIGURACION`";
+$result=$conn->query($sql);
+if($result->num_rows>0){
+  while($row=$result->fetch_assoc()){
+    if($row['ATRIBUTO']=="facebook"){
+      $facebook=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="twitter"){
+      $twitter=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="linkedin"){
+      $linkedin=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="instagram"){
+      $instagram=$row['VALOR'];
+    }
+  }
+}
+ ?>
+ <script>
+  function buscar(){document.search1.submit()}
+ </script>
+<header class="header_area">
+  <div class="top_menu row m0">
+    <div class="container">
+      <div class="float-left">
+        <form action="/es/productos/index.php" method="get" id="search1">
+          <input class="search_menu ml-auto mt-2" type="text" name="producto" placeholder="Buscar.." onkeypress="if (event.keyCode == 13) buscar()">
+        </form>
+      </div>
+      <div class="float-right">
+        <ul class="list header_social d-inline">
+          <?php if ($facebook!=""){ ?>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <?php }elseif ($twitter!="") { ?>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <?php }elseif ($instagram!="") { ?>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          <?php }elseif ($linkedin!="") { ?>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <?php } ?>
+        </ul>
+        <a class="dn_btn ml-3" href="#" style="color:#002169">Ver Precios</a>
+      </div>
+    </div>
+  </div>
+  <div class="main_menu">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="" width="100%"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+          <ul class="nav navbar-nav menu_nav ml-auto">
+            <li class="nav-item active"><a class="nav-link" href="index.html"><strong>Inicio</strong> </a></li>
+            <li class="nav-item submenu dropdown">
+              <a href="productos.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Productos</strong> </a>
+              <ul class="dropdown-menu">
+                <?php
+                $sql="SELECT * FROM `CATEGORIAS`";
+                $result=$conn->query($sql);
+                if($result->num_rows>0){
+                  while($row=$result->fetch_assoc()){
+                    $categoria=$row['CATEGORIA'];
+                    $idCat=$row['IDCATEGORIA'];
+                    ?>
+                    <li class="nav-item"><a class="nav-link" href="detalles.php?cat=<?php echo $idCat;?>"><strong><?php echo $categoria;?></strong> </a></li>
+                    <?php
+                  }
+                } ?>
+              </ul>
+            </li>
+            <li class="nav-item submenu dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Recursos</strong> </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item"><a class="nav-link" href="blog.html"><strong>Blog</strong> </a></li>
+                <li class="nav-item"><a class="nav-link" href="single-blog.html"><strong>Blog Details</strong> </a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about-us.html"><strong>Nosotros</strong> </a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><strong>Contacto</strong> </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

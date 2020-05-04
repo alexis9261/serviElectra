@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <title>Builder Construction Multi</title>
+  <title>ServiElectra</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -22,70 +22,7 @@
   <!-- Amarilllo #fff500
         Azul #002169
  -->
-  <!--================Header Menu Area =================-->
-  <?php
-  $sql="SELECT * FROM CONFIGURACION WHERE"
-   ?>
-  <header class="header_area">
-    <div class="top_menu row m0">
-      <div class="container">
-        <div class="float-left">
-          <ul class="list header_social">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          </ul>
-        </div>
-        <div class="float-right">
-          <a href="#" class="search" style="color:#002169"><i class="lnr lnr-magnifier"></i></a>
-          <select class="lan_pack">
-            <option value="1">English</option>
-            <option value="1">Bangla</option>
-            <option value="1">Indian</option>
-            <option value="1">Aus</option>
-          </select>
-          <a class="dn_btn" href="#">Free Quote!</a>
-        </div>
-      </div>
-    </div>
-    <div class="main_menu">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="" width="100%"/></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav ml-auto">
-              <li class="nav-item active"><a class="nav-link" href="index.html"><strong>Inicio</strong> </a></li>
-              <li class="nav-item"><a class="nav-link" href="about-us.html"><strong>Nosotros</strong> </a></li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Productos</strong> </a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="projects.html"><strong>Projects</strong> </a></li>
-                  <li class="nav-item"><a class="nav-link" href="elements.html"><strong>Elements</strong> </a></li>
-                </ul>
-              </li>
-              <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Recursos</strong> </a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a class="nav-link" href="blog.html"><strong>Blog</strong> </a></li>
-                      <li class="nav-item"><a class="nav-link" href="single-blog.html"><strong>Blog Details</strong> </a></li>
-                    </ul>
-                  </li>
-              <li class="nav-item"><a class="nav-link" href="contact.html"><strong>Contact</strong> </a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-      <!--================Header Menu Area =================-->
-
+ <?php include 'common/navbar.php';?>
       <!--================Home Banner Area =================-->
       <section class="home_banner_area">
         <div class="banner_inner d-flex align-items-center">
@@ -105,28 +42,35 @@
       <section class="services_area p_120">
         <div class="container">
           <div class="main_title">
-            <h2>Our Offered Services</h2>
-            <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit,</p>
+            <h2>Resistencias Eléctricas</h2>
+            <p>Fabricación de Resistencias Eléctricas y Sensores Termocuplas/RTD</p>
           </div>
           <div class="row services_inner">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="services_item">
                 <img src="img/icon/service-icon-1.png" alt="">
-                <a href="#"><h4>Building Drawings</h4></a>
+                <a href="#"><h4>Resistencias</h4></a>
                 <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="services_item">
                 <img src="img/icon/service-icon-2.png" alt="">
-                <a href="#"><h4>Painting Constructions</h4></a>
+                <a href="#"><h4>Sensores</h4></a>
                 <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="services_item">
                 <img src="img/icon/service-icon-3.png" alt="">
-                <a href="#"><h4>Repairing Constructions</h4></a>
+                <a href="#"><h4>Control</h4></a>
+                <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="services_item">
+                <img src="img/icon/service-icon-2.png" alt="">
+                <a href="#"><h4>Electricidad</h4></a>
                 <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
             </div>
