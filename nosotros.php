@@ -33,10 +33,10 @@ $nosotros="active";
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.html">Home</a>
-            <a href="about-us.html">About</a>
+            <a href="index.php">Inicio</a>
+            <a href="nosotros.php">Nosotros</a>
           </div>
-          <h2>About Us</h2>
+          <h2>Nosotros</h2>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@ $nosotros="active";
   <!--================End Counter Area =================-->
 
   <!--================Team Area =================-->
-  <section class="team_area p_120">
+  <!--section class="team_area p_120">
     <div class="container">
       <div class="main_title">
         <h2>Meet Our Expert Members</h2>
@@ -167,44 +167,9 @@ $nosotros="active";
         </div>
       </div>
     </div>
-  </section>
+  </section-->
   <!--================End Team Area =================-->
 
-  <!--================Testimonials Area =================-->
-  <section class="testimonials_area p_120">
-    <div class="container">
-      <div class="testi_slider owl-carousel">
-        <div class="item">
-          <div class="testi_item">
-            <div class="media">
-              <div class="d-flex">
-                <img src="img/testimonials/testi-1.png" alt="">
-              </div>
-              <div class="media-body">
-                <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
-                <h4>Mark Alviro Wiens</h4>
-                <h5>CEO at Google</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="testi_item">
-            <div class="media">
-              <div class="d-flex">
-                <img src="img/testimonials/testi-2.png" alt="">
-              </div>
-              <div class="media-body">
-                <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
-                <h4>Mark Alviro Wiens</h4>
-                <h5>CEO at Google</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <!--================End Testimonials Area =================-->
 
   <!--================Clients Logo Area =================-->

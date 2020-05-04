@@ -32,10 +32,10 @@ $contacto="active";
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.php">Inicio</a>
+            <a href="contacto.php">Contacto</a>
           </div>
-          <h2>Contact Us</h2>
+          <h2>Contáctanos</h2>
         </div>
       </div>
     </div>

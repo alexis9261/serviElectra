@@ -86,22 +86,23 @@ function buscar(){document.search1.submit()}
             <?php }else{ ?>
               <li class="nav-item"><a class="nav-link" href="index.php"><strong>Productos</strong> </a></li>
             <?php } ?>
+            <li class="nav-item submenu dropdown">
+              <a href="nosotros.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Nosotros</strong> </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>La Empresa</strong> </a></li>
+                <li class="nav-item"><a class="nav-link" href="condiciones.php"><strong>Condiciones Generales de Venta</strong> </a></li>
+              </ul>
+            </li>
             <?php if(isset($blog)){ ?>
               <li class="nav-item active"><a class="nav-link" href="blog.php"><strong>Noticias</strong> </a></li>
             <?php }else{ ?>
               <li class="nav-item"><a class="nav-link" href="blog.php"><strong>Noticias</strong> </a></li>
             <?php } ?>
-            <?php if(isset($nosotros)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="about-us.php"><strong>Nosotros</strong> </a></li>
-            <?php }else{ ?>
-              <li class="nav-item"><a class="nav-link" href="about-us.php"><strong>Nosotros</strong> </a></li>
-            <?php } ?>
             <?php if(isset($contacto)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="contact.php"><strong>Contacto</strong> </a></li>
+              <li class="nav-item active"><a class="nav-link" href="contacto.php"><strong>Contacto</strong> </a></li>
             <?php }else{ ?>
-              <li class="nav-item"><a class="nav-link" href="contact.php"><strong>Contacto</strong> </a></li>
+              <li class="nav-item"><a class="nav-link" href="contacto.php"><strong>Contacto</strong> </a></li>
             <?php } ?>
-
           </ul>
         </div>
       </div>

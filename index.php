@@ -32,8 +32,8 @@ $home="active";
     <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
     <div class="container">
       <div class="banner_content text-center">
-        <h3>Build Your <span>Dream</span></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+        <h3>Resistencias <span>Eléctricas</span></h3>
+        <p><strong>Ponemos a su disposición nuestro servicio de diseño y fabricación a la medida de todo tipo de resistencias eléctricas calefactoras y sensores de temperatura.</strong> </p>
         <a class="black_btn" href="#">Ver los productos</a>
       </div>
     </div>
@@ -45,7 +45,7 @@ $home="active";
 <section class="services_area p_120">
   <div class="container">
     <div class="main_title">
-      <h2>Resistencias Eléctricas</h2>
+      <h2>Categorias Principales</h2>
       <p>Fabricación de Resistencias Eléctricas y Sensores Termocuplas/RTD</p>
     </div>
     <div class="row services_inner">

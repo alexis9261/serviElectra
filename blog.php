@@ -1,4 +1,4 @@
-<?php 
+<?php
 $blog="active";
  ?>
 <!doctype html>
@@ -32,9 +32,9 @@ $blog="active";
       <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
       <div class="container">
         <div class="blog_b_text text-center">
-          <h2>Dude You’re Getting <br /> a Telescope</h2>
-          <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first</p>
-          <a class="white_bg_btn" href="#">View More</a>
+          <h2>Noticias <br /> relevantes</h2>
+          <p>Podrás encontrar noticias tecnologicas, historicas y de actualidad</p>
+          <a class="white_bg_btn" href="#">Ver todas</a>
         </div>
       </div>
     </div>
