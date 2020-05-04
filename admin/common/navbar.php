@@ -45,6 +45,7 @@
             <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/pagina.php"><span class="hide-menu">Página Web </span></a>
             <?php if($_SESSION['nivel']==1){ ?>
               <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/usuarios.php"><span class="hide-menu">Usuarios </span></a>
+              <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/categorias.php"><span class="hide-menu">Categorias </span></a>
             <?php } ?>
           </div>
         </li>

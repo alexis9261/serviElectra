@@ -20,10 +20,10 @@ if($result->num_rows>0){
     }
   }
 }
- ?>
- <script>
-  function buscar(){document.search1.submit()}
- </script>
+?>
+<script>
+function buscar(){document.search1.submit()}
+</script>
 <header class="header_area">
   <div class="top_menu row m0">
     <div class="container">
@@ -51,7 +51,7 @@ if($result->num_rows>0){
   <div class="main_menu">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="" width="100%"/></a>
+        <a class="navbar-brand logo_h" href="index.php"><img src="img/logo.png" alt="" width="100%"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -59,9 +59,13 @@ if($result->num_rows>0){
         </button>
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" href="index.html"><strong>Inicio</strong> </a></li>
+            <?php if(isset($home)){ ?>
+              <li class="nav-item active"><a class="nav-link" href="index.php"><strong>Inicio</strong> </a></li>
+            <?php }else{ ?>
+              <li class="nav-item"><a class="nav-link" href="index.php"><strong>Inicio</strong> </a></li>
+            <?php } ?>
             <li class="nav-item submenu dropdown">
-              <a href="productos.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Productos</strong> </a>
+              <a href="productos.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Categorias</strong> </a>
               <ul class="dropdown-menu">
                 <?php
                 $sql="SELECT * FROM `CATEGORIAS`";
@@ -77,15 +81,27 @@ if($result->num_rows>0){
                 } ?>
               </ul>
             </li>
-            <li class="nav-item submenu dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Recursos</strong> </a>
-              <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" href="blog.html"><strong>Blog</strong> </a></li>
-                <li class="nav-item"><a class="nav-link" href="single-blog.html"><strong>Blog Details</strong> </a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="about-us.html"><strong>Nosotros</strong> </a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html"><strong>Contacto</strong> </a></li>
+            <?php if(isset($productos)){ ?>
+              <li class="nav-item active"><a class="nav-link" href="index.php"><strong>Productos</strong> </a></li>
+            <?php }else{ ?>
+              <li class="nav-item"><a class="nav-link" href="index.php"><strong>Productos</strong> </a></li>
+            <?php } ?>
+            <?php if(isset($blog)){ ?>
+              <li class="nav-item active"><a class="nav-link" href="blog.php"><strong>Noticias</strong> </a></li>
+            <?php }else{ ?>
+              <li class="nav-item"><a class="nav-link" href="blog.php"><strong>Noticias</strong> </a></li>
+            <?php } ?>
+            <?php if(isset($nosotros)){ ?>
+              <li class="nav-item active"><a class="nav-link" href="about-us.php"><strong>Nosotros</strong> </a></li>
+            <?php }else{ ?>
+              <li class="nav-item"><a class="nav-link" href="about-us.php"><strong>Nosotros</strong> </a></li>
+            <?php } ?>
+            <?php if(isset($contacto)){ ?>
+              <li class="nav-item active"><a class="nav-link" href="contact.php"><strong>Contacto</strong> </a></li>
+            <?php }else{ ?>
+              <li class="nav-item"><a class="nav-link" href="contact.php"><strong>Contacto</strong> </a></li>
+            <?php } ?>
+
           </ul>
         </div>
       </div>

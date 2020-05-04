@@ -5,18 +5,7 @@ $section="nuevo_blog";
 //nuevo articulo
 $nuevo=3;
 if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
-#paginacion
-$perpage=25;
-if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
-$start=($curpage*$perpage) - $perpage;
-#necesito el total de elementos
-$PageSql="SELECT * FROM articlesblog";
-$pageres=mysqli_query($conn,$PageSql);
-$totalres=mysqli_num_rows($pageres);
-$endpage=ceil($totalres/$perpage);
-$startpage=1;
-$nextpage=$curpage + 1;
-$previouspage=$curpage - 1;
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
