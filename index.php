@@ -136,7 +136,7 @@ $home="active";
 <!--================End Builder Image Area =================-->
 
 <!--================Team Area =================-->
-<!--section class="team_area p_120">
+<section class="team_area p_120">
   <div class="container">
     <div class="main_title">
       <h2>Meet Our Expert Members</h2>
@@ -209,7 +209,7 @@ $home="active";
       </div>
     </div>
   </div>
-</section-->
+</section>
 <!--================End Team Area =================-->
 
 <!--================Metricas Area =================-->
