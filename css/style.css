@@ -4004,6 +4004,7 @@ h6 {
 /*----------------------------------------------------*/
 .card_img {
   position: relative;
+  cursor: pointer;
 }
 
 .card_img .product_img {
