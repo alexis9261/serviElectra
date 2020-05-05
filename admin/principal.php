@@ -19,6 +19,7 @@ $section="home";
   <meta name="author" content="Eutuxia Web">
   <title>ServiElectra - Administración</title>
   <link href="../vendors/admin/style.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
   <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="../vendors/jquery/dist/jquery.min.js"></script>
 </head>

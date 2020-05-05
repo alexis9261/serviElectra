@@ -6,9 +6,9 @@ $dbname="dbs260499";
 $password="Eurochem12345*";*/
 //localhost
 $servername="localhost";
-$username="root";
-$password="";
-$dbname="servielectra";
+$username="id13562744_servielectrauser";
+$password='@MG6$S+<*K~dDBe~';
+$dbname="id13562744_servielectra";
 // Create connection
 $conn=new mysqli($servername,$username,$password,$dbname);
 $conn->set_charset("utf8");

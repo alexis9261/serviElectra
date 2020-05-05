@@ -1,7 +1,7 @@
 <?php
 include '../common/sesion.php';
 require '../../common/conexion.php';
-$section="edit_blog";
+$section="edit_producto";
 #edicion de articulo
 if(isset($_GET['e'])){$edicion=$_GET['e'];}
 ?>
@@ -27,69 +27,76 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-auto align-self-center">
-              <h4 class="page-title">Blog - Editar Articulo</h4>
+              <h4 class="page-title">Editar Producto</h4>
             </div>
           </div>
         </div>
         <?php
         if(isset($_GET['id']) && !empty($_GET['id'])){
-          $id_articulo=$_GET['id'];
-          $sql="SELECT * FROM ARTICLESBLOG WHERE IDARTICULO=$id_articulo";
+          $id_producto=$_GET['id'];
+          $sql="SELECT * FROM PRODUCTOS WHERE IDPRODUCTO=$id_producto";
           $result=$conn->query($sql);
           if($result->num_rows>0){
             while($row=$result->fetch_assoc()){
-              $id_articulo=$row['IDARTICULO'];
-              $titulo=ucwords($row['TITLE']);
-              $descripcion=ucwords($row['DESCRIPTION']);
-              $contenido=ucwords($row['CONTENT']);
-              $imagen=$row['IMAGE'];
-              $autor=$row['AUTOR'];
-              $keywords=$row['KEYWORDS'];
+              $id_producto=$row['IDPRODUCTO'];
+              $titulo=ucwords($row['TITULO']);
+              $id_categoria=$row['IDCATEGORIA'];
+              $descripcion=ucwords($row['DESCRIPCION']);
+              $precio=$row['PRECIO'];
+              $imagen=$row['IMAGEN'];
               ?>
               <div class="container-fluid">
-                <form action="editArticle.php" method="post" enctype="multipart/form-data">
+                <form action="editProducto.php" method="post" enctype="multipart/form-data">
                   <div class="row mt-1">
                     <div class="input-group mb-3 col-12">
                       <div class="input-group-append">
-                        <span class="input-group-text"><b>Titulo del articulo</b></span>
+                        <span class="input-group-text"><b>Titulo del producto</b></span>
                       </div>
-                      <input type="text" name="title" class="form-control text-dark" required maxlength="255" value="<?php echo $titulo;?>" id="titulo">
+                      <input type="text" name="title" class="form-control text-dark" value="<?php echo $titulo;?>" required maxlength="60" id="titulo">
                       <div class="col-12 mb-2">
-                        <small class="text-muted">Quedan <span id="numero">255</span> caracteres.</small>
+                        <small class="text-muted">Quedan <span id="numero">60</span> caracteres.</small>
                       </div>
                       <script>
                         $(document).ready(function(){
-                          var total_letras=255;
+                          var total_letras=60;
                           $('#titulo').keyup(function(){
                             var longitud=$(this).val().length;
                             var resto=total_letras - longitud;
                             $('#numero').html(resto);
-                            if(resto <= 0){$('#titulo').attr("maxlength",255);}
+                            if(resto <= 0){$('#titulo').attr("maxlength",60);}
                           });
                         });
                       </script>
                     </div>
-                    <div class="input-group mb-3 col-12">
+                    <div class="input-group mb-3 col-12 col-md-6">
                       <div class="input-group-append">
-                        <span class="input-group-text"><b>Autor</b></span>
+                        <span class="input-group-text"><b>Categoria</b></span>
                       </div>
-                      <input type="text" name="autor" class="form-control text-dark" required maxlength="255" value="<?php echo $autor;?>">
+                      <select class="categoria" name="idcategoria">
+                        <?php
+                        $sql="SELECT * FROM CATEGORIAS";
+                        $result=$conn->query($sql);
+                        if($result->num_rows>0){
+                          while($row=$result->fetch_assoc()) {
+                            if($id_categoria==$row['IDCATEGORIA']){ ?>
+                              <option value="<?=$row['IDCATEGORIA']?>" selected><?=$row['CATEGORIA']?></option>
+                            <?php }else{ ?>
+                              <option value="<?=$row['IDCATEGORIA']?>"><?=$row['CATEGORIA']?></option>
+                              <?php
+                            }
+                          }
+                        } ?>
+                      </select>
                     </div>
-                    <div class="input-group mb-3 col-12">
+                    <div class="input-group mb-3 col-12 col-md-3 ml-auto">
                       <div class="input-group-append">
-                        <span class="input-group-text" title="Serviran para el posicionamiento(SEO), deberan estar separadas por comas(,)" data-toggle="tooltip"><b>Palabras Clave</b></span>
+                        <span class="input-group-text"><b>Precio</b></span>
                       </div>
-                      <input type="text" name="keywords" class="form-control text-dark" required maxlength="255" placeholder="Ej. casas, apartamentos, casa en alquiler" value="<?php echo $keywords;?>">
+                      <input type="number" name="precio" class="form-control text-dark" required maxlength="25" value="<?php echo $precio;?>">
                     </div>
-                    <span class="ml-3 mb-2"><b>Resumen del artículo</b></span>
+                    <span class="col-12 ml-3 mb-2"><b>Descripción</b></span>
                     <div class="input-group mb-3 col-12">
-                      <textarea class="form-control" name="description" rows="5" type="text" required><?php echo $descripcion;?></textarea>
-                    </div>
-                    <div class="col-12">
-                      <span class="ml-3 mb-2"><b>Contenido</b></span>
-                    </div>
-                    <div class="col-12 mb-3">
-                      <textarea name="content" class="form-control text-dark" id="content" rows="20" type="text" required><?php echo $contenido;?></textarea>
+                      <textarea class="form-control" name="descripcion" rows="12" type="text" required placeholder="La descripcion del producto..."><?php echo $descripcion;?></textarea>
                     </div>
                     <div class="col-12"><h5>Imagen Actual</h5></div>
                     <div class="col-12 text-center">
@@ -106,7 +113,7 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
                     <a href="index.php" class="btn btn-outline-danger px-4 mr-5">Cancelar</a>
                     <button type="submit" class="btn btn-outline-primary">Aceptar</button>
                   </div>
-                  <input type="hidden" name="id" value="<?php echo $id_articulo;?>">
+                  <input type="hidden" name="id" value="<?php echo $id_producto;?>">
                   </form>
               </div>
               <!-- Preview Imagen -->

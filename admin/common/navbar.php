@@ -2,7 +2,7 @@
 <nav class="navbar top-navbar navbar-expand-md navbar-light">
   <div class="navbar-header" data-logobg="skin5">
     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
-      <i class="ti-menu ti-close"></i>
+      <i class="lnr lnr-close"></i>
     </a>
     <div class="navbar-brand">
       <a href="/admin/principal.php" style="color:#fff500;">
@@ -11,7 +11,7 @@
     </div>
     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="ti-more"></i>
+    <i class="lnr lnr-more"></i>
   </a>
 </div>
 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
@@ -38,19 +38,20 @@
       <ul id="sidebarnav">
         <li class="sidebar-item">
           <a class="sidebar-link waves-effect waves-dark sidebar-link dropdown-btn-sidebar">
-            <i class="mdi mdi-account-network"></i>
+            <i class="lnr lnr-cogs"></i>
             <span class="hide-menu">Configuración General </span>
           </a>
           <div class="dropdown-container-sidemenu" style="display:none;" id="dropdown1">
             <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/pagina.php"><span class="hide-menu">Página Web </span></a>
             <?php if($_SESSION['nivel']==1){ ?>
               <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/usuarios.php"><span class="hide-menu">Usuarios </span></a>
+              <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/categorias.php"><span class="hide-menu">Categorias </span></a>
             <?php } ?>
           </div>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link waves-effect waves-dark sidebar-link dropdown-btn-sidebar">
-            <i class="mdi mdi-ticket"></i>
+            <i class="lnr lnr-book"></i>
             <span class="hide-menu">Blog </span>
           </a>
           <div class="dropdown-container-sidemenu" style="display:none;" id="dropdown1">
@@ -60,12 +61,12 @@
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link waves-effect waves-dark sidebar-link dropdown-btn-sidebar">
-            <i class="mdi mdi-store"></i>
+            <i class="lnr lnr-store"></i>
             <span class="hide-menu">Productos </span>
           </a>
           <div class="dropdown-container-sidemenu" style="display:none;" id="dropdown1">
-            <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/productos/form_productos.php"><span class="hide-menu">Agregar Productos</span></a>
-            <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/productos/ficha.php"><span class="hide-menu">Agregar Ficha Técnica</span></a>
+            <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/productos/index.php"><span class="hide-menu">Agregar Productos</span></a>
+            <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/productos/ver_productos.php"><span class="hide-menu">Ver Productos</span></a>
           </div>
         </li>
       </ul>
