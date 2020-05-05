@@ -212,6 +212,90 @@ $home="active";
 </section-->
 <!--================End Team Area =================-->
 
+
+<!--================Products Area =================-->
+<section class="product_area mb-5">
+  <div class="container">
+    <div class="main_title">
+      <h2>Productos</h2>
+    </div>
+    <div class="row products_cards">
+      <div class="col-lg-3 col-sm-6">
+        <div class="team-item">
+
+          <div class="card_img">
+            <img class="product_img w-100" src="img/productos/producto-2.png" alt="">
+            <div class="product_hover">
+              <h3 class="product_title">Product 1</h3>
+            </div>
+          </div>
+
+          <div class="product_name text-center py-4">
+            <h3>Producto</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <div class="team-item">
+
+          <div class="card_img">
+            <img class="product_img w-100" src="img/productos/product-6.png" alt="">
+            <div class="product_hover">
+              <h3 class="product_title">Product 2</h3>
+            </div>
+          </div>
+
+          <div class="product_name text-center py-4">
+            <h3>Producto</h3>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-sm-6">
+        <div class="team-item">
+          <div class="card_img">
+
+            <img class="product_img w-100" src="img/productos/producto-1.jpeg" alt="">
+            <div class="product_hover">
+              <h3 class="product_title">Product 3</h3>
+            </div>
+          </div>
+
+          <div class="product_name text-center py-4">
+            <h3>Producto</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-sm-6 sm-mb-2">
+        <div class="team-item">
+
+          <div class="card_img">
+            <img class="product_img w-100" src="img/productos/product-4.jpeg" alt="">
+            <div class="product_hover">
+              <h3 class="product_title">Product 4</h3>
+            </div>
+          </div>
+
+          <div class="product_name text-center py-4">
+            <h3>Producto</h3>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--================End Products Area =================-->
+
+
 <!--================Metricas Area =================-->
 <section class="counter_area">
   <div class="container">
