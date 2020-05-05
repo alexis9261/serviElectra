@@ -9,7 +9,7 @@ is the file you need to edit to change the look of the
 theme.
 ---------------------------------------------------- */
 /*=====================================================================
-@Template Name: Builder Construction
+@Template Name: Builder Construction 
 @Author: Rocky Ahmed
 @Developed By: Rocky Ahmed
 @Developer URL: http://rocky.wethemez.com
@@ -26,15 +26,16 @@ Table of Content:
 06/ breadcrumb
 07/ about
 08/ team
-09/ project
-10/ price
-11/ team
-12/ blog
-13/ video
-14/ features
-15/ career
-16/ contact
+09/ project 
+10/ price 
+11/ team 
+12/ blog 
+13/ video  
+14/ features  
+15/ career  
+16/ contact 
 17/ footer
+18/ product-index
 
 =====================================================================*/
 /*----------------------------------------------------*/
@@ -44,24 +45,6 @@ Table of Content:
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Poppins:200,300,400,500,600,700|Roboto:300,400,500,700");
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
-.search_menu {
-  width: 150px;
-  box-sizing: border-box;
-  border: 1px solid #fff500;
-  border-radius: 2px;
-  font-size: 15px;
-  background-color: white;
-  padding: 2px 10px 2px 10px;
-  -webkit-transition: width 1s ease-in-out;
-  transition: width 1s ease-in-out;
-}
-
-/* When the input field gets focus, change its width to 100% */
-.search_menu:focus {
-  width: 150%;
-  background-color: #f1f1f1;
-  color: #002169;
-}
 .list {
   list-style: none;
   margin: 0px;
@@ -71,7 +54,6 @@ Table of Content:
 a {
   text-decoration: none;
   -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -100,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 button:focus {
   outline: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 
 .p_120 {
@@ -164,7 +146,6 @@ button:focus {
   left: 0;
   z-index: 99;
   -webkit-transition: background 0.4s, all 0.3s linear;
-  -o-transition: background 0.4s, all 0.3s linear;
   transition: background 0.4s, all 0.3s linear;
 }
 
@@ -192,7 +173,7 @@ button:focus {
 }
 
 .header_area .navbar .nav .nav-item:hover .nav-link, .header_area .navbar .nav .nav-item.active .nav-link {
-  color: #002169;
+  color: #fab700;
 }
 
 .header_area .navbar .nav .nav-item.submenu {
@@ -204,7 +185,7 @@ button:focus {
   padding: 0px;
   border-radius: 0px;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   margin: 0px;
   background: #fff;
 }
@@ -214,11 +195,10 @@ button:focus {
     position: absolute;
     top: 120%;
     left: 0px;
-    min-width: 300px;
+    min-width: 200px;
     text-align: left;
     opacity: 0;
     -webkit-transition: all 300ms ease-in;
-    -o-transition: all 300ms ease-in;
     transition: all 300ms ease-in;
     visibility: hidden;
     display: block;
@@ -241,7 +221,6 @@ button:focus {
   z-index: 3;
   opacity: 0;
   -webkit-transition: all 400ms linear;
-  -o-transition: all 400ms linear;
   transition: all 400ms linear;
 }
 
@@ -252,7 +231,6 @@ button:focus {
   border-bottom: 1px solid #ededed;
   margin-left: 0px;
   -webkit-transition: all 0.4s linear;
-  -o-transition: all 0.4s linear;
   transition: all 0.4s linear;
 }
 
@@ -261,7 +239,6 @@ button:focus {
   color: #222222;
   padding: 0px 30px;
   -webkit-transition: all 150ms linear;
-  -o-transition: all 150ms linear;
   transition: all 150ms linear;
   display: block;
   margin-right: 0px;
@@ -272,8 +249,8 @@ button:focus {
 }
 
 .header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
-  background: #fff500;
-  color: #002169;
+  background: #fab700;
+  color: #fff;
 }
 
 @media (min-width: 992px) {
@@ -316,16 +293,14 @@ button:focus {
   right: 0;
   background: #fff;
   -webkit-transform: translateY(70px);
-  -ms-transform: translateY(70px);
-  transform: translateY(70px);
+          transform: translateY(70px);
   -webkit-transition: background 500ms ease, -webkit-transform 500ms ease;
   transition: background 500ms ease, -webkit-transform 500ms ease;
-  -o-transition: transform 500ms ease, background 500ms ease;
   transition: transform 500ms ease, background 500ms ease;
   transition: transform 500ms ease, background 500ms ease, -webkit-transform 500ms ease;
   -webkit-transition: transform 500ms ease, background 500ms ease;
   -webkit-box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
 }
 
 .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
@@ -347,7 +322,6 @@ button:focus {
   display: inline-block;
   line-height: 45px;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -356,7 +330,7 @@ button:focus {
 }
 
 .top_menu .header_social li:hover a {
-  color: #fff500;
+  color: #fab700;
 }
 
 .top_menu .ac_btn {
@@ -370,30 +344,28 @@ button:focus {
   font-weight: 500;
   color: #777777;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
   margin-right: 1px;
   margin-top: 8px;
 }
 
 .top_menu .ac_btn:hover {
-  background: #fff500;
+  background: #fab700;
   color: #fff;
-  border-color: #fff500;
+  border-color: #fab700;
 }
 
 .top_menu .dn_btn {
   line-height: 28px;
-  border: 1px solid #fff500;
+  border: 1px solid #fab700;
   display: inline-block;
-  background: #fff500;
+  background: #fab700;
   padding: 0px 19px;
   font-size: 12px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #fff;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
   margin-top: 8px;
   border-radius: 3px;
@@ -402,7 +374,7 @@ button:focus {
 .top_menu .dn_btn:hover {
   background: transparent;
   color: #222222;
-  border-color: #fff500;
+  border-color: #fab700;
 }
 
 .top_menu .lan_pack {
@@ -430,8 +402,7 @@ button:focus {
   border: none !important;
   font: normal normal normal 12px/1 FontAwesome;
   -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+          transform: rotate(0deg);
   height: auto;
   margin-top: -6px;
   right: 20px;
@@ -444,14 +415,14 @@ button:focus {
 .home_banner_area {
   position: relative;
   z-index: 1;
-  min-height: 400px;
+  min-height: 700px;
 }
 
 .home_banner_area .banner_inner {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 450px;
+  min-height: 700px;
 }
 
 .home_banner_area .banner_inner .overlay {
@@ -485,7 +456,7 @@ button:focus {
 }
 
 .home_banner_area .banner_inner .banner_content h3 span {
-  background: #fff500;
+  background: #fab700;
   border-radius: 4px;
   line-height: 60px;
   color: #222222;
@@ -510,7 +481,7 @@ button:focus {
 }
 
 .blog_banner {
-  min-height: 400px;
+  min-height: 780px;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -522,7 +493,7 @@ button:focus {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 400px;
+  min-height: 780px;
   z-index: 1;
 }
 
@@ -618,8 +589,7 @@ button:focus {
   right: -25px;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .banner_area .banner_inner .banner_content .page_link a:last-child {
@@ -631,7 +601,7 @@ button:focus {
 }
 
 .banner_area .banner_inner .banner_content .page_link a:hover {
-  color: #fff500;
+  color: #fab700;
 }
 
 /* End Home Banner Area css
@@ -658,7 +628,7 @@ button:focus {
 }
 
 .causes_slider .owl-dots .owl-dot.active {
-  background: #fff500;
+  background: #fab700;
 }
 
 .causes_item {
@@ -681,7 +651,7 @@ button:focus {
 .causes_item .causes_img .c_parcent span {
   width: 70%;
   height: 3px;
-  background: #fff500;
+  background: #fab700;
   position: absolute;
   left: 0px;
   bottom: 0px;
@@ -692,7 +662,7 @@ button:focus {
   position: absolute;
   right: -10px;
   bottom: 0px;
-  background: #fff500;
+  background: #fab700;
   color: #fff;
   padding: 0px 5px;
 }
@@ -711,7 +681,7 @@ button:focus {
 }
 
 .causes_item .causes_text h4:hover {
-  color: #fff500;
+  color: #fab700;
 }
 
 .causes_item .causes_text p {
@@ -724,11 +694,11 @@ button:focus {
 
 .causes_item .causes_bottom a {
   width: 50%;
-  border: 1px solid #fff500;
+  border: 1px solid #fab700;
   text-align: center;
   float: left;
   line-height: 50px;
-  background: #fff500;
+  background: #fab700;
   color: #fff;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -759,7 +729,6 @@ button:focus {
 
 .single-recent-blog-post .thumb img {
   -webkit-transition: all 0.7s linear;
-  -o-transition: all 0.7s linear;
   transition: all 0.7s linear;
 }
 
@@ -771,7 +740,6 @@ button:focus {
   line-height: 24px;
   padding: 10px 0px 13px;
   -webkit-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
@@ -787,8 +755,7 @@ button:focus {
 
 .single-recent-blog-post:hover img {
   -webkit-transform: scale(1.23) rotate(10deg);
-  -ms-transform: scale(1.23) rotate(10deg);
-  transform: scale(1.23) rotate(10deg);
+          transform: scale(1.23) rotate(10deg);
 }
 
 .tags .tag_btn {
@@ -803,7 +770,7 @@ button:focus {
 }
 
 .tags .tag_btn:before {
-  background: #fff500;
+  background: #fab700;
 }
 
 .tags .tag_btn + .tag_btn {
@@ -835,17 +802,16 @@ button:focus {
   background: rgba(34, 34, 34, 0.8);
   color: #fff;
   -webkit-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .categories_post .categories_details h5 {
@@ -898,7 +864,7 @@ button:focus {
 }
 
 .blog_info .post_tag a.active {
-  color: #fff500;
+  color: #fab700;
 }
 
 .blog_info .blog_meta li a {
@@ -919,7 +885,7 @@ button:focus {
 }
 
 .blog_info .blog_meta li a:hover {
-  color: #fff500;
+  color: #fab700;
 }
 
 .blog_post img {
@@ -936,12 +902,11 @@ button:focus {
   color: #222222;
   font-weight: 600;
   -webkit-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
 .blog_details h2:hover {
-  color: #fff500;
+  color: #fab700;
 }
 
 .blog_details p {
@@ -967,7 +932,7 @@ button:focus {
 .blog_right_sidebar .widget_title {
   font-size: 18px;
   line-height: 25px;
-  background: #fff500;
+  background: #fab700;
   text-align: center;
   color: #fff;
   padding: 8px 0px;
@@ -984,7 +949,7 @@ button:focus {
   padding-left: 20px;
   border-radius: 45px;
   z-index: 0;
-  background: #fff500;
+  background: #fab700;
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control.placeholder {
@@ -1005,7 +970,7 @@ button:focus {
 
 .blog_right_sidebar .search_widget .input-group .form-control:focus {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 
 .blog_right_sidebar .search_widget .input-group .btn-default {
@@ -1014,14 +979,13 @@ button:focus {
   background: transparent;
   border: 0px;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   font-size: 14px;
   color: #fff;
   padding: 0px;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
   z-index: 1;
 }
 
@@ -1049,7 +1013,6 @@ button:focus {
   font-size: 14px;
   color: #222222;
   -webkit-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
@@ -1058,15 +1021,16 @@ button:focus {
 }
 
 .blog_right_sidebar .author_widget .social_icon a:hover {
-  color: #fff500;
+  color: #fab700;
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body {
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-item-align: center;
-  align-self: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   padding-left: 20px;
 }
 
@@ -1076,12 +1040,11 @@ button:focus {
   color: #222222;
   margin-bottom: 4px;
   -webkit-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3:hover {
-  color: #fff500;
+  color: #fab700;
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body p {
@@ -1097,7 +1060,6 @@ button:focus {
 .blog_right_sidebar .post_category_widget .cat-list li {
   border-bottom: 2px dotted #eee;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   padding-bottom: 12px;
 }
@@ -1117,11 +1079,11 @@ button:focus {
 }
 
 .blog_right_sidebar .post_category_widget .cat-list li:hover {
-  border-color: #fff500;
+  border-color: #fab700;
 }
 
 .blog_right_sidebar .post_category_widget .cat-list li:hover a {
-  color: #fff500;
+  color: #fab700;
 }
 
 .blog_right_sidebar .newsletter_widget {
@@ -1175,11 +1137,11 @@ button:focus {
 .blog_right_sidebar .newsletter_widget .form-control:focus {
   outline: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 
 .blog_right_sidebar .newsletter_widget .bbtns {
-  background: #fff500;
+  background: #fab700;
   color: #fff;
   font-size: 12px;
   line-height: 38px;
@@ -1204,14 +1166,13 @@ button:focus {
   padding: 0px 13px;
   margin-bottom: 8px;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   color: #222222;
   font-size: 12px;
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
-  background: #fff500;
+  background: #fab700;
   color: #fff;
 }
 
@@ -1241,7 +1202,7 @@ button:focus {
 }
 
 .blog-pagination .page-item.active .page-link {
-  background-color: #fff500;
+  background-color: #fab700;
   border-color: transparent;
   color: #fff;
 }
@@ -1268,7 +1229,7 @@ button:focus {
 .blog-pagination .page-link:hover {
   color: #fff;
   text-decoration: none;
-  background-color: #fff500;
+  background-color: #fab700;
   border-color: #eee;
 }
 
@@ -1287,7 +1248,6 @@ button:focus {
   padding: 7px;
   font-size: 14px;
   -webkit-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
@@ -1309,7 +1269,7 @@ button:focus {
   padding: 24px 35px 24px 30px;
   background-color: white;
   -webkit-box-shadow: -20.84px 21.58px 30px 0px rgba(176, 176, 176, 0.1);
-  box-shadow: -20.84px 21.58px 30px 0px rgba(176, 176, 176, 0.1);
+          box-shadow: -20.84px 21.58px 30px 0px rgba(176, 176, 176, 0.1);
   font-size: 14px;
   line-height: 24px;
   color: #777;
@@ -1356,7 +1316,6 @@ button:focus {
 
 .single-post-area .navigation-area .nav-left .thumb img {
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -1364,7 +1323,6 @@ button:focus {
   margin-left: 20px;
   opacity: 0;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -1393,7 +1351,6 @@ button:focus {
 
 .single-post-area .navigation-area .nav-right .thumb img {
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -1401,7 +1358,6 @@ button:focus {
   margin-right: 20px;
   opacity: 0;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -1496,12 +1452,11 @@ button:focus {
   display: block;
   font-weight: 600;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
 .comments-area .btn-reply:hover {
-  background-color: #fff500;
+  background-color: #fab700;
   color: #fff;
 }
 
@@ -1556,7 +1511,7 @@ button:focus {
 
 .comment-form .form-control:focus {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   border: 1px solid #eee;
 }
 
@@ -1598,7 +1553,7 @@ button:focus {
   max-width: 555px;
   margin: auto;
   -webkit-box-shadow: 0px 10px 30px 0px rgba(153, 153, 153, 0.1);
-  box-shadow: 0px 10px 30px 0px rgba(153, 153, 153, 0.1);
+          box-shadow: 0px 10px 30px 0px rgba(153, 153, 153, 0.1);
   padding: 75px 50px;
   position: relative;
 }
@@ -1612,8 +1567,7 @@ button:focus {
   width: 98px;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .reservation_form_area .res_form_inner:after {
@@ -1625,8 +1579,7 @@ button:focus {
   width: 98px;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .reservation_form .form-group input {
@@ -1635,7 +1588,7 @@ button:focus {
   border: 1px solid #eeeeee;
   outline: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   padding: 0px 15px;
   font-size: 13px;
   font-family: "Roboto", sans-serif;
@@ -1692,8 +1645,7 @@ button:focus {
   font-family: 'Linearicons-Free';
   color: #cccccc;
   -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+          transform: rotate(0deg);
   border: none;
   margin-top: -17px;
   font-size: 13px;
@@ -1723,7 +1675,7 @@ button:focus {
   top: 0;
   font-size: 20px;
   line-height: 24px;
-  color: #fff500;
+  color: #fab700;
   font-weight: 600;
 }
 
@@ -1762,7 +1714,7 @@ button:focus {
 
 .contact_form .form-group .form-control:focus {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   outline: none;
 }
 
@@ -1802,8 +1754,7 @@ button:focus {
   top: 36%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) !important;
-  -ms-transform: translateX(-50%) translateY(-50%) !important;
-  transform: translateX(-50%) translateY(-50%) !important;
+          transform: translateX(-50%) translateY(-50%) !important;
   margin: 0px;
   max-width: 500px;
   width: 100%;
@@ -1830,7 +1781,7 @@ button:focus {
 .modal-message .modal-dialog .modal-content .modal-header h2 {
   display: block;
   text-align: center;
-  color: #fff500;
+  color: #fab700;
   padding-bottom: 10px;
   font-family: "Roboto", sans-serif;
 }
@@ -1857,7 +1808,6 @@ button:focus {
   line-height: 70px;
   opacity: .5;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -1892,30 +1842,30 @@ button:focus {
 
 .sample-text-area p b {
   font-weight: bold;
-  color: #fff500;
+  color: #fab700;
 }
 
 .sample-text-area p i {
-  color: #fff500;
+  color: #fab700;
   font-style: italic;
 }
 
 .sample-text-area p sup {
-  color: #fff500;
+  color: #fab700;
   font-style: italic;
 }
 
 .sample-text-area p sub {
-  color: #fff500;
+  color: #fab700;
   font-style: italic;
 }
 
 .sample-text-area p del {
-  color: #fff500;
+  color: #fab700;
 }
 
 .sample-text-area p u {
-  color: #fff500;
+  color: #fab700;
 }
 
 /*============== End Elements Area css ================*/
@@ -2061,12 +2011,12 @@ button:focus {
 
 .link-border {
   background: transparent;
-  border: 1px solid #fff500;
-  color: #fff500;
+  border: 1px solid #fab700;
+  color: #fab700;
 }
 
 .link-border:before {
-  background: #fff500;
+  background: #fab700;
 }
 
 .radius {
@@ -2273,8 +2223,6 @@ h6 {
   font-weight: 500;
   cursor: pointer;
   -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
@@ -2557,8 +2505,8 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .progress-table .table-row .country img {
@@ -2615,8 +2563,6 @@ h6 {
   background-size: cover !important;
   height: 200px;
   -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
@@ -2814,11 +2760,9 @@ h6 {
   border-radius: 50%;
   background: #f8b600;
   -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -2873,8 +2817,6 @@ h6 {
   border-radius: 8.5px;
   cursor: pointer;
   -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
   transition: all 0.2s;
 }
 
@@ -2888,11 +2830,9 @@ h6 {
   border-radius: 50%;
   background: #fff;
   -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -2946,8 +2886,6 @@ h6 {
   background: transparent;
   border-radius: 8.5px;
   -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
   transition: all 0.2s;
   cursor: pointer;
 }
@@ -2962,11 +2900,9 @@ h6 {
   border-radius: 50%;
   background: #fff;
   -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -3249,7 +3185,7 @@ h6 {
   border: none;
   border-radius: 0px;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   width: 100%;
   padding: 10px 0 10px 0px;
 }
@@ -3257,8 +3193,6 @@ h6 {
 .default-select .nice-select .list .option {
   font-weight: 300;
   -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   line-height: 28px;
   min-height: 28px;
@@ -3311,7 +3245,7 @@ h6 {
   border: none;
   border-radius: 0px;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   width: 100%;
   padding: 10px 0 10px 0px;
 }
@@ -3323,8 +3257,6 @@ h6 {
 .form-select .nice-select .list .option {
   font-weight: 300;
   -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   line-height: 28px;
   min-height: 28px;
@@ -3357,7 +3289,7 @@ h6 {
 ============================================================================================ */
 .main_btn {
   display: inline-block;
-  background: #fff500;
+  background: #fab700;
   padding: 0px 50px;
   color: #fff;
   font-family: "Roboto", sans-serif;
@@ -3367,23 +3299,22 @@ h6 {
   border-radius: 0px;
   outline: none !important;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+          box-shadow: none !important;
   text-align: center;
-  border: 1px solid #fff500;
+  border: 1px solid #fab700;
   cursor: pointer;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
 .main_btn:hover {
   background: transparent;
-  color: #fff500;
+  color: #fab700;
 }
 
 .main_btn2 {
   display: inline-block;
-  background: #fff500;
+  background: #fab700;
   padding: 0px 32px;
   color: #fff;
   font-family: "Roboto", sans-serif;
@@ -3393,24 +3324,23 @@ h6 {
   border-radius: 0px;
   outline: none !important;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+          box-shadow: none !important;
   text-align: center;
-  border: 1px solid #fff500;
+  border: 1px solid #fab700;
   cursor: pointer;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
 .main_btn2:hover {
   background: transparent;
-  color: #fff500;
+  color: #fab700;
 }
 
 .submit_btn {
   width: auto;
   display: inline-block;
-  background: #fff500;
+  background: #fab700;
   padding: 0px 50px;
   color: #fff;
   font-family: "Roboto", sans-serif;
@@ -3420,18 +3350,17 @@ h6 {
   border-radius: 0px;
   outline: none !important;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+          box-shadow: none !important;
   text-align: center;
-  border: 1px solid #fff500;
+  border: 1px solid #fab700;
   cursor: pointer;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
 .submit_btn:hover {
   background: transparent;
-  color: #fff500;
+  color: #fab700;
 }
 
 .white_bg_btn {
@@ -3446,38 +3375,36 @@ h6 {
   border-radius: 0px;
   outline: none !important;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+          box-shadow: none !important;
   text-align: center;
   border: 1px solid #eeeeee;
   cursor: pointer;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
 .white_bg_btn:hover {
-  background: #fff500;
+  background: #fab700;
   color: #fff;
-  border-color: #fff500;
+  border-color: #fab700;
 }
 
 .black_btn {
   padding: 0px 44px;
   line-height: 50px;
   background: #222222;
-  color: #fff500;
+  color: #fab700;
   display: inline-block;
   border-radius: 5px;
   font-size: 13px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
 .black_btn:hover {
-  background: #fff500;
+  background: #fab700;
   color: #222222;
 }
 
@@ -3492,13 +3419,12 @@ h6 {
   font-weight: 500;
   text-transform: uppercase;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
   border: none;
 }
 
 .ab_btn:hover {
-  background: #fff500;
+  background: #fab700;
   color: #222222;
 }
 
@@ -3522,11 +3448,10 @@ h6 {
   padding-left: 10px;
   padding-right: 10px;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
   cursor: pointer;
   -webkit-box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.2);
-  box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.2);
+          box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.2);
 }
 
 .testimonials_area .owl-prev:hover, .testimonials_area .owl-next:hover {
@@ -3546,8 +3471,7 @@ h6 {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+          transform: translateX(-50%);
   bottom: 0px;
   height: 1px;
 }
@@ -3572,7 +3496,6 @@ h6 {
   border-radius: 10px;
   padding: 40px;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -3590,7 +3513,6 @@ h6 {
   font-weight: 500;
   font-size: 20px;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -3604,13 +3526,13 @@ h6 {
 
 .testi_item:hover .media {
   -webkit-box-shadow: 0px 10px 30px 0px rgba(157, 157, 157, 0.2);
-  box-shadow: 0px 10px 30px 0px rgba(157, 157, 157, 0.2);
+          box-shadow: 0px 10px 30px 0px rgba(157, 157, 157, 0.2);
   background: #fff;
   border-color: #fff;
 }
 
 .testi_item:hover .media .media-body h4 {
-  color: #fff500;
+  color: #fab700;
 }
 
 /* End Testimonials Area css
@@ -3625,10 +3547,9 @@ h6 {
 
 .services_item {
   text-align: center;
-  padding: 45px 20px;
+  padding: 45px 55px;
   border-radius: 10px;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
   margin-bottom: 30px;
 }
@@ -3652,7 +3573,7 @@ h6 {
 
 .services_item:hover {
   -webkit-box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
 }
 
 /* End Services Area css
@@ -3666,8 +3587,8 @@ h6 {
 
 .builder_inner .builder_item {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 33.33%;
-  flex: 0 0 33.33%;
+      -ms-flex: 0 0 33.33%;
+          flex: 0 0 33.33%;
   max-width: 33.33%;
 }
 
@@ -3690,24 +3611,20 @@ h6 {
   height: 100%;
   opacity: 0;
   -webkit-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
   transition: all 300ms ease;
   -webkit-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .builder_item .hover {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
   text-align: center;
   width: 100%;
   opacity: 0;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -3716,7 +3633,6 @@ h6 {
   font-size: 20px;
   margin-bottom: 0px;
   -webkit-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
   transition: all 300ms ease;
   opacity: 0;
 }
@@ -3732,8 +3648,7 @@ h6 {
 
 .builder_item:hover:before {
   -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+          transform: scale(1);
   opacity: 1;
 }
 
@@ -3771,7 +3686,6 @@ h6 {
   width: 100%;
   opacity: 0;
   -webkit-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
   transition: all 300ms ease;
 }
 
@@ -3781,12 +3695,10 @@ h6 {
   width: 100%;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
   text-align: center;
   opacity: 0;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -3840,14 +3752,14 @@ h6 {
 /* Counter Area css
 ============================================================================================ */
 .counter_area {
-  background: #fff500;
+  background: #fab700;
   padding: 115px 0px 115px 0px;
 }
 
 .counter_inner .counter_item {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 20%;
-  flex: 0 0 20%;
+      -ms-flex: 0 0 20%;
+          flex: 0 0 20%;
   max-width: 20%;
 }
 
@@ -3881,7 +3793,6 @@ h6 {
   padding: 40px 60px 40px 40px;
   margin-bottom: 30px;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
   border: 1px solid #eeeeee;
 }
@@ -3893,7 +3804,6 @@ h6 {
   color: #222222;
   margin-bottom: 20px;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
@@ -3910,12 +3820,12 @@ h6 {
 
 .feature_item:hover {
   -webkit-box-shadow: 0px 10px 30px 0px rgba(157, 157, 157, 0.2);
-  box-shadow: 0px 10px 30px 0px rgba(157, 157, 157, 0.2);
+          box-shadow: 0px 10px 30px 0px rgba(157, 157, 157, 0.2);
   border-color: #fff;
 }
 
 .feature_item:hover h4 {
-  color: #fff500;
+  color: #fab700;
 }
 
 /* End Feature Area css
@@ -4002,7 +3912,7 @@ h6 {
 }
 
 .single-footer-widget .sub-btn {
-  background: #fff500;
+  background: #fab700;
   color: #222222;
   font-weight: 300;
   line-height: 30px;
@@ -4030,7 +3940,7 @@ h6 {
 
 .contact_wd a {
   display: block;
-  color: #fff500;
+  color: #fab700;
   font-size: 24px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -4062,7 +3972,7 @@ h6 {
 }
 
 .footer-bottom .footer-text a {
-  color: #fff500;
+  color: #fab700;
 }
 
 .footer-bottom .footer-social {
@@ -4075,7 +3985,6 @@ h6 {
   color: #fff;
   margin-left: 6px;
   -webkit-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
   background: #111111;
   height: 30px;
@@ -4083,15 +3992,60 @@ h6 {
   text-align: center;
   display: inline-block;
   -webkit-transition: all 300ms linear 0s;
-  -o-transition: all 300ms linear 0s;
   transition: all 300ms linear 0s;
 }
 
 .footer-bottom .footer-social a:hover {
   color: #222222;
-  background: #fff500;
+  background: #fab700;
 }
 
 /*---------------------------------------------------- */
+/*----------------------------------------------------*/
+.card_img {
+  position: relative;
+}
 
+.card_img .product_img {
+  max-width: 100%;
+}
+
+.card_img .product_hover {
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(250, 183, 0, 0.85);
+}
+
+.card_img .product_hover .product_title {
+  color: black;
+  font-weight: bold;
+}
+
+.card_img:hover .product_hover {
+  opacity: 1;
+}
+
+.product_name h3 {
+  margin-bottom: 5px;
+  color: #222222;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+}
+
+/*---------------------------------------------------- */
 /*# sourceMappingURL=style.css.map */
