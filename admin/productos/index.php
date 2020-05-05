@@ -1,11 +1,9 @@
 <?php
 include '../common/sesion.php';
 require '../../common/conexion.php';
-$section="nuevo_blog";
-//nuevo articulo
+$section="nuevo_producto";
 $nuevo=3;
 if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
-
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -29,52 +27,57 @@ if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-auto align-self-center">
-              <h4 class="page-title">Nuevo Blog</h4>
+              <h4 class="page-title">Nuevo Producto</h4>
             </div>
           </div>
         </div>
         <div class="container-fluid">
-          <form action="addArticle.php" method="POST" enctype="multipart/form-data" id="formulario">
+          <form action="addProducto.php" method="POST" enctype="multipart/form-data" id="formulario">
             <div class="row mt-1">
               <div class="input-group mb-3 col-12">
                 <div class="input-group-append">
-                  <span class="input-group-text"><b>Titulo del articulo</b></span>
+                  <span class="input-group-text"><b>Titulo del producto</b></span>
                 </div>
-                <input type="text" name="title" class="form-control text-dark" required maxlength="255" id="titulo">
+                <input type="text" name="title" class="form-control text-dark" required maxlength="60" id="titulo">
                 <div class="col-12 mb-2">
-                  <small class="text-muted">Quedan <span id="numero">255</span> caracteres.</small>
+                  <small class="text-muted">Quedan <span id="numero">60</span> caracteres.</small>
                 </div>
                 <script>
                   $(document).ready(function(){
-                    var total_letras=255;
+                    var total_letras=60;
                     $('#titulo').keyup(function(){
                       var longitud=$(this).val().length;
                       var resto=total_letras - longitud;
                       $('#numero').html(resto);
-                      if(resto <= 0){$('#titulo').attr("maxlength",255);}
+                      if(resto <= 0){$('#titulo').attr("maxlength",60);}
                     });
                   });
                 </script>
               </div>
-              <div class="input-group mb-3 col-12">
+              <div class="input-group mb-3 col-12 col-md-6">
                 <div class="input-group-append">
-                  <span class="input-group-text"><b>Autor</b></span>
+                  <span class="input-group-text"><b>Categoria</b></span>
                 </div>
-                <input type="text" name="autor" class="form-control text-secondary" required maxlength="255">
+                <select class="categoria" name="categoria">
+                  <?php
+                  $sql="SELECT * FROM CATEGORIAS";
+                  $result=$conn->query($sql);
+                  if($result->num_rows>0){
+                    while($row=$result->fetch_assoc()) { ?>
+                      <option value="<?=$row['IDCATEGORIA']?>"><?=$row['CATEGORIA']?></option>
+                    <?php } ?>
+                  <?php } ?>
+                </select>
               </div>
-              <div class="input-group mb-3 col-12">
+              <div class="input-group mb-3 col-12 col-md-3 ml-auto">
                 <div class="input-group-append">
-                  <span class="input-group-text" title="Serviran para el posicionamiento(SEO), deberan estar separadas por comas(,)" data-toggle="tooltip"><b>Palabras Clave</b></span>
+                  <span class="input-group-text"><b>Precio</b></span>
                 </div>
-                <input type="text" name="keywords" class="form-control text-dark" required maxlength="255" placeholder="Ej. casas, apartamentos, casa en alquiler">
+                <input type="number" name="precio" class="form-control text-dark" required maxlength="25">
               </div>
-              <span class="ml-3 mb-2"><b>Resumen del artículo</b></span>
-              <div class="input-group col-12">
-                <textarea class="form-control" name="description" rows="5" type="text" required></textarea>
-              </div>
-              <span class="ml-3 mb-2"><b>Contenido</b></span>
+              <span class="col-12 ml-3 mb-2"><b>Descripción</b></span>
               <div class="input-group mb-3 col-12">
-                <textarea class="form-control" name="content" rows="20" type="text" required placeholder="Escriba aqui el contenido del blog..."></textarea>
+                <textarea class="form-control" name="descripcion" rows="12" type="text" required placeholder="La descripcion del producto..."></textarea>
               </div>
               <div class="col-12">
                 <small>La imagen debe ser de máximo 2 Megas</small>
@@ -127,7 +130,7 @@ if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
         </div>
       </div>
     </div>
-    <!-- Nuevo Blog -->
+    <!-- Nuevo producto -->
     <script>
       $(document).ready(function(){
         var nuevo=<?php echo $nuevo;?>;

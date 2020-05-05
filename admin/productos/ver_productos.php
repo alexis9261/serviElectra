@@ -1,19 +1,19 @@
 <?php
 include '../common/sesion.php';
 require '../../common/conexion.php';
-$section="ver_blogs";
+$section="ver_productos";
 //edicion de articulo
 $edicion=3;
 if(isset($_GET['e'])){$edicion=$_GET['e'];}else{$edicion=3;}
-#eliminar blog
+#eliminar producto
 if(isset($_GET['delete']) && !empty($_GET['delete'])){
-  $id_articulo=$_GET['delete'];
+  $id_producto=$_GET['delete'];
   #consigue direcion de imagen de producto
-  $sql="SELECT IMAGE FROM ARTICLESBLOG WHERE IDARTICULO='$id_articulo' LIMIT 1";
+  $sql="SELECT IMAGEN FROM PRODUCTOS WHERE IDPRODUCTO='$id_producto' LIMIT 1";
   $result=$conn->query($sql);
-  if($result->num_rows>0){while($row=$result->fetch_assoc()){$imagen=$row['IMAGE'];unlink('img/'.$imagen);}}
+  if($result->num_rows>0){while($row=$result->fetch_assoc()){$imagen=$row['IMAGEN'];unlink('img/'.$imagen);}}
   #eliminar producto
-  $sql="DELETE FROM ARTICLESBLOG WHERE IDARTICULO='$id_articulo'";
+  $sql="DELETE FROM PRODUCTOS WHERE IDPRODUCTO='$id_producto'";
   if($conn->query($sql)===TRUE){$respuesta=1;}else{$respuesta=2;}
 }
 #paginacion
@@ -21,7 +21,7 @@ $perpage=25;
 if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
 $start=($curpage*$perpage) - $perpage;
 #necesito el total de elementos
-$PageSql="SELECT * FROM ARTICLESBLOG";
+$PageSql="SELECT * FROM PRODUCTOS";
 $pageres=mysqli_query($conn,$PageSql);
 $totalres=mysqli_num_rows($pageres);
 $endpage=ceil($totalres/$perpage);
@@ -51,7 +51,7 @@ $previouspage=$curpage - 1;
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-auto align-self-center">
-              <h4 class="page-title">Blog - Editar Articulos</h4>
+              <h4 class="page-title">Editar Productos</h4>
             </div>
           </div>
         </div>
@@ -60,10 +60,10 @@ $previouspage=$curpage - 1;
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Blogs en la página</h4>
+                  <h4 class="card-title">Productos en la página</h4>
                 </div>
                 <?php
-                $sql="SELECT * FROM ARTICLESBLOG LIMIT $start,$perpage";
+                $sql="SELECT * FROM PRODUCTOS LIMIT $start,$perpage";
                 $result=$conn->query($sql);
                 if($result->num_rows>0){
                   ?>
@@ -71,42 +71,35 @@ $previouspage=$curpage - 1;
                     <?php
                     $x=1;
                     while($row=$result->fetch_assoc()){
-                      $id_articulo=$row['IDARTICULO'];
+                      $id_producto=$row['IDPRODUCTO'];
                       ?>
                       <div class="row align-items-center">
                         <strong class="col-1"><?php echo $x;?></strong>
-                        <div class="col-1 "><img src="img/<?php echo $row['IMAGE'];?>" width="35px"></div>
-                        <div class="col-9">
-                          <div class="row">
-                            <div class="col-9 text-dark">
-                              <a href="/es/actualidad/article.php?id=<?php echo $id_articulo;?>" target="_blank">
-                                <?php echo ucwords($row['TITLE']);?>
-                              </a>
-                            </div>
-                            <div class="col-3 ml-auto">
-                              <small><?php echo $row['DATE'];?></small>
-                            </div>
-                          </div>
-                          <div class="row ml-1">
-                            <small><?php echo ucwords($row['AUTOR']);?></small>
-                          </div>
+                        <div class="col-1 "><img src="img/<?php echo $row['IMAGEN'];?>" width="35px"></div>
+                        <div class="col-6 text-dark">
+                          <a href="../../producto.php?id=<?php echo $id_producto;?>" target="_blank">
+                            <?php echo ucwords($row['TITULO']);?>
+                          </a>
+                        </div>
+                        <div class="col-2 ml-auto">
+                          <small><?php echo $row['PRECIO'];?></small>
                         </div>
                         <div class="col-1">
-                          <a href="edit.php?id=<?php echo $id_articulo;?>" title="Editar">
+                          <a href="edit.php?id=<?php echo $id_producto;?>" title="Editar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 576 512"><path fill="#43ff65" d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"/></svg>
                           </a>
-                          <a href="javascript:void(0)" data-toggle="modal" data-target="#eli<?php echo $id_articulo;?>"  title="Eliminar">
+                          <a href="javascript:void(0)" data-toggle="modal" data-target="#eli<?php echo $id_producto;?>"  title="Eliminar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="15px" viewBox="0 0 448 512"><path fill="#c30002" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm415.2 56.7L394.8 467c-1.6 25.3-22.6 45-47.9 45H101.1c-25.3 0-46.3-19.7-47.9-45L32.8 140.7c-.4-6.9 5.1-12.7 12-12.7h358.5c6.8 0 12.3 5.8 11.9 12.7z"/></svg>
                           </a>
                         </div>
                       </div>
                       <hr>
                       <!-- Modal Eliminar -->
-                      <div class="modal fade" id="eli<?php echo $id_articulo;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="eli<?php echo $id_producto;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title">¿Desea eliminar el articulo?</h5>
+                              <h5 class="modal-title">¿Desea eliminar el producto?</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -115,16 +108,16 @@ $previouspage=$curpage - 1;
                               <div class="container">
                                 <div class="row">
                                   <div class="col-2">
-                                    <img src="img/<?php echo $row['IMAGE'];?>" width="20px">
+                                    <img src="img/<?php echo $row['IMAGEN'];?>" width="20px">
                                   </div>
-                                  <div class="col-12"><?php echo $row['TITLE'];?></div>
-                                  <div class="col-12"><?php echo ucwords($row['DESCRIPTION']);?></div>
+                                  <div class="col-12"><?php echo $row['TITULO'];?></div>
+                                  <div class="col-12"><?php echo ucwords($row['DESCRIPCION']);?></div>
                                 </div>
                               </div>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                              <a href="ver_blogs.php?delete=<?php echo $id_articulo;?>" class="btn btn-primary">Eliminar</a>
+                              <a href="ver_productos.php?delete=<?php echo $id_producto;?>" class="btn btn-primary">Eliminar</a>
                             </div>
                           </div>
                         </div>

@@ -32,7 +32,8 @@ $previouspage = $curpage - 1;
   <meta name="description" content="">
   <meta name="author" content="Eutuxia Web, C.A.">
   <link rel="icon" type="image/png" sizes="16x16" href="/imagen/logo.png">
-  <title>EuroChem - Administración</title>
+  <title>ServiElectra - Administración</title>
+  <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link href="../../vendors/admin/style.min.css" rel="stylesheet">
   <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="../../vendors/jquery/dist/jquery.min.js"></script>
