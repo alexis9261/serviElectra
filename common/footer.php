@@ -2,9 +2,9 @@
 include 'common/conexion.php';
 $facebook="";
 $twitter="";
-$linkedin="";
+$youtube="";
 $instagram="";
-$sql="SELECT * FROM `CONFIGURACION`";
+$sql="SELECT ATRIBUTO,VALOR FROM `CONFIGURACION`";
 $result=$conn->query($sql);
 if($result->num_rows>0){
   while($row=$result->fetch_assoc()){
@@ -13,14 +13,14 @@ if($result->num_rows>0){
     }else if($row['ATRIBUTO']=="twitter"){
       $twitter=$row['VALOR'];
     }else if($row['ATRIBUTO']=="linkedin"){
-      $linkedin=$row['VALOR'];
+      $youtube=$row['VALOR'];
     }else if($row['ATRIBUTO']=="instagram"){
       $instagram=$row['VALOR'];
     }
   }
 }
  ?>
-<footer class="footer-area p_120">
+<footer class="footer-area p_120 pb-5">
   <div class="container">
     <div class="row">
       <div class="col-lg-3  col-md-6 col-sm-6">
@@ -32,8 +32,9 @@ if($result->num_rows>0){
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="single-footer-widget contact_wd">
           <h6 class="footer_title">Contáctanos</h6>
-          <p> </p>
-          <a href="tel:01265325689746">+58 424 421 52 17</a>
+          <a href="tel:02416177327" style="font-size:1rem!important;"> 0241 617 73 27 </a>
+          <a href="tel:+584244215217" style="font-size:1rem!important;">+58 424 421 52 17</a>
+          <a href="mailto:info@servielectra.com.ve" style="font-size:1rem!important;margin-top:10px;">info@servielectra.com.ve</a>
         </div>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-6 offset-lg-1">
@@ -52,16 +53,16 @@ if($result->num_rows>0){
         </div>
       </div>
     </div>
-    <div class="row footer-bottom d-flex justify-content-between align-items-center">
-      <div class="col-lg-4 col-md-4 footer-social">
-          <?php if ($facebook!=""){ ?>
+    <div class="row footer-bottom d-flex align-items-center pt-4">
+      <div class="col-auto footer-social">
+          <?php if($facebook!=""){ ?>
             <a href="#"><i class="fa fa-facebook"></i></a>
-          <?php }elseif ($twitter!="") { ?>
+          <?php } if($twitter!=""){ ?>
             <a href="#"><i class="fa fa-twitter"></i></a>
-          <?php }elseif ($instagram!="") { ?>
+          <?php } if($instagram!=""){ ?>
             <a href="#"><i class="fa fa-instagram"></i></a>
-          <?php }elseif ($linkedin!="") { ?>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
+          <?php } if($youtube!=""){ ?>
+            <a href="#"><i class="fa fa-youtube"></i></a>
           <?php } ?>
       </div>
     </div>

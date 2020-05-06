@@ -8,7 +8,7 @@ $blog="active";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <title>Builder Construction Multi</title>
+  <title>ServiElectra</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -22,10 +22,7 @@ $blog="active";
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-
   <?php include 'common/navbar.php';?>
-  <!--================Header Menu Area =================-->
-
   <!--================Home Banner Area =================-->
   <section class="home_banner_area blog_banner">
     <div class="banner_inner d-flex align-items-center">
@@ -45,38 +42,50 @@ $blog="active";
   <section class="blog_categorie_area">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-12 col-md-6 col-lg-3">
           <div class="categories_post">
-            <img src="img/blog/cat-post/cat-post-3.jpg" alt="post">
+            <img src="img/icon/service-icon-1.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Social Life</h5></a>
+                <a href="blog-details.html"><h5>Resistencias</h5></a>
                 <div class="border_line"></div>
-                <p>Enjoy your social life together</p>
+                <p>Infomarción sobre resistencias eléctricas</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-12 col-md-6 col-lg-3">
           <div class="categories_post">
-            <img src="img/blog/cat-post/cat-post-2.jpg" alt="post">
+            <img src="img/icon/service-icon-2.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Politics</h5></a>
+                <a href="blog-details.html"><h5>Sensores</h5></a>
                 <div class="border_line"></div>
-                <p>Be a part of politics</p>
+                <p>Articulos relacionados a los sensores</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-12 col-md-6 col-lg-3">
           <div class="categories_post">
-            <img src="img/blog/cat-post/cat-post-1.jpg" alt="post">
+            <img src="img/icon/service-icon-3.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Food</h5></a>
+                <a href="blog-details.html"><h5>Control</h5></a>
                 <div class="border_line"></div>
-                <p>Let the food be finished</p>
+                <p>Todo sobre el control industrial</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="categories_post">
+            <img src="img/icon/service-icon-4.png" alt="post" width="100%">
+            <div class="categories_details">
+              <div class="categories_text">
+                <a href="blog-details.html"><h5>Electricidad</h5></a>
+                <div class="border_line"></div>
+                <p>Ariculos de electricidad en general</p>
               </div>
             </div>
           </div>
@@ -366,25 +375,24 @@ $blog="active";
               <div class="br"></div>
             </aside>
             <aside class="single-sidebar-widget newsletter_widget">
-              <h4 class="widget_title">Newsletter</h4>
+              <h4 class="widget_title">Suscripción</h4>
               <p>
-                Here, I focus on a range of items and features that we use in life without
-                giving them a second thought.
+                Suscribete a nosotros y te enviaremos información relevante
+                sobre artículos tecnológicos y de electricidad en general
               </p>
               <div class="form-group d-flex flex-row">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
                 </div>
-                <a href="#" class="bbtns">Subcribe</a>
+                <a href="#" class="bbtns">Suscribirse</a>
               </div>
-              <p class="text-bottom">You can unsubscribe at any time</p>
               <div class="br"></div>
             </aside>
             <aside class="single-sidebar-widget tag_cloud_widget">
-              <h4 class="widget_title">Tag Clouds</h4>
+              <h4 class="widget_title">Etiquetas</h4>
               <ul class="list">
                 <li><a href="#">Technology</a></li>
                 <li><a href="#">Fashion</a></li>

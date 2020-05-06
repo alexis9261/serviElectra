@@ -8,7 +8,7 @@ $nosotros="active";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <title>Builder Construction Multi</title>
+  <title>ServiElectra</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -22,10 +22,7 @@ $nosotros="active";
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-
   <?php include 'common/navbar.php';?>
-  <!--================Header Menu Area =================-->
-
   <!--================Home Banner Area =================-->
   <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -42,21 +39,23 @@ $nosotros="active";
     </div>
   </section>
   <!--================End Home Banner Area =================-->
-
   <!--================About Area =================-->
   <section class="about_area p_120">
     <div class="container">
       <div class="row about_inner">
         <div class="col-lg-6">
           <div class="ab_left_text">
-            <h4>About Us <br />Our History <br />Mission & Vision</h4>
-            <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.</p>
-            <a class="ab_btn" href="#">Request Custom Price</a>
+            <h4>Nosotros <br />Nuestra Historia <br />Misión & Visión</h4>
+            <p>Servielectra VE C.A. diseña y fabrica resistencias eléctricas
+               calefactoras y sensores para medición de temperatura, también
+                distribuye y suministra Material Eléctrico de las mejores
+                 marcas del mercado.</p>
+            <a class="ab_btn" href="#">Ver Nuestros Productos</a>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="ab_img">
-            <img class="img-fluid" src="img/about-1.jpg" alt="">
+            <img class="img-fluid" src="img/about-1.png" alt="">
           </div>
         </div>
       </div>
@@ -92,86 +91,6 @@ $nosotros="active";
     </div>
   </section>
   <!--================End Counter Area =================-->
-
-  <!--================Team Area =================-->
-  <!--section class="team_area p_120">
-    <div class="container">
-      <div class="main_title">
-        <h2>Meet Our Expert Members</h2>
-        <p>Who are in extremely love with eco friendly system.</p>
-      </div>
-      <div class="row team_inner">
-        <div class="col-lg-3 col-sm-6">
-          <div class="team_item">
-            <div class="team_img">
-              <img class="img-fluid" src="img/team/team-1.jpg" alt="">
-              <div class="hover">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="team_name">
-              <h4>Ethel Davis</h4>
-              <p>Managing Director (Sales)</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="team_item">
-            <div class="team_img">
-              <img class="img-fluid" src="img/team/team-2.jpg" alt="">
-              <div class="hover">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="team_name">
-              <h4>Ethel Davis</h4>
-              <p>Managing Director (Sales)</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="team_item">
-            <div class="team_img">
-              <img class="img-fluid" src="img/team/team-3.jpg" alt="">
-              <div class="hover">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="team_name">
-              <h4>Ethel Davis</h4>
-              <p>Managing Director (Sales)</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="team_item">
-            <div class="team_img">
-              <img class="img-fluid" src="img/team/team-4.jpg" alt="">
-              <div class="hover">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="team_name">
-              <h4>Ethel Davis</h4>
-              <p>Managing Director (Sales)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section-->
-  <!--================End Team Area =================-->
-
-  <!--================End Testimonials Area =================-->
-
   <!--================Clients Logo Area =================-->
   <section class="clients_logo_area p_120">
     <div class="container">

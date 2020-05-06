@@ -444,14 +444,14 @@ button:focus {
 .home_banner_area {
   position: relative;
   z-index: 1;
-  min-height: 400px;
+  min-height: 95vh;
 }
 
 .home_banner_area .banner_inner {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 450px;
+  min-height: 95vh;
 }
 
 .home_banner_area .banner_inner .overlay {
