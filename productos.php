@@ -38,14 +38,14 @@
       ?>
       <div class="row mb-5">
           <div class="col-12">
-             <h2 class="vista_producto_card_title mb-2 text-left"><?php echo ucwords($row['TITULO']); ?></h2>
+             <h2 class="vista_producto_card_title mb-2 "><?php echo ucwords($row['TITULO']); ?></h2>
           </div>
           <div class="vista_producto_card_img col-12 col-sm-6 col-lg-6 w-100">
-              <img class="" src="./img/productos/<?php echo $row['IMAGEN'] ?>" alt="">
+              <img class="" src="./img/productos/<?php echo $row['IMAGEN']; ?>" alt="">
           </div>
           
           <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
-              <p class="vista_producto_card_subtext" > <?php echo $row['DESCRIPCION']?> </p>
+              <p class="vista_producto_card_subtext" > <?php echo substr( $row['DESCRIPCION'],0, 150). "...";?> </p>
               <a href="#" class="btn vista_productos_card_boton">Read Now</a>
           </div>
       </div>

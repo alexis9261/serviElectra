@@ -2,10 +2,10 @@
     position: relative;
     cursor: pointer;
 
-    .product_img{
+    .product_card_img{
         max-width: 100%;
     }
-    .product_hover{
+    .product_card_hover{
         opacity: 0;
         transition: opacity .3s;
         display: flex;
