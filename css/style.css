@@ -35,7 +35,8 @@ Table of Content:
 15/ career  
 16/ contact 
 17/ footer
-18/ product-index
+18/ productCards
+18/ VistaProductos
 
 =====================================================================*/
 /*----------------------------------------------------*/
@@ -4046,6 +4047,54 @@ h6 {
   color: #222222;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
+}
+
+/*---------------------------------------------------- */
+/*----------------------------------------------------*/
+/* ======================= Contenedor principal =================================*/
+.vista_producto_card_subtext {
+  font-size: 1.2rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.7rem;
+}
+
+.vista_productos_card_boton {
+  background-color: #333;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: .3rem 2rem;
+  text-decoration: none;
+}
+
+.vista_productos_card_boton:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .vista_producto_main_title {
+    margin-top: 146px;
+  }
+  .vista_producto_card_subtext {
+    padding-top: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .vista_productos_main {
+    margin-top: 146px;
+  }
+  .vista_producto_card_img {
+    text-align: right;
+  }
+  .vista_producto_card_title {
+    width: 56%;
+    margin: 0 auto;
+  }
+  .vista_producto_card_subtext {
+    padding-top: 2rem;
+  }
 }
 
 /*---------------------------------------------------- */
