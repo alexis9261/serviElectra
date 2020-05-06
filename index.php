@@ -1,5 +1,6 @@
 <?php
 $home="active";
+
  ?>
 <!doctype html>
 <html lang="en">
@@ -211,6 +212,47 @@ $home="active";
   </div>
 </section-->
 <!--================End Team Area =================-->
+
+
+
+<!--================Products Area =================-->
+<section class="product_area mb-5">
+  <div class="container">
+    <div class="main_title">
+      <h2>Productos</h2>
+    </div>
+      <?php 
+        $sql="SELECT * FROM PRODUCTOS LIMIT 4";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+      ?>
+    <div class="row products_cards">
+        <?php
+          while($row=$result->fetch_assoc()){
+        ?>
+        <div class="col-lg-3 col-sm-6">
+          <div class="product_card_item">
+            <div class="card_img">
+              <img class="product_card_img w-100" src="img/productos/<?php echo $row['IMAGEN']?>" alt="">
+              <div class="product_card_hover">
+                <h3 class="product_card_title"><?php echo ucwords($row['TITULO']); ?></h3>
+              </div>
+            </div>
+
+            <div class="product_card_name text-center py-4">
+              <h3><?php echo ucwords($row['TITULO']); ?></h3>
+            </div>
+
+          </div>
+        </div>
+      <?php } ?>
+    <?php } ?>
+    </div>
+  </div>
+</section>
+
+<!--================End Products Area =================-->
+
 
 <!--================Metricas Area =================-->
 <section class="counter_area">
