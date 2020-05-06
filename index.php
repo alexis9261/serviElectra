@@ -213,7 +213,7 @@ $home="active";
 </section-->
 <!--================End Team Area =================-->
 
-<<<<<<< HEAD
+
 
 <!--================Products Area =================-->
 <section class="product_area mb-5">
@@ -254,8 +254,6 @@ $home="active";
 <!--================End Products Area =================-->
 
 
-=======
->>>>>>> master
 <!--================Metricas Area =================-->
 <section class="counter_area">
   <div class="container">
