@@ -43,37 +43,37 @@ $home="active";
 <!--================End Home Banner Area =================-->
 
 <!--================Categorias Area =================-->
-<section class="services_area p_120">
+<section class="services_area py-4 mt-3">
   <div class="container">
-    <div class="main_title">
+    <div class="main_title mb-3">
       <h2>Categorias Principales</h2>
       <p>Fabricación de Resistencias Eléctricas y Sensores Termocuplas/RTD</p>
     </div>
     <div class="row services_inner">
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-1.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Resistencias</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-2.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Sensores</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-3.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Control</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-2.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Electricidad</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
@@ -213,6 +213,7 @@ $home="active";
 </section-->
 <!--================End Team Area =================-->
 
+<<<<<<< HEAD
 
 <!--================Products Area =================-->
 <section class="product_area mb-5">
@@ -253,6 +254,8 @@ $home="active";
 <!--================End Products Area =================-->
 
 
+=======
+>>>>>>> master
 <!--================Metricas Area =================-->
 <section class="counter_area">
   <div class="container">
