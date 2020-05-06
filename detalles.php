@@ -1,6 +1,7 @@
 <?php
 
-$categoriaID = $_GET['cat']
+$categoriaID = $_GET['cat'];
+$search = $_GET['producto'];
 
 ?>
 
@@ -30,7 +31,13 @@ $categoriaID = $_GET['cat']
     
     <div class="productos_container_main mt-3">
     <?php 
-      $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
+      if($search){
+        $sql="SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
+      } else {
+         if($categoriaID){
+            $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
+         }
+      }
       $result = $conn->query($sql);
       if($result->num_rows > 0){
     ?>
