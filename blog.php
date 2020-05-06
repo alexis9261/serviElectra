@@ -107,31 +107,37 @@ $blog="active";
             if($result->num_rows>0){
               while($row=$result->fetch_assoc()){
                 $id_articulo=$row['IDARTICULO'];
-                $idCat=$row['IDCATEGORIA'];
+                $titulo=$row['TITLE'];
+                $desciption=$row['DESCIPTION'];
+                $keywords=$row['KEYWORDS'];
+                $keywords_array=explode($keywords,",");
+                $autor=$row['AUTOR'];
+                $date=$row['DATE'];
+                $fecha="";
+                $imagen=$row['IMAGE'];
                 ?>
                 <article class="row blog_item">
                   <div class="col-md-3">
                     <div class="blog_info text-right">
                       <div class="post_tag">
-                        <a href="#">Food,</a>
-                        <a class="active" href="#">Technology,</a>
-                        <a href="#">Politics,</a>
-                        <a href="#">Lifestyle</a>
+                        <?php foreach ($keywords_array as $keyword) { ?>
+                          <a href="#"><?php echo $keyword;?>,</a>
+                        <?php } ?>
                       </div>
                       <ul class="blog_meta list">
-                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                        <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
+                        <li><a href="#"><?php echo $autor;?><i class="lnr lnr-user"></i></a></li>
+                        <li><a href="#"><?php echo $fecha;?><i class="lnr lnr-calendar-full"></i></a></li>
                         <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="col-md-9">
                     <div class="blog_post">
-                      <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
+                      <img src="admin/blog/img/<?php echo $imagen;?>" alt="<?php echo $titulo;?>">
                       <div class="blog_details">
-                        <a href="single-blog.html"><h2>Astronomy Binoculars A Great Alternative</h2></a>
-                        <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                        <a href="single-blog.html" class="white_bg_btn">View More</a>
+                        <a href="single-blog.html"><h2><?php echo $titulo;?></h2></a>
+                        <p><?php echo $desciption;?></p>
+                        <a href="single-blog.php?id=<?php echo $id_articulo;?>" class="white_bg_btn">View More</a>
                       </div>
                     </div>
                   </div>
