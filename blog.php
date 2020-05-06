@@ -102,18 +102,23 @@ $blog="active";
         <div class="col-lg-8">
           <div class="blog_left_sidebar">
             <?php
+            $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
             $sql="SELECT * FROM `ARTICLESBLOG`";
             $result=$conn->query($sql);
             if($result->num_rows>0){
               while($row=$result->fetch_assoc()){
                 $id_articulo=$row['IDARTICULO'];
                 $titulo=$row['TITLE'];
-                $desciption=$row['DESCIPTION'];
+                $desciption=$row['DESCRIPTION'];
                 $keywords=$row['KEYWORDS'];
-                $keywords_array=explode($keywords,",");
+                $keywords_array=explode(",",$keywords);
                 $autor=$row['AUTOR'];
                 $date=$row['DATE'];
-                $fecha="";
+                $aux=substr($date,5,2);
+                if($aux<10){$aux="0".$aux;}
+                //$fecha=$meses[intval($aux)]." ".substr($date,8,2).", ".substr($date,0,4);
+                //2020-05-04
+                $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4);
                 $imagen=$row['IMAGE'];
                 ?>
                 <article class="row blog_item">
@@ -133,7 +138,7 @@ $blog="active";
                   </div>
                   <div class="col-md-9">
                     <div class="blog_post">
-                      <img src="admin/blog/img/<?php echo $imagen;?>" alt="<?php echo $titulo;?>">
+                      <img src="admin/blog/img/<?php echo $imagen;?>" alt="<?php echo $titulo;?>" style="width:100%;height:auto;">
                       <div class="blog_details">
                         <a href="single-blog.html"><h2><?php echo $titulo;?></h2></a>
                         <p><?php echo $desciption;?></p>
@@ -266,11 +271,18 @@ $blog="active";
                   while($row=$result->fetch_assoc()){
                     $categoria=$row['CATEGORIA'];
                     $idCat=$row['IDCATEGORIA'];
+                    $sqla="SELECT COUNT(IDARTICULO) AS CUENTA FROM ARTICLESBLOG WHERE IDCATEGORIA=$idCat;";
+                    $resultado=$conn->query($sqla);
+                    if($resultado->num_rows>0){
+                      while($rowa=$resultado->fetch_assoc()){
+                        $total=$rowa['CUENTA'];
+                      }
+                    }
                     ?>
                     <li>
                       <a href="blog.php?id=<?php echo $idCat;?>" class="d-flex justify-content-between">
                         <p><?php echo $categoria;?></p>
-                        <p>37</p>
+                        <p><?php echo $total;?></p>
                       </a>
                     </li>
                     <?php
@@ -299,18 +311,22 @@ $blog="active";
             <aside class="single-sidebar-widget tag_cloud_widget">
               <h4 class="widget_title">Etiquetas</h4>
               <ul class="list">
-                <li><a href="#">Technology</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Architecture</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Technology</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Art</a></li>
-                <li><a href="#">Adventure</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Adventure</a></li>
+                <?php
+                $array_keywords=array();
+                $sql="SELECT KEYWORDS FROM `ARTICLESBLOG`";
+                $result=$conn->query($sql);
+                if($result->num_rows>0){
+                  while($row=$result->fetch_assoc()){
+                    $aux=explode(',',$row['KEYWORDS']);
+                    foreach($aux as $keyword){
+                      array_push($array_keywords,$keyword);
+                    }
+                  }
+                }
+                foreach($array_keywords as $keyword){
+                  ?>
+                  <li><a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?></a></li>
+                <?php } ?>
               </ul>
             </aside>
           </div>
