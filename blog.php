@@ -101,118 +101,44 @@ $blog="active";
       <div class="row">
         <div class="col-lg-8">
           <div class="blog_left_sidebar">
-            <article class="row blog_item">
-              <div class="col-md-3">
-                <div class="blog_info text-right">
-                  <div class="post_tag">
-                    <a href="#">Food,</a>
-                    <a class="active" href="#">Technology,</a>
-                    <a href="#">Politics,</a>
-                    <a href="#">Lifestyle</a>
+            <?php
+            $sql="SELECT * FROM `ARTICLESBLOG`";
+            $result=$conn->query($sql);
+            if($result->num_rows>0){
+              while($row=$result->fetch_assoc()){
+                $id_articulo=$row['IDARTICULO'];
+                $idCat=$row['IDCATEGORIA'];
+                ?>
+                <article class="row blog_item">
+                  <div class="col-md-3">
+                    <div class="blog_info text-right">
+                      <div class="post_tag">
+                        <a href="#">Food,</a>
+                        <a class="active" href="#">Technology,</a>
+                        <a href="#">Politics,</a>
+                        <a href="#">Lifestyle</a>
+                      </div>
+                      <ul class="blog_meta list">
+                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
+                        <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
+                        <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                      </ul>
+                    </div>
                   </div>
-                  <ul class="blog_meta list">
-                    <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                    <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                    <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                    <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-9">
-                <div class="blog_post">
-                  <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
-                  <div class="blog_details">
-                    <a href="single-blog.html"><h2>Astronomy Binoculars A Great Alternative</h2></a>
-                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                    <a href="single-blog.html" class="white_bg_btn">View More</a>
+                  <div class="col-md-9">
+                    <div class="blog_post">
+                      <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
+                      <div class="blog_details">
+                        <a href="single-blog.html"><h2>Astronomy Binoculars A Great Alternative</h2></a>
+                        <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
+                        <a href="single-blog.html" class="white_bg_btn">View More</a>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </article>
-            <article class="row blog_item">
-              <div class="col-md-3">
-                <div class="blog_info text-right">
-                  <div class="post_tag">
-                    <a href="#">Food,</a>
-                    <a class="active" href="#">Technology,</a>
-                    <a href="#">Politics,</a>
-                    <a href="#">Lifestyle</a>
-                  </div>
-                  <ul class="blog_meta list">
-                    <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                    <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                    <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                    <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-9">
-                <div class="blog_post">
-                  <img src="img/blog/main-blog/m-blog-2.jpg" alt="">
-                  <div class="blog_details">
-                    <a href="single-blog.html"><h2>The Basics Of Buying A Telescope</h2></a>
-                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                    <a href="single-blog.html" class="white_bg_btn">View More</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <article class="row blog_item">
-              <div class="col-md-3">
-                <div class="blog_info text-right">
-                  <div class="post_tag">
-                    <a href="#">Food,</a>
-                    <a class="active" href="#">Technology,</a>
-                    <a href="#">Politics,</a>
-                    <a href="#">Lifestyle</a>
-                  </div>
-                  <ul class="blog_meta list">
-                    <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                    <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                    <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                    <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-9">
-                <div class="blog_post">
-                  <img src="img/blog/main-blog/m-blog-3.jpg" alt="">
-                  <div class="blog_details">
-                    <a href="single-blog.html"><h2>The Glossary Of Telescopes</h2></a>
-                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                    <a href="single-blog.html" class="white_bg_btn">View More</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <article class="row blog_item">
-              <div class="col-md-3">
-                <div class="blog_info text-right">
-                  <div class="post_tag">
-                    <a href="#">Food,</a>
-                    <a class="active" href="#">Technology,</a>
-                    <a href="#">Politics,</a>
-                    <a href="#">Lifestyle</a>
-                  </div>
-                  <ul class="blog_meta list">
-                    <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                    <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                    <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                    <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-9">
-                <div class="blog_post">
-                  <img src="img/blog/main-blog/m-blog-4.jpg" alt="">
-                  <div class="blog_details">
-                    <a href="single-blog.html"><h2>The Night Sky</h2></a>
-                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                    <a href="single-blog.html" class="white_bg_btn">View More</a>
-                  </div>
-                </div>
-              </div>
-            </article>
+                </article>
+                <?php
+              }
+            } ?>
             <article class="row blog_item">
               <div class="col-md-3">
                 <div class="blog_info text-right">
@@ -270,7 +196,7 @@ $blog="active";
           <div class="blog_right_sidebar">
             <aside class="single_sidebar_widget search_widget">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search Posts">
+                <input type="text" class="form-control" placeholder="Buscar artículos">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
                 </span>
@@ -284,8 +210,6 @@ $blog="active";
               <div class="social_icon">
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-                <a href="#"><i class="fa fa-behance"></i></a>
               </div>
               <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
               <div class="br"></div>
@@ -327,50 +251,25 @@ $blog="active";
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget post_category_widget">
-              <h4 class="widget_title">Post Catgories</h4>
+              <h4 class="widget_title">Catgorias de los artículos</h4>
               <ul class="list cat-list">
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Technology</p>
-                    <p>37</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Lifestyle</p>
-                    <p>24</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Fashion</p>
-                    <p>59</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Art</p>
-                    <p>29</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Food</p>
-                    <p>15</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Architecture</p>
-                    <p>09</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Adventure</p>
-                    <p>44</p>
-                  </a>
-                </li>
+                <?php
+                $sql="SELECT * FROM `CATEGORIAS`";
+                $result=$conn->query($sql);
+                if($result->num_rows>0){
+                  while($row=$result->fetch_assoc()){
+                    $categoria=$row['CATEGORIA'];
+                    $idCat=$row['IDCATEGORIA'];
+                    ?>
+                    <li>
+                      <a href="blog.php?id=<?php echo $idCat;?>" class="d-flex justify-content-between">
+                        <p><?php echo $categoria;?></p>
+                        <p>37</p>
+                      </a>
+                    </li>
+                    <?php
+                  }
+                } ?>
               </ul>
               <div class="br"></div>
             </aside>
