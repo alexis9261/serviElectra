@@ -45,7 +45,7 @@
           </div>
           
           <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
-              <p class="vista_producto_card_subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, facilis accusamus. Pariatur, architecto commodi.</p>
+              <p class="vista_producto_card_subtext" > <?php echo $row['DESCRIPCION']?> </p>
               <a href="#" class="btn vista_productos_card_boton">Read Now</a>
           </div>
       </div>
