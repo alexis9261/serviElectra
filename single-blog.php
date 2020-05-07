@@ -423,5 +423,6 @@ $blog="active";
   <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/suscripcion.js"></script>
 </body>
 </html>

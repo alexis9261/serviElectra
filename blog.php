@@ -1,6 +1,25 @@
 <?php
 include 'common/conexion.php';
 $blog="active";
+$facebook="";
+$twitter="";
+$youtube="";
+$instagram="";
+$sql="SELECT ATRIBUTO,VALOR FROM `CONFIGURACION`";
+$result=$conn->query($sql);
+if($result->num_rows>0){
+  while($row=$result->fetch_assoc()){
+    if($row['ATRIBUTO']=="facebook"){
+      $facebook=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="twitter"){
+      $twitter=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="linkedin"){
+      $youtube=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="instagram"){
+      $instagram=$row['VALOR'];
+    }
+  }
+}
 #paginacion
 $perpage=25;
 if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
@@ -44,7 +63,7 @@ $previouspage=$curpage - 1;
         <div class="blog_b_text text-center">
           <h2>Noticias <br /> relevantes</h2>
           <p>Podrás encontrar noticias tecnologicas, historicas y de actualidad</p>
-          <a class="white_bg_btn" href="#">Ver todas</a>
+          <a class="white_bg_btn" href="blog.php">Ver todas</a>
         </div>
       </div>
     </div>
@@ -59,7 +78,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-1.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Resistencias</h5></a>
+                <a href="blog.php?id=11"><h5>Resistencias</h5></a>
                 <div class="border_line"></div>
                 <p>Infomarción sobre resistencias eléctricas</p>
               </div>
@@ -71,7 +90,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-2.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Sensores</h5></a>
+                <a href="blog.php?id=12"><h5>Sensores</h5></a>
                 <div class="border_line"></div>
                 <p>Articulos relacionados a los sensores</p>
               </div>
@@ -83,7 +102,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-3.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Control</h5></a>
+                <a href="blog.php?id=13"><h5>Control</h5></a>
                 <div class="border_line"></div>
                 <p>Todo sobre el control industrial</p>
               </div>
@@ -95,7 +114,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-4.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Electricidad</h5></a>
+                <a href="blog.php?id=14"><h5>Electricidad</h5></a>
                 <div class="border_line"></div>
                 <p>Ariculos de electricidad en general</p>
               </div>
@@ -202,14 +221,21 @@ $previouspage=$curpage - 1;
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget author_widget">
-              <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
-              <h4>Charlie Barber</h4>
-              <p>Senior blog writer</p>
+              <img class="author_img rounded-circle" src="img/blog/author.png" alt="" width="50%">
+              <h4>Servielectra VE, C.A.</h4>
+              <p>J-410208686</p>
               <div class="social_icon">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
+                <?php if($facebook!=""){ ?>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                <?php } if($twitter!=""){ ?>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                <?php } if($instagram!=""){ ?>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                <?php } if($youtube!=""){ ?>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                <?php } ?>
               </div>
-              <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
+              <p>Diseñamos y fabricamos resistencias eléctricas calefactoras y sensores para medición de temperatura.</p>
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget post_category_widget">
@@ -253,9 +279,9 @@ $previouspage=$curpage - 1;
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
+                  <input type="text" class="form-control" id="correo_blog" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
                 </div>
-                <a href="#" class="bbtns">Suscribirse</a>
+                <a href="#" id="suscripcion_blog" class="bbtns">Suscribirse</a>
               </div>
               <div class="br"></div>
             </aside>
@@ -305,5 +331,28 @@ $previouspage=$curpage - 1;
   <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/theme.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
+  <script src="js/suscripcion.js"></script>
+  <script type="text/javascript">
+  $("#suscripcion_blog").click(function(){
+    var email=$("#correo_blog").val();
+    if (email=="") {
+      const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+      toast({type:'info',title:'Coloca tu correo electrónico'});
+    }else {
+      $.get('ajax_suscripcion.php',{email:email},verificar,'text');
+      function verificar(respuesta){
+        if (respuesta==1){
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3000});
+          toast({type:'success',title:'¡Gracias por suscribirte! \n Estaremos enviandote información relevante'});
+          $("#correo_footer").val("");
+        }else {
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+          toast({type:'info',title:'¡Hubo un pequeño problema! \n Inténtalo de nuevo'});
+        }
+      }
+    }
+  });
+  </script>
 </body>
 </html>

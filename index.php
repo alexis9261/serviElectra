@@ -54,174 +54,41 @@ $home="active";
         <div class="services_item">
           <a href="#"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Resistencias</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Fabricación de resistencias eléctricas a la medida para el sector industrial, comercial y residencial.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
           <a href="#"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Sensores</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Fabricación de sensores de temperatura a la medida: Termopares y RTD PT100.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
           <a href="#"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Control</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Venta y distribución de materiales eléctricos para el control y la automatización de procesos.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
           <a href="#"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Electricidad</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Material especializado para altas temperaturas. Cables, terminales, borneras, aisladores y más.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 <!--================End Services Area =================-->
-
-<!--================Builder Image Area =================-->
-<!--seciton class="builder_area">
-  <div class="main_title">
-    <h2>Our Latest Projects</h2>
-    <p>Who are in extremely love with eco friendly system.</p>
-  </div>
-  <div class="row m0 builder_inner">
-    <div class="builder_item">
-      <img src="img/builder/builder-1.jpg" alt="">
-      <div class="hover">
-        <h4>Alex Complex for Residence</h4>
-        <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
-      </div>
-    </div>
-    <div class="builder_item">
-      <img src="img/builder/builder-2.jpg" alt="">
-      <div class="hover">
-        <h4>Alex Complex for Residence</h4>
-        <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
-      </div>
-    </div>
-    <div class="builder_item">
-      <img src="img/builder/builder-3.jpg" alt="">
-      <div class="hover">
-        <h4>Alex Complex for Residence</h4>
-        <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
-      </div>
-    </div>
-    <div class="builder_item">
-      <img src="img/builder/builder-4.jpg" alt="">
-      <div class="hover">
-        <h4>Alex Complex for Residence</h4>
-        <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
-      </div>
-    </div>
-    <div class="builder_item">
-      <img src="img/builder/builder-5.jpg" alt="">
-      <div class="hover">
-        <h4>Alex Complex for Residence</h4>
-        <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
-      </div>
-    </div>
-    <div class="builder_item">
-      <img src="img/builder/builder-6.jpg" alt="">
-      <div class="hover">
-        <h4>Alex Complex for Residence</h4>
-        <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
-      </div>
-    </div>
-  </div>
-</seciton-->
-<!--================End Builder Image Area =================-->
-
-<!--================Team Area =================-->
-<!--section class="team_area p_120">
-  <div class="container">
-    <div class="main_title">
-      <h2>Meet Our Expert Members</h2>
-      <p>Who are in extremely love with eco friendly system.</p>
-    </div>
-    <div class="row team_inner">
-      <div class="col-lg-3 col-sm-6">
-        <div class="team_item">
-          <div class="team_img">
-            <img class="img-fluid" src="img/team/team-1.jpg" alt="">
-            <div class="hover">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="team_name">
-            <h4>Ethel Davis</h4>
-            <p>Managing Director (Sales)</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="team_item">
-          <div class="team_img">
-            <img class="img-fluid" src="img/team/team-2.jpg" alt="">
-            <div class="hover">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="team_name">
-            <h4>Ethel Davis</h4>
-            <p>Managing Director (Sales)</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="team_item">
-          <div class="team_img">
-            <img class="img-fluid" src="img/team/team-3.jpg" alt="">
-            <div class="hover">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="team_name">
-            <h4>Ethel Davis</h4>
-            <p>Managing Director (Sales)</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="team_item">
-          <div class="team_img">
-            <img class="img-fluid" src="img/team/team-4.jpg" alt="">
-            <div class="hover">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="team_name">
-            <h4>Ethel Davis</h4>
-            <p>Managing Director (Sales)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section-->
-<!--================End Team Area =================-->
-
-
-
 <!--================Products Area =================-->
 <section class="product_area mb-5">
   <div class="container">
     <div class="main_title">
-      <h2>Productos</h2>
+      <h2>Algunos de nuestros productos</h2>
     </div>
-      <?php 
+      <?php
         $sql="SELECT * FROM PRODUCTOS LIMIT 4";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
@@ -238,11 +105,9 @@ $home="active";
                 <h3 class="product_card_title"><?php echo ucwords($row['TITULO']); ?></h3>
               </div>
             </div>
-
             <div class="product_card_name text-center py-4">
               <h3><?php echo ucwords($row['TITULO']); ?></h3>
             </div>
-
           </div>
         </div>
       <?php } ?>
@@ -332,38 +197,46 @@ $home="active";
 </section>
 <!--================End Feature Area =================-->
 
-<!--================Testimonials Area =================-->
+<!--================Blog Area =================-->
 <section class="testimonials_area p_120">
   <div class="container">
+    <div class="main_title">
+      <h2>Algunas Noticias</h2>
+    </div>
     <div class="testi_slider owl-carousel">
-      <div class="item">
-        <div class="testi_item">
-          <div class="media">
-            <div class="d-flex">
-              <img src="img/testimonials/testi-1.png" alt="">
-            </div>
-            <div class="media-body">
-              <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
-              <h4>Mark Alviro Wiens</h4>
-              <h5>CEO at Google</h5>
+      <?php
+      $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+      $sql="SELECT IDARTICULO,IMAGE,DATE,TITLE,DESCRIPTION FROM `ARTICLESBLOG` LIMIT 5";
+      $result=$conn->query($sql);
+      if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+          $id_articulo=$row['IDARTICULO'];
+          $titulo=$row['TITLE'];
+          $desciption=$row['DESCRIPTION'];
+          $date=$row['DATE'];
+          $aux=substr($date,5,2);
+          if($aux<10){$aux="0".$aux;}
+          $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4);
+          $imagen=$row['IMAGE'];
+          ?>
+          <div class="item">
+            <div class="testi_item">
+              <div class="media">
+                <div class="d-flex">
+                  <img src="admin/blog/img/<?php echo $imagen;?>" alt="" style="border-radius:50%;width:100px!important;height:100px!important;">
+                </div>
+                <div class="media-body">
+                  <p><?php echo substr($desciption,0,150)."...";?></p>
+                  <h4><a href="blog.php?<?php echo $id_articulo;?>"><?php echo $titulo;?></a> </h4>
+                  <h5><?php echo $fecha;?></h5>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="testi_item">
-          <div class="media">
-            <div class="d-flex">
-              <img src="img/testimonials/testi-2.png" alt="">
-            </div>
-            <div class="media-body">
-              <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
-              <h4>Mark Alviro Wiens</h4>
-              <h5>CEO at Google</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+          <?php
+        }
+      }
+       ?>
     </div>
   </div>
 </section>
@@ -410,5 +283,7 @@ $home="active";
 <script src="vendors/counter-up/jquery.counterup.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
+<script src="js/suscripcion.js"></script>
 </body>
 </html>
