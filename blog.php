@@ -1,6 +1,7 @@
 <?php
 include 'common/conexion.php';
 $blog="active";
+//busco si tienen redes sociales
 $facebook="";
 $twitter="";
 $youtube="";
@@ -20,13 +21,25 @@ if($result->num_rows>0){
     }
   }
 }
-#paginacion
-$perpage=25;
+#Paginacion
+$perpage=10;
 if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
 $start=($curpage*$perpage) - $perpage;
+//pregunto si existe solicitud GET en la url
+if(isset($_GET['id'])){
+  $id_categoria=$_GET['id'];
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG WHERE IDCATEGORIA=$id_categoria";
+}elseif(isset($_GET['keyword'])){
+  $keyword=$_GET['keyword'];
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG WHERE KEYWORDS LIKE '%$keyword%'";
+}elseif(isset($_GET['search'])){
+  $search=$_GET['search'];
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG WHERE TITLE LIKE '%$search%' OR KEYWORDS LIKE '%$search%'";
+}else{
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG";
+}
 #necesito el total de elementos
-$PageSql="SELECT * FROM ARTICLESBLOG";
-$pageres=mysqli_query($conn,$PageSql);
+$pageres=mysqli_query($conn,$sqlBlogs);
 $totalres=mysqli_num_rows($pageres);
 $endpage=ceil($totalres/$perpage);
 $startpage=1;
@@ -61,7 +74,7 @@ $previouspage=$curpage - 1;
       <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
       <div class="container">
         <div class="blog_b_text text-center">
-          <h2>Noticias <br /> relevantes</h2>
+          <h2>Noticias </h2>
           <p>Podrás encontrar noticias tecnologicas, historicas y de actualidad</p>
           <a class="white_bg_btn" href="blog.php">Ver todas</a>
         </div>
@@ -133,8 +146,8 @@ $previouspage=$curpage - 1;
           <div class="blog_left_sidebar">
             <?php
             $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-            $sql="SELECT * FROM `ARTICLESBLOG` LIMIT $start,$perpage";
-            $result=$conn->query($sql);
+            $sqlBlogs.=" LIMIT $start,$perpage";
+            $result=$conn->query($sqlBlogs);
             if($result->num_rows>0){
               while($row=$result->fetch_assoc()){
                 $id_articulo=$row['IDARTICULO'];
@@ -177,7 +190,9 @@ $previouspage=$curpage - 1;
                 </article>
                 <?php
               }
-            } ?>
+             }else{ ?>
+              <h4 style="color:#002169">No Hay Artículos</h4>
+            <?php } ?>
             <nav class="blog-pagination justify-content-center d-flex">
               <ul class="pagination">
                 <?php if($curpage!=$startpage){ ?>
@@ -212,12 +227,14 @@ $previouspage=$curpage - 1;
         <div class="col-lg-4">
           <div class="blog_right_sidebar">
             <aside class="single_sidebar_widget search_widget">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar artículos">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
-                </span>
-              </div><!-- /input-group -->
+              <form action="" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Buscar artículos" name="search">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="lnr lnr-magnifier"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget author_widget">
@@ -312,7 +329,6 @@ $previouspage=$curpage - 1;
     </div>
   </section>
   <!--================Blog Area =================-->
-
   <?php include 'common/footer.php'; ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

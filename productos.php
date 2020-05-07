@@ -38,7 +38,7 @@ $productos="active";
             <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
               <h2 class="vista_producto_card_title mb-2"><?php echo ucwords($row['TITULO']); ?></h2>
               <p class="vista_producto_card_subtext"> <?php echo substr( $row['DESCRIPCION'],0, 150). "...";?> </p>
-              <a href="#" class="btn vista_productos_card_boton">Read Now</a>
+              <a href="#" class="btn vista_productos_card_boton">ver producto</a>
             </div>
           </div>
         <?php }?>
