@@ -166,7 +166,7 @@ $previouspage=$curpage - 1;
                   <div class="col-md-3">
                     <div class="blog_info text-right">
                       <div class="post_tag">
-                        <?php foreach ($keywords_array as $keyword) { ?>
+                        <?php foreach ($keywords_array as $keyword){ ?>
                           <a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?>,</a>
                         <?php } ?>
                       </div>
@@ -181,9 +181,9 @@ $previouspage=$curpage - 1;
                     <div class="blog_post">
                       <img src="admin/blog/img/<?php echo $imagen;?>" alt="<?php echo $titulo;?>" style="width:100%;height:auto;">
                       <div class="blog_details">
-                        <a href="single-blog.html"><h2><?php echo $titulo;?></h2></a>
+                        <a href="single-blog.php?id=<?php echo $id_articulo;?>"><h2><?php echo $titulo;?></h2></a>
                         <p><?php echo $desciption;?></p>
-                        <a href="single-blog.php?id=<?php echo $id_articulo;?>" class="white_bg_btn">View More</a>
+                        <a href="single-blog.php?id=<?php echo $id_articulo;?>" class="white_bg_btn">Leer más</a>
                       </div>
                     </div>
                   </div>
