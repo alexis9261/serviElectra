@@ -4254,6 +4254,11 @@ h6 {
 
 .detalle_producto_title{
   margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+.detalle_producto_precio{
+  margin-bottom: 1rem;
 }
 
 .detalle_producto_descripcion{
@@ -4274,11 +4279,17 @@ h6 {
   .detalle_producto_title{
     margin-top: 2.7rem;
     font-size: 2.3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
   
   .detalle_producto_precio{
     font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+
+  .detalle_producto_categoria{
+    font-size: 1.6rem;
   }
 
   .detalle_producto_info{
@@ -4290,6 +4301,7 @@ h6 {
 @media (min-width: 1000px){
   .detalle_producto_title{ 
     font-size: 2.8rem;
+    margin-top: 1rem;
   }
 
   .detalle_producto_info{
@@ -4301,12 +4313,18 @@ h6 {
 
   .detalle_producto_precio{
     font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .detalle_producto_categoria{
+    font-size: 2.5rem;
   }
 
   .detalle_producto_descripcion_content{
     font-size: 1.3rem;
     line-height: 2rem;
   }
+
 }
 
 

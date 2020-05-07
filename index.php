@@ -52,29 +52,29 @@ $home="active";
     <div class="row services_inner">
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="#"><h4>Resistencias</h4></a>
+          <a href="productos.php?cat=1"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=1"><h4>Resistencias</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="#"><h4>Sensores</h4></a>
+          <a href="productos.php?cat=2"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=2"><h4>Sensores</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="#"><h4>Control</h4></a>
+          <a href="productos.php?cat=3"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=3"><h4>Control</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="#"><h4>Electricidad</h4></a>
+          <a href="productos.php?cat=4"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=4"><h4>Electricidad</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>

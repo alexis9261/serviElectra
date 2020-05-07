@@ -1,7 +1,4 @@
-<?php
-$categoriaID = $_GET['cat'];
-$search = $_GET['producto'];
-?>
+
 
 <html lang="en">
 <head>
@@ -28,19 +25,24 @@ $search = $_GET['producto'];
 		<h1 class="vista_producto_main_title text-center">Productos</h1>
     
     <div class="productos_container_main mt-3">
-    <?php 
-      if($categoriaID or $search){
-        if($search){
-          $sql="SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
-        } else {
-          if($categoriaID){
-            $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
-         }
-        }
+    <?php
+      if(isset($_GET['cat'])){
+
+        $categoriaID = $_GET['cat'];
+        $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
+
+      } elseif (isset($_GET['producto'])) {
+
+        $search = $_GET['producto'];
+        $sql="SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
+
       } else {
         $sql="SELECT * FROM PRODUCTOS";
       }
-      
+
+
+    ?>
+    <?php 
       $result = $conn->query($sql);
       if($result->num_rows > 0){
     ?>
@@ -57,13 +59,32 @@ $search = $_GET['producto'];
           
           <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
               <p class="vista_producto_card_subtext" > <?php echo substr( $row['DESCRIPCION'],0, 150). "...";?> </p>
-              <a href="productoDetalle.php?detail=<?php echo $row['IDPRODUCTO'] ?>" class="btn vista_productos_card_boton">Read Now</a>
+              <a href="productoDetalle.php?detalle=<?php echo $row['IDPRODUCTO'] ?>" class="btn vista_productos_card_boton">Ver mas</a>
           </div>
       </div>
       <?php }?>
      <?php } ?>
     </div>
     
-	</section>
+  </section>
+  
+  <?php include 'common/footer.php'; ?>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/stellar.js"></script>
+  <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+  <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+  <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+  <script src="vendors/isotope/isotope-min.js"></script>
+  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+  <script src="vendors/counter-up/jquery.counterup.js"></script>
+  <script src="js/mail-script.js"></script>
+  <script src="js/theme.js"></script>
 </body>
 </html>

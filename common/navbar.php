@@ -43,7 +43,7 @@ function buscar(){document.search1.submit()}
             <li><a href="#"><i class="fa fa-youtube"></i></a></li>
           <?php } ?>
         </ul>
-        <a class="dn_btn ml-3" href="#" style="color:#002169">Ver Precios</a>
+        <a class="dn_btn ml-3" href="productos.php" style="color:#002169">Ver Precios</a>
       </div>
     </div>
   </div>
