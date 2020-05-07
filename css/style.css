@@ -44,6 +44,18 @@ Table of Content:
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Poppins:200,300,400,500,600,700|Roboto:300,400,500,700");
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+@font-face{
+  font-family: "Gotham";
+  src: url("fonts/gotham-medium.ttf");
+}
+@font-face{
+  font-family: "Gotham Ligth";
+  src: url("fonts/gotham-thin.ttf");
+}
+@font-face{
+  font-family: "Gotham Bold";
+  src: url("fonts/gotham-ultra.ttf");
+}
 .search_menu {
   width: 150px;
   box-sizing: border-box;
@@ -87,13 +99,13 @@ a:hover, a:focus {
 body {
   line-height: 24px;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: normal;
   color: #777777;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham Bold", sans-serif;
   font-weight: 500;
 }
 
@@ -138,7 +150,7 @@ button:focus {
 }
 
 .main_title h2 {
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham Bold", sans-serif;
   font-size: 36px;
   color: #222222;
   margin-bottom: 12px;
@@ -146,7 +158,7 @@ button:focus {
 
 .main_title p {
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: normal;
   line-height: 24px;
   color: #777777;
@@ -366,7 +378,7 @@ button:focus {
   background: #f9f9ff;
   padding: 0px 19px;
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   color: #777777;
   -webkit-transition: all 300ms linear 0s;
@@ -389,7 +401,7 @@ button:focus {
   background: #fff500;
   padding: 0px 19px;
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   color: #fff;
   -webkit-transition: all 300ms linear 0s;
@@ -411,7 +423,7 @@ button:focus {
   border-radius: 3px;
   line-height: 28px;
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   padding-left: 19px;
   padding-right: 36px;
@@ -479,7 +491,7 @@ button:focus {
 
 .home_banner_area .banner_inner .banner_content h3 {
   font-size: 60px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham Bold", sans-serif;
   font-weight: normal;
   margin-bottom: 20px;
 }
@@ -499,7 +511,7 @@ button:focus {
 .home_banner_area .banner_inner .banner_content p {
   font-size: 14px;
   line-height: 24px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: normal;
   max-width: 500px;
   margin: auto;
@@ -547,7 +559,7 @@ button:focus {
 .blog_banner .banner_inner .blog_b_text h2 {
   font-size: 60px;
   font-weight: 500;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   line-height: 66px;
   margin-bottom: 15px;
 }
@@ -597,7 +609,7 @@ button:focus {
 .banner_area .banner_inner .banner_content h2 {
   color: #fff;
   font-size: 48px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   margin-bottom: 0px;
   font-weight: 500;
 }
@@ -605,7 +617,7 @@ button:focus {
 .banner_area .banner_inner .banner_content .page_link a {
   font-size: 14px;
   color: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   margin-right: 32px;
   position: relative;
   text-transform: uppercase;
@@ -703,7 +715,7 @@ button:focus {
 
 .causes_item .causes_text h4 {
   color: #222222;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -730,7 +742,7 @@ button:focus {
   line-height: 50px;
   background: #fff500;
   color: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 14px;
   font-weight: 500;
 }
@@ -1638,35 +1650,35 @@ button:focus {
   box-shadow: none;
   padding: 0px 15px;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 300;
   color: #999999;
 }
 
 .reservation_form .form-group input.placeholder {
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 300;
   color: #999999;
 }
 
 .reservation_form .form-group input:-moz-placeholder {
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 300;
   color: #999999;
 }
 
 .reservation_form .form-group input::-moz-placeholder {
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 300;
   color: #999999;
 }
 
 .reservation_form .form-group input::-webkit-input-placeholder {
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 300;
   color: #999999;
 }
@@ -1682,7 +1694,7 @@ button:focus {
 
 .reservation_form .form-group .res_select .current {
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 300;
   color: #999999;
 }
@@ -1755,7 +1767,7 @@ button:focus {
   line-height: 26px;
   color: #999;
   border: 1px solid #eeeeee;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   border-radius: 0px;
   padding-left: 20px;
 }
@@ -1832,7 +1844,7 @@ button:focus {
   text-align: center;
   color: #fff500;
   padding-bottom: 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
 }
 
 .modal-message .modal-dialog .modal-content .modal-header p {
@@ -3360,7 +3372,7 @@ h6 {
   background: #fff500;
   padding: 0px 50px;
   color: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 48px;
@@ -3386,7 +3398,7 @@ h6 {
   background: #fff500;
   padding: 0px 32px;
   color: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 38px;
@@ -3413,7 +3425,7 @@ h6 {
   background: #fff500;
   padding: 0px 50px;
   color: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 50px;
@@ -3439,7 +3451,7 @@ h6 {
   background: #f9f9ff;
   padding: 0px 35px;
   color: #222222;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 34px;
@@ -3469,7 +3481,7 @@ h6 {
   display: inline-block;
   border-radius: 5px;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   -webkit-transition: all 300ms linear 0s;
   -o-transition: all 300ms linear 0s;
@@ -3586,7 +3598,7 @@ h6 {
 
 .testi_item .media .media-body h4 {
   color: #222222;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   font-size: 20px;
   -webkit-transition: all 300ms linear 0s;
@@ -3599,7 +3611,7 @@ h6 {
   font-size: 14px;
   color: #777777;
   font-weight: normal;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
 }
 
 .testi_item:hover .media {
@@ -3639,7 +3651,7 @@ h6 {
 
 .services_item h4 {
   font-size: 20px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   color: #222222;
   margin-bottom: 18px;
 }
@@ -3726,7 +3738,7 @@ h6 {
   margin: auto;
   font-size: 14px;
   line-height: 24px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   color: #222222;
 }
 
@@ -3813,14 +3825,14 @@ h6 {
 .team_item .team_name h4 {
   margin-bottom: 5px;
   color: #222222;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   font-size: 18px;
 }
 
 .team_item .team_name p {
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   color: #777777;
   margin-bottom: 0px;
 }
@@ -3853,7 +3865,7 @@ h6 {
 
 .counter_item h4 {
   font-size: 48px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   color: #222222;
 }
@@ -3861,7 +3873,7 @@ h6 {
 .counter_item p {
   margin-bottom: 0px;
   color: #222222;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 14px;
 }
 
@@ -3888,7 +3900,7 @@ h6 {
 
 .feature_item h4 {
   font-size: 18px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   color: #222222;
   margin-bottom: 20px;
@@ -3929,7 +3941,7 @@ h6 {
 
 .about_inner .ab_left_text h4 {
   font-size: 36px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   color: #222222;
   margin-bottom: 22px;
 }
@@ -4045,7 +4057,7 @@ h6 {
   font-size: 20px;
   line-height: 24px;
   font-weight: 500;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham", sans-serif;
   color: #fff;
   margin-bottom: 28px;
 }
@@ -4124,6 +4136,7 @@ h6 {
 .product_card_title{
     color: black;
     font-weight: bold;
+    font-size: 0.8rem;
 }
 
 .card_img:hover .product_card_hover{
@@ -4133,8 +4146,9 @@ h6 {
 .product_card_name h3 {
   margin-bottom: 5px;
   color: #222222;
-  font-family: "Oswald", sans-serif;
+  font-family: "Gotham Bold", sans-serif;
   font-weight: 500;
+  font-size: 1rem;
 }
 
 
@@ -4163,7 +4177,7 @@ h6 {
   display: inline-block;
   border-radius: 5px;
   font-size: 1.2rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-weight: 500;
   -webkit-transition: all 300ms linear 0s;
   -o-transition: all 300ms linear 0s;
