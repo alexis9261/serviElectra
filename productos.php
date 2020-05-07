@@ -1,6 +1,6 @@
 <?php
-
-
+$categoriaID = $_GET['cat'];
+$search = $_GET['producto'];
 ?>
 
 <html lang="en">
@@ -29,7 +29,18 @@
     
     <div class="productos_container_main mt-3">
     <?php 
-      $sql="SELECT * FROM PRODUCTOS";
+      if($categoriaID or $search){
+        if($search){
+          $sql="SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
+        } else {
+          if($categoriaID){
+            $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
+         }
+        }
+      } else {
+        $sql="SELECT * FROM PRODUCTOS";
+      }
+      
       $result = $conn->query($sql);
       if($result->num_rows > 0){
     ?>
@@ -46,7 +57,7 @@
           
           <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
               <p class="vista_producto_card_subtext" > <?php echo substr( $row['DESCRIPCION'],0, 150). "...";?> </p>
-              <a href="#" class="btn vista_productos_card_boton">Read Now</a>
+              <a href="productoDetalle.php?detail=<?php echo $row['IDPRODUCTO'] ?>" class="btn vista_productos_card_boton">Read Now</a>
           </div>
       </div>
       <?php }?>
