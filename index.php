@@ -197,38 +197,46 @@ $home="active";
 </section>
 <!--================End Feature Area =================-->
 
-<!--================Testimonials Area =================-->
+<!--================Blog Area =================-->
 <section class="testimonials_area p_120">
   <div class="container">
+    <div class="main_title">
+      <h2>Algunas Noticias</h2>
+    </div>
     <div class="testi_slider owl-carousel">
-      <div class="item">
-        <div class="testi_item">
-          <div class="media">
-            <div class="d-flex">
-              <img src="img/testimonials/testi-1.png" alt="">
-            </div>
-            <div class="media-body">
-              <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
-              <h4>Mark Alviro Wiens</h4>
-              <h5>CEO at Google</h5>
+      <?php
+      $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+      $sql="SELECT IDARTICULO,IMAGE,DATE,TITLE,DESCRIPTION FROM `ARTICLESBLOG` LIMIT 5";
+      $result=$conn->query($sql);
+      if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+          $id_articulo=$row['IDARTICULO'];
+          $titulo=$row['TITLE'];
+          $desciption=$row['DESCRIPTION'];
+          $date=$row['DATE'];
+          $aux=substr($date,5,2);
+          if($aux<10){$aux="0".$aux;}
+          $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4);
+          $imagen=$row['IMAGE'];
+          ?>
+          <div class="item">
+            <div class="testi_item">
+              <div class="media">
+                <div class="d-flex">
+                  <img src="admin/blog/img/<?php echo $imagen;?>" alt="" style="border-radius:50%;width:100px!important;height:100px!important;">
+                </div>
+                <div class="media-body">
+                  <p><?php echo substr($desciption,0,150)."...";?></p>
+                  <h4><a href="blog.php?<?php echo $id_articulo;?>"><?php echo $titulo;?></a> </h4>
+                  <h5><?php echo $fecha;?></h5>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="testi_item">
-          <div class="media">
-            <div class="d-flex">
-              <img src="img/testimonials/testi-2.png" alt="">
-            </div>
-            <div class="media-body">
-              <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
-              <h4>Mark Alviro Wiens</h4>
-              <h5>CEO at Google</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+          <?php
+        }
+      }
+       ?>
     </div>
   </div>
 </section>
@@ -275,6 +283,7 @@ $home="active";
 <script src="vendors/counter-up/jquery.counterup.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
 <script src="js/suscripcion.js"></script>
 </body>
 </html>

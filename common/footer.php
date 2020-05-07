@@ -41,7 +41,7 @@ if($result->num_rows>0){
         <div class="single-footer-widget">
           <h6 class="footer_title">Suscribete</h6>
           <p>Suscribete en nuestro sitio y te mantendremos al tanto de todas nuestras ofertas.</p>
-          <div id="mc_embed_signup">
+          <div>
             <div class="input-group d-flex flex-row">
               <input name="correo" id="correo_footer" placeholder="Tu correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico '" required="" type="email">
               <button class="btn sub-btn" id="suscripcion"><span class="lnr lnr-arrow-right"></span></button>

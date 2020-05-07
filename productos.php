@@ -60,6 +60,7 @@ $productos="active";
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/theme.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
   <script src="js/suscripcion.js"></script>
 </body>
 </html>
