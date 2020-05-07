@@ -1,11 +1,10 @@
-<!--================Header Menu Area =================-->
 <?php
 include 'common/conexion.php';
 $facebook="";
 $twitter="";
-$linkedin="";
+$youtube="";
 $instagram="";
-$sql="SELECT * FROM `CONFIGURACION`";
+$sql="SELECT ATRIBUTO,VALOR FROM `CONFIGURACION`";
 $result=$conn->query($sql);
 if($result->num_rows>0){
   while($row=$result->fetch_assoc()){
@@ -14,7 +13,7 @@ if($result->num_rows>0){
     }else if($row['ATRIBUTO']=="twitter"){
       $twitter=$row['VALOR'];
     }else if($row['ATRIBUTO']=="linkedin"){
-      $linkedin=$row['VALOR'];
+      $youtube=$row['VALOR'];
     }else if($row['ATRIBUTO']=="instagram"){
       $instagram=$row['VALOR'];
     }
@@ -34,14 +33,14 @@ function buscar(){document.search1.submit()}
       </div>
       <div class="float-right">
         <ul class="list header_social d-inline">
-          <?php if ($facebook!=""){ ?>
+          <?php if($facebook!=""){ ?>
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <?php }elseif ($twitter!="") { ?>
+          <?php } if($twitter!=""){ ?>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <?php }elseif ($instagram!="") { ?>
+          <?php } if($instagram!=""){ ?>
             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-          <?php }elseif ($linkedin!="") { ?>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <?php } if($youtube!=""){ ?>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
           <?php } ?>
         </ul>
         <a class="dn_btn ml-3" href="#" style="color:#002169">Ver Precios</a>
@@ -51,7 +50,7 @@ function buscar(){document.search1.submit()}
   <div class="main_menu">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a class="navbar-brand logo_h" href="index.php"><img src="img/logo.png" alt="" width="100%"/></a>
+        <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="" width="50%"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -82,9 +81,13 @@ function buscar(){document.search1.submit()}
               </ul>
             </li>
             <?php if(isset($productos)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="index.php"><strong>Productos</strong> </a></li>
+<<<<<<< HEAD
+              <li class="nav-item active"><a class="nav-link" href="producto.php"><strong>Productos</strong> </a></li>
+=======
+              <li class="nav-item active"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
+>>>>>>> master
             <?php }else{ ?>
-              <li class="nav-item"><a class="nav-link" href="index.php"><strong>Productos</strong> </a></li>
+              <li class="nav-item"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
             <?php } ?>
             <li class="nav-item submenu dropdown">
               <a href="nosotros.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Nosotros</strong> </a>

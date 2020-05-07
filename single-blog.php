@@ -22,7 +22,7 @@ $blog="active";
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-  <?php include 'common/navbar.php';?>
+  <?php //include 'common/navbar.php';?>
 
   <!--================Home Banner Area =================-->
   <section class="banner_area">

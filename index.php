@@ -1,5 +1,6 @@
 <?php
 $home="active";
+
  ?>
 <!doctype html>
 <html lang="en">
@@ -42,37 +43,37 @@ $home="active";
 <!--================End Home Banner Area =================-->
 
 <!--================Categorias Area =================-->
-<section class="services_area p_120">
+<section class="services_area py-4 mt-3">
   <div class="container">
-    <div class="main_title">
+    <div class="main_title mb-3">
       <h2>Categorias Principales</h2>
       <p>Fabricación de Resistencias Eléctricas y Sensores Termocuplas/RTD</p>
     </div>
     <div class="row services_inner">
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-1.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Resistencias</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-2.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Sensores</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-3.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Control</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="#"><img src="img/icon/service-icon-2.png" alt=""></a>
+          <a href="#"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
           <a href="#"><h4>Electricidad</h4></a>
           <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
@@ -211,6 +212,47 @@ $home="active";
   </div>
 </section>
 <!--================End Team Area =================-->
+
+
+
+<!--================Products Area =================-->
+<section class="product_area mb-5">
+  <div class="container">
+    <div class="main_title">
+      <h2>Productos</h2>
+    </div>
+      <?php 
+        $sql="SELECT * FROM PRODUCTOS LIMIT 4";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+      ?>
+    <div class="row products_cards">
+        <?php
+          while($row=$result->fetch_assoc()){
+        ?>
+        <div class="col-lg-3 col-sm-6">
+          <div class="product_card_item">
+            <div class="card_img">
+              <img class="product_card_img w-100" src="img/productos/<?php echo $row['IMAGEN']?>" alt="">
+              <div class="product_card_hover">
+                <h3 class="product_card_title"><?php echo ucwords($row['TITULO']); ?></h3>
+              </div>
+            </div>
+
+            <div class="product_card_name text-center py-4">
+              <h3><?php echo ucwords($row['TITULO']); ?></h3>
+            </div>
+
+          </div>
+        </div>
+      <?php } ?>
+    <?php } ?>
+    </div>
+  </div>
+</section>
+
+<!--================End Products Area =================-->
+
 
 <!--================Metricas Area =================-->
 <section class="counter_area">
