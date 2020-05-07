@@ -27,7 +27,7 @@ function buscar(){document.search1.submit()}
   <div class="top_menu row m0">
     <div class="container">
       <div class="float-left">
-        <form action="detalles.php" method="get" id="search1">
+        <form action="productos.php" method="get" id="search1">
           <input class="search_menu ml-auto mt-2" type="text" name="producto" placeholder="Buscar.." onkeypress="if (event.keyCode == 13) buscar()">
         </form>
       </div>
@@ -43,7 +43,7 @@ function buscar(){document.search1.submit()}
             <li><a target="_blank" href="<?php echo $youtube;?>"><i class="fa fa-youtube"></i></a></li>
           <?php } ?>
         </ul>
-        <a class="dn_btn ml-3" href="#" style="color:#002169">Ver Precios</a>
+        <a class="dn_btn ml-3" href="productos.php" style="color:#002169">Ver Precios</a>
       </div>
     </div>
   </div>
@@ -74,7 +74,7 @@ function buscar(){document.search1.submit()}
                     $categoria=$row['CATEGORIA'];
                     $idCat=$row['IDCATEGORIA'];
                     ?>
-                    <li class="nav-item"><a class="nav-link" href="detalles.php?cat=<?php echo $idCat;?>"><strong><?php echo $categoria;?></strong> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.php?cat=<?php echo $idCat;?>"><strong><?php echo $categoria;?></strong> </a></li>
                     <?php
                   }
                 } ?>

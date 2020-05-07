@@ -4230,6 +4230,121 @@ h6 {
   }
 }
 
+
+
+/*Vista producto detallado
+============================================================================================ */
+
+.vista_productos_detalles_main{
+  border: 1px solid grey;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 4px;
+  width: 90%;
+  margin: 0 auto 2rem;
+}
+
+.detalle_producto_descripcion{
+  border-bottom: 1px solid grey;
+}
+
+.detalle_img_container{
+  border-top: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.detalle_producto_img{
+  max-width: 100%;
+  margin: 2rem 0 ;
+}
+
+.detalle_producto_info{
+  text-align: center;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.detalle_producto_title{
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+.detalle_producto_precio{
+  margin-bottom: 1rem;
+}
+
+.detalle_producto_descripcion{
+  border-right: 1px solid grey;
+}
+
+@media (min-width: 768px){
+
+  .vista_productos_detalles_main{
+    width: 80%;
+  }
+
+  .detalle_producto_descripcion{
+    border-right: 1px solid grey;
+  }
+
+  
+  .detalle_producto_title{
+    margin-top: 2.7rem;
+    font-size: 2.3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .detalle_producto_precio{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+
+  .detalle_producto_categoria{
+    font-size: 1.6rem;
+  }
+
+  .detalle_producto_info{
+    border-top: 1px solid grey;
+  }
+
+}
+
+@media (min-width: 1000px){
+  .detalle_producto_title{ 
+    font-size: 2.8rem;
+    margin-top: 1rem;
+  }
+
+  .detalle_producto_info{
+    text-align: unset;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    border-top: 1px solid grey;
+  }
+
+  .detalle_producto_precio{
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .detalle_producto_categoria{
+    font-size: 1.8rem;
+  }
+
+  .detalle_producto_descripcion_content{
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
+}
+
+
+
+
+
 /*---------------------------------------------------- */
 
 
