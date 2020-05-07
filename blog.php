@@ -22,7 +22,7 @@ if($result->num_rows>0){
   }
 }
 #Paginacion
-$perpage=10;
+$perpage=5;
 if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
 $start=($curpage*$perpage) - $perpage;
 //pregunto si existe solicitud GET en la url
@@ -317,6 +317,7 @@ $previouspage=$curpage - 1;
                     }
                   }
                 }
+                $array_keywords=array_unique($array_keywords);
                 foreach($array_keywords as $keyword){
                   ?>
                   <li><a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?></a></li>
