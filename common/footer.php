@@ -42,13 +42,11 @@ if($result->num_rows>0){
           <h6 class="footer_title">Suscribete</h6>
           <p>Suscribete en nuestro sitio y te mantendremos al tanto de todas nuestras ofertas.</p>
           <div id="mc_embed_signup">
-            <form target="_blank" action="" method="get" class="subscribe_form relative">
-              <div class="input-group d-flex flex-row">
-                <input name="EMAIL" placeholder="Tu correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico '" required="" type="email">
-                <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>
-              </div>
-              <div class="mt-10 info"></div>
-            </form>
+            <div class="input-group d-flex flex-row">
+              <input name="correo" id="correo_footer" placeholder="Tu correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico '" required="" type="email">
+              <button class="btn sub-btn" id="suscripcion"><span class="lnr lnr-arrow-right"></span></button>
+            </div>
+            <div class="mt-10 info"></div>
           </div>
         </div>
       </div>
@@ -56,13 +54,13 @@ if($result->num_rows>0){
     <div class="row footer-bottom d-flex align-items-center pt-4">
       <div class="col-auto footer-social">
           <?php if($facebook!=""){ ?>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-          <?php } if($twitter!=""){ ?>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-          <?php } if($instagram!=""){ ?>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-          <?php } if($youtube!=""){ ?>
-            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a target="_blank" href="<?php echo $facebook;?>"><i class="fa fa-facebook"></i></a>
+          <?php }if($twitter!=""){ ?>
+            <a target="_blank" href="<?php echo $twitter;?>"><i class="fa fa-twitter"></i></a>
+          <?php }if($instagram!=""){ ?>
+            <a target="_blank" href="<?php echo $instagram;?>"><i class="fa fa-instagram"></i></a>
+          <?php }if($youtube!=""){ ?>
+            <a target="_blank" href="<?php echo $youtube;?>"><i class="fa fa-youtube"></i></a>
           <?php } ?>
       </div>
     </div>

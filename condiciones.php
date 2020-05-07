@@ -166,5 +166,6 @@ $nosotros="active";
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/suscripcion.js"></script>
 </body>
 </html>
