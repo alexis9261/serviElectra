@@ -10,6 +10,7 @@ if(isset($_POST['id'])){
   $contenido=$_POST['content'];
   $keywords=$_POST['keywords'];
   $autor=$_POST['autor'];
+  $id_categoria=$_POST['categoria'];
   if(isset($_FILES['imagen']) && $_FILES['imagen']['error']==0){
     $imagen=$_FILES['imagen'];
       //elimino la imagen anterior
@@ -31,11 +32,11 @@ if(isset($_POST['id'])){
           if($resultado){$respuesta=1;}else{$respuesta=3;}}else{$respuesta=4;}
         }else{$respuesta=5;}
         if($respuesta==1){
-      $sql="UPDATE `ARTICLESBLOG` SET `TITLE`='$titulo',`IMAGE`='$name_archivo',`DESCRIPTION`='$descripcion',`CONTENT`='$contenido',`KEYWORDS`='$keywords',`AUTOR`='$autor' WHERE IDARTICULO='$id_articulo';";
+      $sql="UPDATE `ARTICLESBLOG` SET `TITLE`='$titulo',`IMAGE`='$name_archivo',`IDCATEGORIA`='$id_categoria',`DESCRIPTION`='$descripcion',`CONTENT`='$contenido',`KEYWORDS`='$keywords',`AUTOR`='$autor' WHERE IDARTICULO='$id_articulo';";
       if($conn->query($sql)===TRUE){$respuesta=1;}
       }
   }else{
-    $sql="UPDATE `ARTICLESBLOG` SET `TITLE`='$titulo',`DESCRIPTION`='$descripcion',`CONTENT`='$contenido',`KEYWORDS`='$keywords',`AUTOR`='$autor' WHERE IDARTICULO='$id_articulo';";
+    $sql="UPDATE `ARTICLESBLOG` SET `TITLE`='$titulo',`DESCRIPTION`='$descripcion',`IDCATEGORIA`='$id_categoria',`CONTENT`='$contenido',`KEYWORDS`='$keywords',`AUTOR`='$autor' WHERE IDARTICULO='$id_articulo';";
     if($conn->query($sql)===TRUE){$respuesta=1;}
   }
 }

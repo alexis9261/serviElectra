@@ -56,11 +56,26 @@ if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
                   });
                 </script>
               </div>
-              <div class="input-group mb-3 col-12">
+              <div class="input-group mb-3 col-12 col-md-6">
                 <div class="input-group-append">
                   <span class="input-group-text"><b>Autor</b></span>
                 </div>
                 <input type="text" name="autor" class="form-control text-secondary" required maxlength="255">
+              </div>
+              <div class="input-group mb-3 col-12 col-md-6">
+                <div class="input-group-append">
+                  <span class="input-group-text"><b>Categoria</b></span>
+                </div>
+                <select class="categoria" name="categoria">
+                  <?php
+                  $sql="SELECT * FROM CATEGORIAS";
+                  $result=$conn->query($sql);
+                  if($result->num_rows>0){
+                    while($row=$result->fetch_assoc()) { ?>
+                      <option value="<?=$row['IDCATEGORIA']?>"><?=$row['CATEGORIA']?></option>
+                    <?php } ?>
+                  <?php } ?>
+                </select>
               </div>
               <div class="input-group mb-3 col-12">
                 <div class="input-group-append">

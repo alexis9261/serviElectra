@@ -58,8 +58,8 @@ $contacto="active";
           </div>
           <div class="info_item">
             <i class="lnr lnr-phone-handset"></i>
-            <h6><a href="#"> 0241 617 73 27 </a></h6>
-            <h6><a href="#">+58 424 421 52 17</a></h6>
+            <h6><a href="tel:02416177327"> 0241 617 73 27 </a></h6>
+            <h6><a href="tel:+584244215217">+58 424 421 52 17</a></h6>
             <p>Lun a Vie 8am a 5pm</p>
           </div>
           <div class="info_item">

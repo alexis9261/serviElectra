@@ -45,6 +45,7 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
               $imagen=$row['IMAGE'];
               $autor=$row['AUTOR'];
               $keywords=$row['KEYWORDS'];
+              $id_categoria=$row['IDCATEGORIA'];
               ?>
               <div class="container-fluid">
                 <form action="editArticle.php" method="post" enctype="multipart/form-data">
@@ -69,11 +70,31 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
                         });
                       </script>
                     </div>
-                    <div class="input-group mb-3 col-12">
+                    <div class="input-group mb-3 col-12 col-md-6">
                       <div class="input-group-append">
                         <span class="input-group-text"><b>Autor</b></span>
                       </div>
                       <input type="text" name="autor" class="form-control text-dark" required maxlength="255" value="<?php echo $autor;?>">
+                    </div>
+                    <div class="input-group mb-3 col-12 col-md-6">
+                      <div class="input-group-append">
+                        <span class="input-group-text"><b>Categoria</b></span>
+                      </div>
+                      <select class="categoria" name="categoria">
+                        <?php
+                        $sql="SELECT * FROM CATEGORIAS";
+                        $result=$conn->query($sql);
+                        if($result->num_rows>0){
+                          while($row=$result->fetch_assoc()) {
+                            if($id_categoria==$row['IDCATEGORIA']){ ?>
+                              <option value="<?=$row['IDCATEGORIA']?>" selected><?=$row['CATEGORIA']?></option>
+                            <?php }else{ ?>
+                              <option value="<?=$row['IDCATEGORIA']?>"><?=$row['CATEGORIA']?></option>
+                              <?php
+                            }
+                          } 
+                        } ?>
+                      </select>
                     </div>
                     <div class="input-group mb-3 col-12">
                       <div class="input-group-append">

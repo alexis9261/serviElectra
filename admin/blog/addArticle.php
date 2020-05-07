@@ -22,7 +22,8 @@ $descripcion=$_POST['description'];
 $contenido=$_POST['content'];
 $keywords=$_POST['keywords'];
 $autor=$_POST['autor'];
-$sql="INSERT INTO `ARTICLESBLOG` (`TITLE`,`IMAGE`,`DESCRIPTION`,`CONTENT`,`KEYWORDS`,`AUTOR`) VALUES ('$titulo','$name_archivo','$descripcion','$contenido','$keywords','$autor');";
+$id_categoria=$_POST['categoria'];
+$sql="INSERT INTO `ARTICLESBLOG` (`TITLE`,`IMAGE`,`DESCRIPTION`,`CONTENT`,`KEYWORDS`,`AUTOR`,`IDCATEGORIA`) VALUES ('$titulo','$name_archivo','$descripcion','$contenido','$keywords','$autor','$id_categoria');";
 if($conn->query($sql)===TRUE){$respuesta=1;}else{$respuesta=6;}
 }else{$respuesta=7;}
 $conn->close();
