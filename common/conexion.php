@@ -13,8 +13,8 @@ $password="Eurochem12345*";*/
 
 $servername="localhost";
 $username="root";
-$password='';
-$dbname="servielectra";
+$password='admin';
+$dbname="SERVIELECTRA";
 // Create connection
 $conn=new mysqli($servername,$username,$password,$dbname);
 $conn->set_charset("utf8");
