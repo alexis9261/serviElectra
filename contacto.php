@@ -20,6 +20,7 @@ $contacto="active";
   <!-- main css -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 
@@ -58,8 +59,8 @@ $contacto="active";
           </div>
           <div class="info_item">
             <i class="lnr lnr-phone-handset"></i>
-            <h6><a href="#"> 0241 617 73 27 </a></h6>
-            <h6><a href="#">+58 424 421 52 17</a></h6>
+            <h6><a href="tel:02416177327"> 0241 617 73 27 </a></h6>
+            <h6><a href="tel:+584244215217">+58 424 421 52 17</a></h6>
             <p>Lun a Vie 8am a 5pm</p>
           </div>
           <div class="info_item">
@@ -71,7 +72,7 @@ $contacto="active";
         </div>
       </div>
       <div class="col-lg-9">
-        <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+        <div class="row contact_form">
           <div class="col-md-6">
             <div class="form-group">
               <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre">
@@ -89,14 +90,38 @@ $contacto="active";
             </div>
           </div>
           <div class="col-md-12 text-right">
-            <button type="submit" value="submit" class="btn submit_btn">Enviar Mensaje</button>
+            <button type="submit" value="submit" class="btn submit_btn" id="enviar">Enviar Mensaje</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <!--================Contact Area =================-->
+<script>
+  $("#enviar").click(function(){
+    var name=$("#name").val();
+    var email=$("#email").val();
+    var subject=$("#subject").val();
+    var message=$("#message").val();
+    if (name=="" || email=="" || message=="") {
+      const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+      toast({type:'info',title:'Completa los campos que son obligatorios'});
+    }else {
+      $.get('ajax_email_send.php',{name:name,email:email,subject:subject,message:message},verificar,'text');
+      function verificar(respuesta){
+        if (respuesta==1) {
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3000});
+          toast({type:'success',title:'El Mensaje fue enviado Exitosamente \n Pronto nos estaremos comunicando contigo.'});
+          $("#name").val("");$("#email").val("");$("#subject").val("");$("#company").val("");$("#message").val("");
+        }else {
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+          toast({type:'info',title:'¡Hubo un pequeño problema! \n Inténtalo de nuevo'});
+        }
+      }
+    }
+  });
+</script>
 <?php include 'common/footer.php'; ?>
 
   <!--================Contact Success and Error message Area =================-->
@@ -130,13 +155,9 @@ $contacto="active";
     </div>
   </div>
   <!--================End Contact Success and Error message Area =================-->
-
-
-
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="js/jquery-3.2.1.min.js"></script>
+
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/stellar.js"></script>
@@ -157,5 +178,7 @@ $contacto="active";
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="js/gmaps.min.js"></script>
   <script src="js/theme.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
+  <script src="js/suscripcion.js"></script>
 </body>
 </html>

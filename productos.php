@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 
 
+=======
+<?php
+$productos="active";
+?>
+>>>>>>> master
 <html lang="en">
 <head>
   <!-- Required meta tags -->
@@ -20,6 +26,7 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+<<<<<<< HEAD
 	<?php include 'common/navbar.php';?>
 	<section class="container vista_productos_main">
 		<h1 class="vista_producto_main_title text-center">Productos</h1>
@@ -43,19 +50,29 @@
 
     ?>
     <?php 
+=======
+  <?php include 'common/navbar.php';?>
+  <section class="container vista_productos_main">
+    <h1 class="vista_producto_main_title text-center">Nuestros Productos</h1>
+    <div class="productos_container_main mt-5">
+      <?php
+      $sql="SELECT * FROM PRODUCTOS";
+>>>>>>> master
       $result = $conn->query($sql);
       if($result->num_rows > 0){
-    ?>
-      <?php
         while($row=$result->fetch_assoc()){
-      ?>
-      <div class="row mb-5">
-          <div class="col-12">
-             <h2 class="vista_producto_card_title mb-2 "><?php echo ucwords($row['TITULO']); ?></h2>
-          </div>
-          <div class="vista_producto_card_img col-12 col-sm-6 col-lg-6 w-100">
+          ?>
+          <div class="row mb-5">
+            <div class="vista_producto_card_img col-12 col-sm-6 col-lg-6 w-100">
               <img class="" src="./img/productos/<?php echo $row['IMAGEN']; ?>" alt="">
+            </div>
+            <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
+              <h2 class="vista_producto_card_title mb-2"><?php echo ucwords($row['TITULO']); ?></h2>
+              <p class="vista_producto_card_subtext"> <?php echo substr( $row['DESCRIPCION'],0, 150). "...";?> </p>
+              <a href="#" class="btn vista_productos_card_boton">ver producto</a>
+            </div>
           </div>
+<<<<<<< HEAD
           
           <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
               <p class="vista_producto_card_subtext" > <?php echo substr( $row['DESCRIPCION'],0, 150). "...";?> </p>
@@ -72,6 +89,13 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+=======
+        <?php }?>
+      <?php } ?>
+    </div>
+  </section>
+  <?php include 'common/footer.php'; ?>
+>>>>>>> master
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -86,5 +110,10 @@
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/theme.js"></script>
+<<<<<<< HEAD
+=======
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
+  <script src="js/suscripcion.js"></script>
+>>>>>>> master
 </body>
 </html>

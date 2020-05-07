@@ -28,9 +28,9 @@ $search = $_GET['producto'];
 	<?php include 'common/navbar.php';?>
 	<section class="container vista_productos_main">
 		<h1 class="vista_producto_main_title text-center">Productos</h1>
-    
+
     <div class="productos_container_main mt-3">
-    <?php 
+    <?php
       if($search){
         $sql="SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
       } else {
@@ -51,7 +51,7 @@ $search = $_GET['producto'];
           <div class="vista_producto_card_img col-12 col-sm-6 col-lg-6 w-100">
               <img class="" src="./img/productos/<?php echo $row['IMAGEN']; ?>" alt="">
           </div>
-          
+
           <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
               <p class="vista_producto_card_subtext" > <?php echo substr( $row['DESCRIPCION'],0, 150). "...";?> </p>
               <a href="#" class="btn vista_productos_card_boton">Read Now</a>
@@ -60,7 +60,7 @@ $search = $_GET['producto'];
       <?php }?>
      <?php } ?>
     </div>
-    
+
 	</section>
 </body>
 </html>

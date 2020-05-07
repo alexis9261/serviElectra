@@ -34,13 +34,13 @@ function buscar(){document.search1.submit()}
       <div class="float-right">
         <ul class="list header_social d-inline">
           <?php if($facebook!=""){ ?>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="<?php echo $facebook;?>"><i class="fa fa-facebook"></i></a></li>
           <?php } if($twitter!=""){ ?>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href="<?php echo $twitter;?>"><i class="fa fa-twitter"></i></a></li>
           <?php } if($instagram!=""){ ?>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a target="_blank" href="<?php echo $instagram;?>"><i class="fa fa-instagram"></i></a></li>
           <?php } if($youtube!=""){ ?>
-            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a target="_blank" href="<?php echo $youtube;?>"><i class="fa fa-youtube"></i></a></li>
           <?php } ?>
         </ul>
         <a class="dn_btn ml-3" href="productos.php" style="color:#002169">Ver Precios</a>
@@ -81,11 +81,7 @@ function buscar(){document.search1.submit()}
               </ul>
             </li>
             <?php if(isset($productos)){ ?>
-<<<<<<< HEAD
               <li class="nav-item active"><a class="nav-link" href="producto.php"><strong>Productos</strong> </a></li>
-=======
-              <li class="nav-item active"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
->>>>>>> master
             <?php }else{ ?>
               <li class="nav-item"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
             <?php } ?>

@@ -1,5 +1,32 @@
 <?php
+include 'common/conexion.php';
 $blog="active";
+if(isset($_GET['id'])){
+  $id_blog=$_GET['id'];
+}else{
+  header("Location: blog.php");
+}
+$blog="active";
+//busco si tienen redes sociales
+$facebook="";
+$twitter="";
+$youtube="";
+$instagram="";
+$sql="SELECT ATRIBUTO,VALOR FROM `CONFIGURACION`";
+$result=$conn->query($sql);
+if($result->num_rows>0){
+  while($row=$result->fetch_assoc()){
+    if($row['ATRIBUTO']=="facebook"){
+      $facebook=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="twitter"){
+      $twitter=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="linkedin"){
+      $youtube=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="instagram"){
+      $instagram=$row['VALOR'];
+    }
+  }
+}
  ?>
 <!doctype html>
 <html lang="en">
@@ -8,7 +35,7 @@ $blog="active";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <title>Builder Construction Multi</title>
+  <title>Servielectra</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -22,8 +49,7 @@ $blog="active";
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-  <?php //include 'common/navbar.php';?>
-
+  <?php include 'common/navbar.php';?>
   <!--================Home Banner Area =================-->
   <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -31,11 +57,11 @@ $blog="active";
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.html">Home</a>
-            <a href="blog.html">Blog</a>
-            <a href="single-blog.html">Blog Details</a>
+            <a href="index.php">Inicio</a>
+            <a href="blog.php">Noticias</a>
+            <a href="single-blog.php?id=<?php echo $id_blog;?>">Detalles</a>
           </div>
-          <h2>Blog Details</h2>
+          <h2>Noticias</h2>
         </div>
       </div>
     </div>
@@ -48,66 +74,68 @@ $blog="active";
       <div class="row">
         <div class="col-lg-8 posts-list">
           <div class="single-post row">
-            <div class="col-lg-12">
-              <div class="feature-img">
-                <img class="img-fluid" src="img/blog/feature-img1.jpg" alt="">
-              </div>
-            </div>
-            <div class="col-lg-3  col-md-3">
-              <div class="blog_info text-right">
-                <div class="post_tag">
-                  <a href="#">Food,</a>
-                  <a class="active" href="#">Technology,</a>
-                  <a href="#">Politics,</a>
-                  <a href="#">Lifestyle</a>
+            <?php
+            $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+            $sql="SELECT * FROM ARTICLESBLOG WHERE IDARTICULO=$id_blog";
+            $result=$conn->query($sql);
+            if($result->num_rows>0){
+              while($row=$result->fetch_assoc()){
+                $id_articulo=$row['IDARTICULO'];
+                $titulo=$row['TITLE'];
+                $desciption=$row['DESCRIPTION'];
+                $keywords=$row['KEYWORDS'];
+                $keywords_array=explode(",",$keywords);
+                $autor=$row['AUTOR'];
+                $date=$row['DATE'];
+                $aux=substr($date,5,2);
+                if($aux<10){$aux="0".$aux;}
+                $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4);
+                $imagen=$row['IMAGE'];
+                $contenido=$row['CONTENT'];
+                ?>
+                <div class="col-lg-12">
+                  <div class="feature-img text-center">
+                    <img class="img-fluid" src="admin/blog/img/<?php echo $imagen;?>" alt="" style="width:100%;height:auto;">
+                  </div>
                 </div>
-                <ul class="blog_meta list">
-                  <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                  <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                  <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                  <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
-                </ul>
-                <ul class="social-links">
-                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-9 col-md-9 blog_details">
-              <h2>Astronomy Binoculars A Great Alternative</h2>
-              <p class="excert">
-                MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.
-              </p>
-              <p>
-                Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed
-              </p>
-              <p>
-                Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed
-              </p>
-            </div>
-            <div class="col-lg-12">
-              <div class="quotes">
-                MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <img class="img-fluid" src="img/blog/post-img1.jpg" alt="">
+                <div class="col-lg-3  col-md-3">
+                  <div class="blog_info text-right">
+                    <div class="post_tag">
+                      <?php foreach ($keywords_array as $keyword){ ?>
+                        <a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?>,</a>
+                      <?php } ?>
+                    </div>
+                    <ul class="blog_meta list">
+                      <li><a href="#"><?php echo $autor;?><i class="lnr lnr-user"></i></a></li>
+                      <li><a href="#"><?php echo $fecha;?><i class="lnr lnr-calendar-full"></i></a></li>
+                      <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                    </ul>
+                    <ul class="social-links">
+                      <?php if($facebook!=""){ ?>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <?php } if($twitter!=""){ ?>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <?php } if($instagram!=""){ ?>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                      <?php } if($youtube!=""){ ?>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                      <?php } ?>
+                    </ul>
+                  </div>
                 </div>
-                <div class="col-6">
-                  <img class="img-fluid" src="img/blog/post-img2.jpg" alt="">
-                </div>
-                <div class="col-lg-12 mt-25">
-                  <p>
-                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.
+                <div class="col-lg-9 col-md-9 blog_details">
+                  <h2><?php echo $titulo;?></h2>
+                  <p class="excert">
+                    <?php echo $desciption;?>
                   </p>
-                  <p>
-                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.
+                  <p class="excert">
+                    <?php echo $contenido;?>
                   </p>
                 </div>
-              </div>
-            </div>
+                <?php
+              }
+            }
+             ?>
           </div>
           <div class="navigation-area">
             <div class="row">
@@ -259,144 +287,100 @@ $blog="active";
         <div class="col-lg-4">
           <div class="blog_right_sidebar">
             <aside class="single_sidebar_widget search_widget">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search Posts">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
-                </span>
-              </div><!-- /input-group -->
+              <form action="" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Buscar artículos" name="search">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="lnr lnr-magnifier"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget author_widget">
-              <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
-              <h4>Charlie Barber</h4>
-              <p>Senior blog writer</p>
+              <img class="author_img rounded-circle" src="img/blog/author.png" alt="" width="50%">
+              <h4>Servielectra VE, C.A.</h4>
+              <p>J-410208686</p>
               <div class="social_icon">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-                <a href="#"><i class="fa fa-behance"></i></a>
+                <?php if($facebook!=""){ ?>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                <?php } if($twitter!=""){ ?>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                <?php } if($instagram!=""){ ?>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                <?php } if($youtube!=""){ ?>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                <?php } ?>
               </div>
-              <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
-              <div class="br"></div>
-            </aside>
-            <aside class="single_sidebar_widget popular_post_widget">
-              <h3 class="widget_title">Popular Posts</h3>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post1.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>Space The Final Frontier</h3></a>
-                  <p>02 Hours ago</p>
-                </div>
-              </div>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post2.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>The Amazing Hubble</h3></a>
-                  <p>02 Hours ago</p>
-                </div>
-              </div>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post3.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>Astronomy Or Astrology</h3></a>
-                  <p>03 Hours ago</p>
-                </div>
-              </div>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post4.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>Asteroids telescope</h3></a>
-                  <p>01 Hours ago</p>
-                </div>
-              </div>
-              <div class="br"></div>
-            </aside>
-            <aside class="single_sidebar_widget ads_widget">
-              <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+              <p>Diseñamos y fabricamos resistencias eléctricas calefactoras y sensores para medición de temperatura.</p>
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget post_category_widget">
-              <h4 class="widget_title">Post Catgories</h4>
+              <h4 class="widget_title">Catgorias de los artículos</h4>
               <ul class="list cat-list">
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Technology</p>
-                    <p>37</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Lifestyle</p>
-                    <p>24</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Fashion</p>
-                    <p>59</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Art</p>
-                    <p>29</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Food</p>
-                    <p>15</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Architecture</p>
-                    <p>09</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="d-flex justify-content-between">
-                    <p>Adventure</p>
-                    <p>44</p>
-                  </a>
-                </li>
+                <?php
+                $sql="SELECT * FROM `CATEGORIAS`";
+                $result=$conn->query($sql);
+                if($result->num_rows>0){
+                  while($row=$result->fetch_assoc()){
+                    $categoria=$row['CATEGORIA'];
+                    $idCat=$row['IDCATEGORIA'];
+                    $sqla="SELECT COUNT(IDARTICULO) AS CUENTA FROM ARTICLESBLOG WHERE IDCATEGORIA=$idCat;";
+                    $resultado=$conn->query($sqla);
+                    if($resultado->num_rows>0){
+                      while($rowa=$resultado->fetch_assoc()){
+                        $total=$rowa['CUENTA'];
+                      }
+                    }
+                    ?>
+                    <li>
+                      <a href="blog.php?id=<?php echo $idCat;?>" class="d-flex justify-content-between">
+                        <p><?php echo $categoria;?></p>
+                        <p><?php echo $total;?></p>
+                      </a>
+                    </li>
+                    <?php
+                  }
+                } ?>
               </ul>
               <div class="br"></div>
             </aside>
             <aside class="single-sidebar-widget newsletter_widget">
-              <h4 class="widget_title">Newsletter</h4>
+              <h4 class="widget_title">Suscripción</h4>
               <p>
-                Here, I focus on a range of items and features that we use in life without
-                giving them a second thought.
+                Suscribete a nosotros y te enviaremos información relevante
+                sobre artículos tecnológicos y de electricidad en general
               </p>
               <div class="form-group d-flex flex-row">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                  <input type="text" class="form-control" id="correo_blog" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
                 </div>
-                <a href="#" class="bbtns">Subcribe</a>
+                <a href="#" id="suscripcion_blog" class="bbtns">Suscribirse</a>
               </div>
-              <p class="text-bottom">You can unsubscribe at any time</p>
               <div class="br"></div>
             </aside>
             <aside class="single-sidebar-widget tag_cloud_widget">
-              <h4 class="widget_title">Tag Clouds</h4>
+              <h4 class="widget_title">Etiquetas</h4>
               <ul class="list">
-                <li><a href="#">Technology</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Architecture</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Technology</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Art</a></li>
-                <li><a href="#">Adventure</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Adventure</a></li>
+                <?php
+                $array_keywords=array();
+                $sql="SELECT KEYWORDS FROM `ARTICLESBLOG`";
+                $result=$conn->query($sql);
+                if($result->num_rows>0){
+                  while($row=$result->fetch_assoc()){
+                    $aux=explode(',',$row['KEYWORDS']);
+                    foreach($aux as $keyword){
+                      array_push($array_keywords,$keyword);
+                    }
+                  }
+                }
+                foreach($array_keywords as $keyword){
+                  ?>
+                  <li><a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?></a></li>
+                <?php } ?>
               </ul>
             </aside>
           </div>
@@ -423,5 +407,28 @@ $blog="active";
   <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/suscripcion.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
+  <script type="text/javascript">
+  $("#suscripcion_blog").click(function(){
+    var email=$("#correo_blog").val();
+    if (email=="") {
+      const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+      toast({type:'info',title:'Coloca tu correo electrónico'});
+    }else {
+      $.get('ajax_suscripcion.php',{email:email},verificar,'text');
+      function verificar(respuesta){
+        if (respuesta==1){
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3000});
+          toast({type:'success',title:'¡Gracias por suscribirte! \n Estaremos enviandote información relevante'});
+          $("#correo_footer").val("");
+        }else {
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+          toast({type:'info',title:'¡Hubo un pequeño problema! \n Inténtalo de nuevo'});
+        }
+      }
+    }
+  });
+  </script>
 </body>
 </html>

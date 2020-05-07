@@ -1,5 +1,50 @@
 <?php
+include 'common/conexion.php';
 $blog="active";
+//busco si tienen redes sociales
+$facebook="";
+$twitter="";
+$youtube="";
+$instagram="";
+$sql="SELECT ATRIBUTO,VALOR FROM `CONFIGURACION`";
+$result=$conn->query($sql);
+if($result->num_rows>0){
+  while($row=$result->fetch_assoc()){
+    if($row['ATRIBUTO']=="facebook"){
+      $facebook=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="twitter"){
+      $twitter=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="linkedin"){
+      $youtube=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="instagram"){
+      $instagram=$row['VALOR'];
+    }
+  }
+}
+#Paginacion
+$perpage=10;
+if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
+$start=($curpage*$perpage) - $perpage;
+//pregunto si existe solicitud GET en la url
+if(isset($_GET['id'])){
+  $id_categoria=$_GET['id'];
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG WHERE IDCATEGORIA=$id_categoria";
+}elseif(isset($_GET['keyword'])){
+  $keyword=$_GET['keyword'];
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG WHERE KEYWORDS LIKE '%$keyword%'";
+}elseif(isset($_GET['search'])){
+  $search=$_GET['search'];
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG WHERE TITLE LIKE '%$search%' OR KEYWORDS LIKE '%$search%'";
+}else{
+  $sqlBlogs="SELECT * FROM ARTICLESBLOG";
+}
+#necesito el total de elementos
+$pageres=mysqli_query($conn,$sqlBlogs);
+$totalres=mysqli_num_rows($pageres);
+$endpage=ceil($totalres/$perpage);
+$startpage=1;
+$nextpage=$curpage + 1;
+$previouspage=$curpage - 1;
  ?>
 <!doctype html>
 <html lang="en">
@@ -29,15 +74,14 @@ $blog="active";
       <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
       <div class="container">
         <div class="blog_b_text text-center">
-          <h2>Noticias <br /> relevantes</h2>
+          <h2>Noticias </h2>
           <p>Podrás encontrar noticias tecnologicas, historicas y de actualidad</p>
-          <a class="white_bg_btn" href="#">Ver todas</a>
+          <a class="white_bg_btn" href="blog.php">Ver todas</a>
         </div>
       </div>
     </div>
   </section>
   <!--================End Home Banner Area =================-->
-
   <!--================Blog Categorie Area =================-->
   <section class="blog_categorie_area">
     <div class="container">
@@ -47,7 +91,7 @@ $blog="active";
             <img src="img/icon/service-icon-1.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Resistencias</h5></a>
+                <a href="blog.php?id=11"><h5>Resistencias</h5></a>
                 <div class="border_line"></div>
                 <p>Infomarción sobre resistencias eléctricas</p>
               </div>
@@ -59,7 +103,7 @@ $blog="active";
             <img src="img/icon/service-icon-2.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Sensores</h5></a>
+                <a href="blog.php?id=12"><h5>Sensores</h5></a>
                 <div class="border_line"></div>
                 <p>Articulos relacionados a los sensores</p>
               </div>
@@ -71,7 +115,7 @@ $blog="active";
             <img src="img/icon/service-icon-3.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Control</h5></a>
+                <a href="blog.php?id=13"><h5>Control</h5></a>
                 <div class="border_line"></div>
                 <p>Todo sobre el control industrial</p>
               </div>
@@ -83,7 +127,7 @@ $blog="active";
             <img src="img/icon/service-icon-4.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog-details.html"><h5>Electricidad</h5></a>
+                <a href="blog.php?id=14"><h5>Electricidad</h5></a>
                 <div class="border_line"></div>
                 <p>Ariculos de electricidad en general</p>
               </div>
@@ -94,7 +138,6 @@ $blog="active";
     </div>
   </section>
   <!--================Blog Categorie Area =================-->
-
   <!--================Blog Area =================-->
   <section class="blog_area">
     <div class="container">
@@ -103,8 +146,8 @@ $blog="active";
           <div class="blog_left_sidebar">
             <?php
             $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-            $sql="SELECT * FROM `ARTICLESBLOG`";
-            $result=$conn->query($sql);
+            $sqlBlogs.=" LIMIT $start,$perpage";
+            $result=$conn->query($sqlBlogs);
             if($result->num_rows>0){
               while($row=$result->fetch_assoc()){
                 $id_articulo=$row['IDARTICULO'];
@@ -116,8 +159,6 @@ $blog="active";
                 $date=$row['DATE'];
                 $aux=substr($date,5,2);
                 if($aux<10){$aux="0".$aux;}
-                //$fecha=$meses[intval($aux)]." ".substr($date,8,2).", ".substr($date,0,4);
-                //2020-05-04
                 $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4);
                 $imagen=$row['IMAGE'];
                 ?>
@@ -125,8 +166,8 @@ $blog="active";
                   <div class="col-md-3">
                     <div class="blog_info text-right">
                       <div class="post_tag">
-                        <?php foreach ($keywords_array as $keyword) { ?>
-                          <a href="#"><?php echo $keyword;?>,</a>
+                        <?php foreach ($keywords_array as $keyword){ ?>
+                          <a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?>,</a>
                         <?php } ?>
                       </div>
                       <ul class="blog_meta list">
@@ -140,65 +181,45 @@ $blog="active";
                     <div class="blog_post">
                       <img src="admin/blog/img/<?php echo $imagen;?>" alt="<?php echo $titulo;?>" style="width:100%;height:auto;">
                       <div class="blog_details">
-                        <a href="single-blog.html"><h2><?php echo $titulo;?></h2></a>
+                        <a href="single-blog.php?id=<?php echo $id_articulo;?>"><h2><?php echo $titulo;?></h2></a>
                         <p><?php echo $desciption;?></p>
-                        <a href="single-blog.php?id=<?php echo $id_articulo;?>" class="white_bg_btn">View More</a>
+                        <a href="single-blog.php?id=<?php echo $id_articulo;?>" class="white_bg_btn">Leer más</a>
                       </div>
                     </div>
                   </div>
                 </article>
                 <?php
               }
-            } ?>
-            <article class="row blog_item">
-              <div class="col-md-3">
-                <div class="blog_info text-right">
-                  <div class="post_tag">
-                    <a href="#">Food,</a>
-                    <a class="active" href="#">Technology,</a>
-                    <a href="#">Politics,</a>
-                    <a href="#">Lifestyle</a>
-                  </div>
-                  <ul class="blog_meta list">
-                    <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                    <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                    <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                    <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-9">
-                <div class="blog_post">
-                  <img src="img/blog/main-blog/m-blog-5.jpg" alt="">
-                  <div class="blog_details">
-                    <a href="single-blog.html"><h2>Telescopes 101</h2></a>
-                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                    <a href="single-blog.html" class="white_bg_btn">View More</a>
-                  </div>
-                </div>
-              </div>
-            </article>
+             }else{ ?>
+              <h4 style="color:#002169">No Hay Artículos</h4>
+            <?php } ?>
             <nav class="blog-pagination justify-content-center d-flex">
               <ul class="pagination">
-                <li class="page-item">
-                  <a href="#" class="page-link" aria-label="Previous">
-                    <span aria-hidden="true">
-                      <span class="lnr lnr-chevron-left"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="page-item"><a href="#" class="page-link">01</a></li>
-                <li class="page-item active"><a href="#" class="page-link">02</a></li>
-                <li class="page-item"><a href="#" class="page-link">03</a></li>
-                <li class="page-item"><a href="#" class="page-link">04</a></li>
-                <li class="page-item"><a href="#" class="page-link">09</a></li>
-                <li class="page-item">
-                  <a href="#" class="page-link" aria-label="Next">
-                    <span aria-hidden="true">
-                      <span class="lnr lnr-chevron-right"></span>
-                    </span>
-                  </a>
-                </li>
+                <?php if($curpage!=$startpage){ ?>
+                  <li class="page-item">
+                    <a href="?page=<?php echo $startpage;?>" class="page-link" aria-label="Previous">
+                      <span aria-hidden="true">
+                        <span class="lnr lnr-chevron-left"></span>
+                      </span>
+                    </a>
+                  </li>
+                <?php } ?>
+                <?php if($curpage>=2){ ?>
+                  <li class="page-item"><a href="?page=<?php echo $previouspage;?>" class="page-link"><?php echo $previouspage;?></a></li>
+                <?php } ?>
+                <li class="page-item"><a href="?page=<?php echo $curpage;?>" class="page-link"><?php echo $curpage;?></a></li>
+                <?php if($curpage!=$endpage){ ?>
+                  <li class="page-item"><a href="?page=<?php echo $nextpage;?>" class="page-link"><?php echo $nextpage;?></a></li>
+                <?php } ?>
+                <?php if($curpage!=$endpage){ ?>
+                  <li class="page-item">
+                    <a href="?page=<?php echo $endpage;?>" class="page-link" aria-label="Next">
+                      <span aria-hidden="true">
+                        <span class="lnr lnr-chevron-right"></span>
+                      </span>
+                    </a>
+                  </li>
+                <?php } ?>
               </ul>
             </nav>
           </div>
@@ -206,59 +227,32 @@ $blog="active";
         <div class="col-lg-4">
           <div class="blog_right_sidebar">
             <aside class="single_sidebar_widget search_widget">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar artículos">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
-                </span>
-              </div><!-- /input-group -->
+              <form action="" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Buscar artículos" name="search">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="lnr lnr-magnifier"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget author_widget">
-              <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
-              <h4>Charlie Barber</h4>
-              <p>Senior blog writer</p>
+              <img class="author_img rounded-circle" src="img/blog/author.png" alt="" width="50%">
+              <h4>Servielectra VE, C.A.</h4>
+              <p>J-410208686</p>
               <div class="social_icon">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
+                <?php if($facebook!=""){ ?>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                <?php } if($twitter!=""){ ?>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                <?php } if($instagram!=""){ ?>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                <?php } if($youtube!=""){ ?>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                <?php } ?>
               </div>
-              <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
-              <div class="br"></div>
-            </aside>
-            <aside class="single_sidebar_widget popular_post_widget">
-              <h3 class="widget_title">Popular Posts</h3>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post1.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>Space The Final Frontier</h3></a>
-                  <p>02 Hours ago</p>
-                </div>
-              </div>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post2.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>The Amazing Hubble</h3></a>
-                  <p>02 Hours ago</p>
-                </div>
-              </div>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post3.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>Astronomy Or Astrology</h3></a>
-                  <p>03 Hours ago</p>
-                </div>
-              </div>
-              <div class="media post_item">
-                <img src="img/blog/popular-post/post4.jpg" alt="post">
-                <div class="media-body">
-                  <a href="blog-details.html"><h3>Asteroids telescope</h3></a>
-                  <p>01 Hours ago</p>
-                </div>
-              </div>
-              <div class="br"></div>
-            </aside>
-            <aside class="single_sidebar_widget ads_widget">
-              <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+              <p>Diseñamos y fabricamos resistencias eléctricas calefactoras y sensores para medición de temperatura.</p>
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget post_category_widget">
@@ -302,9 +296,9 @@ $blog="active";
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
+                  <input type="text" class="form-control" id="correo_blog" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
                 </div>
-                <a href="#" class="bbtns">Suscribirse</a>
+                <a href="#" id="suscripcion_blog" class="bbtns">Suscribirse</a>
               </div>
               <div class="br"></div>
             </aside>
@@ -335,7 +329,6 @@ $blog="active";
     </div>
   </section>
   <!--================Blog Area =================-->
-
   <?php include 'common/footer.php'; ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -354,5 +347,28 @@ $blog="active";
   <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/theme.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
+  <script src="js/suscripcion.js"></script>
+  <script type="text/javascript">
+  $("#suscripcion_blog").click(function(){
+    var email=$("#correo_blog").val();
+    if (email=="") {
+      const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+      toast({type:'info',title:'Coloca tu correo electrónico'});
+    }else {
+      $.get('ajax_suscripcion.php',{email:email},verificar,'text');
+      function verificar(respuesta){
+        if (respuesta==1){
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3000});
+          toast({type:'success',title:'¡Gracias por suscribirte! \n Estaremos enviandote información relevante'});
+          $("#correo_footer").val("");
+        }else {
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
+          toast({type:'info',title:'¡Hubo un pequeño problema! \n Inténtalo de nuevo'});
+        }
+      }
+    }
+  });
+  </script>
 </body>
 </html>
