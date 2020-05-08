@@ -1,11 +1,25 @@
 <?php
 include 'common/conexion.php';
+date_default_timezone_set('America/Caracas');
 $blog="active";
 if(isset($_GET['id'])){
   $id_blog=$_GET['id'];
-}else{
-  header("Location: blog.php");
-}
+  //creo el comentario en BBDD
+  if (isset($_GET['nombre'],$_GET['email'],$_GET['texto'])) {
+    $nombre=$_GET['nombre'];
+    $email=$_GET['email'];
+    $text=$_GET['texto'];
+    $sql="INSERT INTO MENSAJESBLOG (NOMBRE,TEXTO,ARTICULOID,CORREO) VALUES ('$nombre','$text','$id_blog','$email');";
+    if($conn->query($sql) === TRUE){header("Location: single-blog.php?id=$id_blog");}else {header("Location: single-blog.php?id=$id_blog");}
+  }
+  $sql="SELECT COUNT(IDMENSAJE) AS CUENTA FROM MENSAJESBLOG WHERE ARTICULOID=$id_blog;";
+  $resultado=$conn->query($sql);
+  if($resultado->num_rows>0){
+    while($rowa=$resultado->fetch_assoc()){
+      $total_mensajes=$rowa['CUENTA'];
+    }
+  }
+}else{header("Location: blog.php");}
 $blog="active";
 //busco si tienen redes sociales
 $facebook="";
@@ -27,7 +41,8 @@ if($result->num_rows>0){
     }
   }
 }
- ?>
+
+  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -108,7 +123,7 @@ if($result->num_rows>0){
                     <ul class="blog_meta list">
                       <li><a href="#"><?php echo $autor;?><i class="lnr lnr-user"></i></a></li>
                       <li><a href="#"><?php echo $fecha;?><i class="lnr lnr-calendar-full"></i></a></li>
-                      <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                      <li><a href="#"><?php echo $total_mensajes;?> Comments<i class="lnr lnr-bubble"></i></a></li>
                     </ul>
                     <ul class="social-links">
                       <?php if($facebook!=""){ ?>
@@ -140,147 +155,110 @@ if($result->num_rows>0){
           <div class="navigation-area">
             <div class="row">
               <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                <div class="thumb">
-                  <a href="#"><img class="img-fluid" src="img/blog/prev.jpg" alt=""></a>
-                </div>
-                <div class="arrow">
-                  <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
-                </div>
-                <div class="detials">
-                  <p>Prev Post</p>
-                  <a href="#"><h4>Space The Final Frontier</h4></a>
-                </div>
+                <?php
+                $sql="SELECT IDARTICULO,TITLE,IMAGE FROM ARTICLESBLOG WHERE DATE < '$date' ORDER BY DATE LIMIT 1";
+                $result=$conn->query($sql);
+                if($result->num_rows>0){
+                  while($row=$result->fetch_assoc()){
+                    $id_articulo=$row['IDARTICULO'];
+                    $titulo=$row['TITLE'];
+                    $imagen=$row['IMAGE'];
+                    ?>
+                    <div class="thumb">
+                      <a href="single-blog.php?id=<?php echo $id_articulo;?>"><img class="img-fluid" src="admin/blog/img/<?php echo $imagen;?>" alt="" style="width:75px;height:auto;"></a>
+                    </div>
+                    <div class="arrow">
+                      <a href="single-blog.php?id=<?php echo $id_articulo;?>"><span class="lnr text-white lnr-arrow-left"></span></a>
+                    </div>
+                    <div class="detials">
+                      <p>Previo</p>
+                      <a href="single-blog.php?id=<?php echo $id_articulo;?>"><h4><?php echo $titulo;?></h4></a>
+                    </div>
+                    <?php
+                  }
+                }
+                 ?>
               </div>
               <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                <div class="detials">
-                  <p>Next Post</p>
-                  <a href="#"><h4>Telescopes 101</h4></a>
-                </div>
-                <div class="arrow">
-                  <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
-                </div>
-                <div class="thumb">
-                  <a href="#"><img class="img-fluid" src="img/blog/next.jpg" alt=""></a>
-                </div>
+                <?php
+                $sql="SELECT IDARTICULO,TITLE,IMAGE FROM ARTICLESBLOG WHERE DATE > '$date' ORDER BY DATE LIMIT 1";
+                $result=$conn->query($sql);
+                if($result->num_rows>0){
+                  while($row=$result->fetch_assoc()){
+                    $id_articulo=$row['IDARTICULO'];
+                    $titulo=$row['TITLE'];
+                    $imagen=$row['IMAGE'];
+                    ?>
+                    <div class="detials">
+                      <p>Siguiente</p>
+                      <a href="single-blog.php?id=<?php echo $id_articulo;?>"><h4><?php echo $titulo;?></h4></a>
+                    </div>
+                    <div class="arrow">
+                      <a href="single-blog.php?id=<?php echo $id_articulo;?>"><span class="lnr text-white lnr-arrow-right"></span></a>
+                    </div>
+                    <div class="thumb">
+                      <a href="single-blog.php?id=<?php echo $id_articulo;?>"><img class="img-fluid" src="admin/blog/img/<?php echo $imagen;?>" alt="" style="width:75px;height:auto;"></a>
+                    </div>
+
+                    <?php
+                  }
+                }
+                 ?>
               </div>
             </div>
           </div>
           <div class="comments-area">
-            <h4>05 Comments</h4>
-            <div class="comment-list">
-              <div class="single-comment justify-content-between d-flex">
-                <div class="user justify-content-between d-flex">
-                  <div class="thumb">
-                    <img src="img/blog/c1.jpg" alt="">
-                  </div>
-                  <div class="desc">
-                    <h5><a href="#">Emilly Blunt</a></h5>
-                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                    <p class="comment">
-                      Never say goodbye till the end comes!
-                    </p>
-                  </div>
-                </div>
-                <div class="reply-btn">
-                  <a href="" class="btn-reply text-uppercase">reply</a>
-                </div>
-              </div>
-            </div>
-            <div class="comment-list left-padding">
-              <div class="single-comment justify-content-between d-flex">
-                <div class="user justify-content-between d-flex">
-                  <div class="thumb">
-                    <img src="img/blog/c2.jpg" alt="">
-                  </div>
-                  <div class="desc">
-                    <h5><a href="#">Elsie Cunningham</a></h5>
-                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                    <p class="comment">
-                      Never say goodbye till the end comes!
-                    </p>
+            <h4><?php echo $total_mensajes;?> Comments</h4>
+            <?php
+            $sql="SELECT * FROM MENSAJESBLOG WHERE ARTICULOID=$id_blog";
+            $result=$conn->query($sql);
+            if($result->num_rows>0){
+              while($row=$result->fetch_assoc()){
+                $id_mensaje=$row['IDMENSAJE'];
+                $nombre_user=$row['NOMBRE'];
+                $texto=$row['TEXTO'];
+                $date=$row['DATE'];
+                $aux=substr($date,5,2);
+                if($aux<10){$aux="0".$aux;}
+                $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4)." a las ".substr($date,11,2).":".substr($date,14,2);
+                ?>
+                <div class="comment-list">
+                  <div class="single-comment justify-content-between d-flex">
+                    <div class="user justify-content-between d-flex">
+                      <div class="thumb">
+                        <img src="img/blog/user.png" alt="" style="width:50px;height: 50px;border-radius:50%;">
+                      </div>
+                      <div class="desc">
+                        <h5><?php echo $nombre_user;?></h5>
+                        <p class="date"><?php echo $fecha;?></p>
+                        <p class="comment">
+                          <?php echo $texto;?>
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="reply-btn">
-                  <a href="" class="btn-reply text-uppercase">reply</a>
-                </div>
-              </div>
-            </div>
-            <div class="comment-list left-padding">
-              <div class="single-comment justify-content-between d-flex">
-                <div class="user justify-content-between d-flex">
-                  <div class="thumb">
-                    <img src="img/blog/c3.jpg" alt="">
-                  </div>
-                  <div class="desc">
-                    <h5><a href="#">Annie Stephens</a></h5>
-                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                    <p class="comment">
-                      Never say goodbye till the end comes!
-                    </p>
-                  </div>
-                </div>
-                <div class="reply-btn">
-                  <a href="" class="btn-reply text-uppercase">reply</a>
-                </div>
-              </div>
-            </div>
-            <div class="comment-list">
-              <div class="single-comment justify-content-between d-flex">
-                <div class="user justify-content-between d-flex">
-                  <div class="thumb">
-                    <img src="img/blog/c4.jpg" alt="">
-                  </div>
-                  <div class="desc">
-                    <h5><a href="#">Maria Luna</a></h5>
-                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                    <p class="comment">
-                      Never say goodbye till the end comes!
-                    </p>
-                  </div>
-                </div>
-                <div class="reply-btn">
-                  <a href="" class="btn-reply text-uppercase">reply</a>
-                </div>
-              </div>
-            </div>
-            <div class="comment-list">
-              <div class="single-comment justify-content-between d-flex">
-                <div class="user justify-content-between d-flex">
-                  <div class="thumb">
-                    <img src="img/blog/c5.jpg" alt="">
-                  </div>
-                  <div class="desc">
-                    <h5><a href="#">Ina Hayes</a></h5>
-                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                    <p class="comment">
-                      Never say goodbye till the end comes!
-                    </p>
-                  </div>
-                </div>
-                <div class="reply-btn">
-                  <a href="" class="btn-reply text-uppercase">reply</a>
-                </div>
-              </div>
-            </div>
+                <?php
+              }
+            }
+             ?>
           </div>
           <div class="comment-form">
-            <h4>Leave a Reply</h4>
-            <form>
+            <h4>Comentar el artículo</h4>
+            <form action="" method="get">
               <div class="form-group form-inline">
                 <div class="form-group col-lg-6 col-md-6 name">
-                  <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+                  <input name="nombre" type="text" class="form-control" placeholder="Nombre Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre Completo'" maxlength="100" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 email">
-                  <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+                  <input name="email" type="email" class="form-control" placeholder="Ingresa tu correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tu correo electrónico'" maxlength="100" required>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+                <textarea class="form-control mb-10" rows="5" name="texto" placeholder="Comentario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Comentario'" required></textarea>
               </div>
-              <div class="form-group">
-                <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-              </div>
-              <a href="#" class="primary-btn submit_btn">Post Comment</a>
+              <input type="hidden" name="id" value="<?php echo $id_blog;?>">
+              <button type="submit" class="primary-btn submit_btn">Publicar mi comentario</button>
             </form>
           </div>
         </div>

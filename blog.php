@@ -1,5 +1,6 @@
 <?php
 include 'common/conexion.php';
+date_default_timezone_set('America/Caracas');
 $blog="active";
 //busco si tienen redes sociales
 $facebook="";

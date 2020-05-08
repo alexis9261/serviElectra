@@ -1081,7 +1081,12 @@ button:focus {
   align-self: center;
   padding-left: 20px;
 }
-
+.enlace_home_blog{
+  color:#222222;
+}
+.enlace_home_blog:hover{
+  color:#fff500;
+}
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3 {
   font-size: 14px;
   line-height: 20px;
@@ -4289,13 +4294,13 @@ h6 {
     border-right: 1px solid grey;
   }
 
-  
+
   .detalle_producto_title{
     margin-top: 2.7rem;
     font-size: 2.3rem;
     margin-bottom: 2rem;
   }
-  
+
   .detalle_producto_precio{
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -4313,7 +4318,7 @@ h6 {
 }
 
 @media (min-width: 1000px){
-  .detalle_producto_title{ 
+  .detalle_producto_title{
     font-size: 2.8rem;
     margin-top: 1rem;
   }
@@ -4342,7 +4347,26 @@ h6 {
 }
 
 
-
+.whatsapp_div{
+  display:scroll;
+  position:fixed;
+  bottom:5%;
+  right:1%;
+  z-index: 1000;
+}
+.whatsapp_image{
+  opacity: 0.9;
+  width: 90px;
+  height: auto;
+}
+.shadow_whatsapp{
+  -webkit-box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.35);
+  box-shadow: -1px 3px 15px 0px rgba(0,0,0,0.35);
+}
+.whatsapp_image:hover{
+  opacity: 1;
+}
 
 
 /*---------------------------------------------------- */

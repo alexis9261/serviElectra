@@ -1,6 +1,6 @@
 <?php
 $home="active";
-
+date_default_timezone_set('America/Caracas');
  ?>
 <!doctype html>
 <html lang="en">
@@ -35,7 +35,7 @@ $home="active";
       <div class="banner_content text-center">
         <h3>Resistencias <span>Eléctricas</span></h3>
         <p><strong>Ponemos a su disposición nuestro servicio de diseño y fabricación a la medida de todo tipo de resistencias eléctricas calefactoras y sensores de temperatura.</strong> </p>
-        <a class="black_btn" href="#">Ver los productos</a>
+        <a class="black_btn" href="productos.php">Ver los productos</a>
       </div>
     </div>
   </div>
@@ -52,30 +52,30 @@ $home="active";
     <div class="row services_inner">
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=1"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=1"><h4>Resistencias</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="productos.php?cat=11"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=11"><h4>Resistencias</h4></a>
+          <p>Fabricación de resistencias eléctricas a la medida para el sector industrial, comercial y residencial.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=2"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=2"><h4>Sensores</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="productos.php?cat=12"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=12"><h4>Sensores</h4></a>
+          <p>Fabricación de sensores de temperatura a la medida: Termopares y RTD PT100.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=3"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=3"><h4>Control</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="productos.php?cat=13"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=13"><h4>Control</h4></a>
+          <p>Venta y distribución de materiales eléctricos para el control y la automatización de procesos.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=4"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=4"><h4>Electricidad</h4></a>
-          <p>Lorem ipsum dolor sit amet, consecteturadipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="productos.php?cat=14"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=14"><h4>Electricidad</h4></a>
+          <p>Material especializado para altas temperaturas. Cables, terminales, borneras, aisladores y más.</p>
         </div>
       </div>
     </div>
@@ -87,20 +87,20 @@ $home="active";
   <div class="container">
     <div class="main_title">
       <h2>Algunos de nuestros productos</h2>
+      <p>Todos nuestros productos estan adaptados a los requerimientos del sector comercial y empresarial</p>
     </div>
+    <div class="row products_cards">
       <?php
         $sql="SELECT * FROM PRODUCTOS LIMIT 4";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
-      ?>
-    <div class="row products_cards">
-        <?php
           while($row=$result->fetch_assoc()){
+            $imagen=$row['IMAGEN'];
         ?>
         <div class="col-lg-3 col-sm-6">
           <div class="product_card_item">
             <div class="card_img">
-              <img class="product_card_img w-100" src="img/productos/<?php echo $row['IMAGEN']?>" alt="">
+              <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
               <a href="productoDetalle.php?detalle=<?php echo $row['IDPRODUCTO'] ?>" class="product_card_hover">
                 <h3 class="product_card_title"><?php echo ucwords($row['TITULO']); ?></h3>
               </a>
@@ -115,10 +115,6 @@ $home="active";
     </div>
   </div>
 </section>
-
-<!--================End Products Area =================-->
-
-
 <!--================Metricas Area =================-->
 <section class="counter_area">
   <div class="container">
@@ -146,10 +142,8 @@ $home="active";
     </div>
   </div>
 </section>
-<!--================End Counter Area =================-->
-
 <!--================Feature Area =================-->
-<section class="feature_area p_120">
+<section class="feature_area p_120 pb-5">
   <div class="container">
     <div class="main_title">
       <h2>Más de nosotros</h2>
@@ -195,13 +189,12 @@ $home="active";
     </div>
   </div>
 </section>
-<!--================End Feature Area =================-->
-
 <!--================Blog Area =================-->
-<section class="testimonials_area p_120">
+<section class="testimonials_area p_120 pt-5">
   <div class="container">
     <div class="main_title">
-      <h2>Algunas Noticias</h2>
+      <h2>Algunos artículos de interes</h2>
+      <p>Acá podrás ver información sobre tecnologia, ciencia, ambiente y muchas cosas más.</p>
     </div>
     <div class="testi_slider owl-carousel">
       <?php
@@ -226,8 +219,8 @@ $home="active";
                   <img src="admin/blog/img/<?php echo $imagen;?>" alt="" style="border-radius:50%;width:100px!important;height:100px!important;">
                 </div>
                 <div class="media-body">
-                  <p><?php echo substr($desciption,0,150)."...";?></p>
-                  <h4><a href="blog.php?<?php echo $id_articulo;?>"><?php echo $titulo;?></a> </h4>
+                  <p><?php echo substr($desciption,0,175)."...";?></p>
+                  <h4><a class="enlace_home_blog" href="blog.php?<?php echo $id_articulo;?>"><?php echo $titulo;?></a> </h4>
                   <h5><?php echo $fecha;?></h5>
                 </div>
               </div>
@@ -240,8 +233,6 @@ $home="active";
     </div>
   </div>
 </section>
-<!--================End Testimonials Area =================-->
-
 <!--================Clients Logo Area =================-->
 <section class="clients_logo_area p_120">
   <div class="container">
@@ -264,8 +255,6 @@ $home="active";
     </div>
   </div>
 </section>
-<!--================End Clients Logo Area =================-->
-
 <?php include 'common/footer.php'; ?>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

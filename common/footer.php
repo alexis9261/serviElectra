@@ -20,6 +20,11 @@ if($result->num_rows>0){
   }
 }
  ?>
+ <div class="whatsapp_div">
+   <a href="https://wa.me/584244215217" target="_blank">
+     <img class="whatsapp_image" src="../img/whatsapp.png" alt="whatsapp Button">
+   </a>
+ </div>
 <footer class="footer-area p_120 pb-5">
   <div class="container">
     <div class="row">
@@ -52,7 +57,7 @@ if($result->num_rows>0){
       </div>
     </div>
     <div class="row footer-bottom d-flex align-items-center pt-4">
-      <div class="col-auto footer-social">
+      <div class="col-auto footer-social align-self-center">
           <?php if($facebook!=""){ ?>
             <a target="_blank" href="<?php echo $facebook;?>"><i class="fa fa-facebook"></i></a>
           <?php }if($twitter!=""){ ?>

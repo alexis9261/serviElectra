@@ -23,38 +23,41 @@ $productos="active";
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-
 	<?php include 'common/navbar.php';?>
-	<section class="container vista_productos_main">
-		<h1 class="vista_producto_main_title text-center">Productos</h1>
-    
+  <section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+      <div class="container">
+        <div class="banner_content text-center">
+          <div class="page_link">
+            <a href="index.php">Inicio</a>
+            <a href="nosotros.php">Productos</a>
+          </div>
+          <h2>Nuestros Productos</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+	<section class="container vista_productos_main mt-1">
+		<h1 class="vista_producto_main_title text-center my-5">Algunos de nuestros productos</h1>
     <div class="productos_container_main mt-3">
     <?php
       if(isset($_GET['cat'])){
-
         $categoriaID = $_GET['cat'];
         $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
-
       } elseif (isset($_GET['producto'])) {
-
         $search = $_GET['producto'];
         $sql="SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
-
       } else {
         $sql="SELECT * FROM PRODUCTOS";
       }
-
-
-    ?>
-    <?php 
-
       $result = $conn->query($sql);
       if($result->num_rows > 0){
         while($row=$result->fetch_assoc()){
           ?>
           <div class="row mb-5">
             <div class="vista_producto_card_img col-12 col-sm-6 col-lg-6 w-100">
-              <img class="" src="./img/productos/<?php echo $row['IMAGEN']; ?>" alt="">
+              <img class="" src="admin/productos/img/<?php echo $row['IMAGEN']; ?>" alt="">
             </div>
             <div class="vista_producto_card_information col-12 col-sm-6 col-lg-5">
               <h2 class="vista_producto_card_title mb-2"><?php echo ucwords($row['TITULO']); ?></h2>
@@ -64,13 +67,19 @@ $productos="active";
           </div>
       </div>
       <?php }?>
-     <?php } ?>
+    <?php }else { ?>
+      <p>
+        <strong>No se encontraron productos.</strong>
+      </p>
+      <strong class="text-muted mb-5">Busca en otras categorias o has una busqueda general.</strong>
+      <br>
+      <br>
+      <br>
+      <br>
+      <?php } ?>
     </div>
-    
   </section>
-  
   <?php include 'common/footer.php'; ?>
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
@@ -88,9 +97,7 @@ $productos="active";
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/theme.js"></script>
-
   <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
   <script src="js/suscripcion.js"></script>
-
 </body>
 </html>

@@ -81,7 +81,7 @@ function buscar(){document.search1.submit()}
               </ul>
             </li>
             <?php if(isset($productos)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="producto.php"><strong>Productos</strong> </a></li>
+              <li class="nav-item active"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
             <?php }else{ ?>
               <li class="nav-item"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
             <?php } ?>
