@@ -46,6 +46,7 @@
             <?php if($_SESSION['nivel']==1){ ?>
               <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/usuarios.php"><span class="hide-menu">Usuarios </span></a>
               <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/categorias.php"><span class="hide-menu">Categorias </span></a>
+              <a class="d-block sidebar-link waves-effect waves-dark sidebar-link ml-5" href="/admin/generales/suscriptores.php"><span class="hide-menu">Suscriptores </span></a>
             <?php } ?>
           </div>
         </li>

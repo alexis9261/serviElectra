@@ -97,7 +97,7 @@ if($result->num_rows>0){
               while($row=$result->fetch_assoc()){
                 $id_articulo=$row['IDARTICULO'];
                 $titulo=$row['TITLE'];
-                $desciption=$row['DESCRIPTION'];
+                $desciption=nl2br($row['DESCRIPTION']);
                 $keywords=$row['KEYWORDS'];
                 $keywords_array=explode(",",$keywords);
                 $autor=$row['AUTOR'];
@@ -106,7 +106,7 @@ if($result->num_rows>0){
                 if($aux<10){$aux="0".$aux;}
                 $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4);
                 $imagen=$row['IMAGE'];
-                $contenido=$row['CONTENT'];
+                $contenido=nl2br($row['CONTENT']);
                 ?>
                 <div class="col-lg-12">
                   <div class="feature-img text-center">
@@ -199,7 +199,6 @@ if($result->num_rows>0){
                     <div class="thumb">
                       <a href="single-blog.php?id=<?php echo $id_articulo;?>"><img class="img-fluid" src="admin/blog/img/<?php echo $imagen;?>" alt="" style="width:75px;height:auto;"></a>
                     </div>
-
                     <?php
                   }
                 }

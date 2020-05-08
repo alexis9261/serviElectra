@@ -1,8 +1,19 @@
-
 <?php
+include 'common/conexion.php';
 $productos="active";
+#Paginacion
+$perpage=10;
+if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
+$start=($curpage*$perpage) - $perpage;
+#necesito el total de elementos
+$sql="SELECT * FROM PRODUCTOS";
+$pageres=mysqli_query($conn,$sql);
+$totalres=mysqli_num_rows($pageres);
+$endpage=ceil($totalres/$perpage);
+$startpage=1;
+$nextpage=$curpage + 1;
+$previouspage=$curpage - 1;
 ?>
-
 <html lang="en">
 <head>
   <!-- Required meta tags -->
@@ -78,6 +89,35 @@ $productos="active";
       <br>
       <?php } ?>
     </div>
+    <nav class="blog-pagination justify-content-center d-flex">
+      <ul class="pagination">
+        <?php if($curpage!=$startpage){ ?>
+          <li class="page-item">
+            <a href="?page=<?php echo $startpage;?>" class="page-link" aria-label="Previous">
+              <span aria-hidden="true">
+                <span class="lnr lnr-chevron-left"></span>
+              </span>
+            </a>
+          </li>
+        <?php } ?>
+        <?php if($curpage>=2){ ?>
+          <li class="page-item"><a href="?page=<?php echo $previouspage;?>" class="page-link"><?php echo $previouspage;?></a></li>
+        <?php } ?>
+        <li class="page-item"><a href="?page=<?php echo $curpage;?>" class="page-link"><?php echo $curpage;?></a></li>
+        <?php if($curpage!=$endpage){ ?>
+          <li class="page-item"><a href="?page=<?php echo $nextpage;?>" class="page-link"><?php echo $nextpage;?></a></li>
+        <?php } ?>
+        <?php if($curpage!=$endpage){ ?>
+          <li class="page-item">
+            <a href="?page=<?php echo $endpage;?>" class="page-link" aria-label="Next">
+              <span aria-hidden="true">
+                <span class="lnr lnr-chevron-right"></span>
+              </span>
+            </a>
+          </li>
+        <?php } ?>
+      </ul>
+    </nav>
   </section>
   <?php include 'common/footer.php'; ?>
   <!-- Optional JavaScript -->

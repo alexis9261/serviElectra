@@ -92,6 +92,9 @@ $previouspage=$curpage - 1;
                           </div>
                         </div>
                         <div class="col-1">
+                          <a href="javascript:void(0)" data-toggle="modal" data-target="#mensajes<?php echo $id_articulo;?>"  title="Mensajes">
+                            <svg aria-hidden="true" width="15px" focusable="false" data-prefix="fas" data-icon="comment-alt" class="svg-inline--fa fa-comment-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 9.8 11.2 15.5 19.1 9.7L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64z"></path></svg>
+                          </a>
                           <a href="edit.php?id=<?php echo $id_articulo;?>" title="Editar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 576 512"><path fill="#43ff65" d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"/></svg>
                           </a>
@@ -101,6 +104,50 @@ $previouspage=$curpage - 1;
                         </div>
                       </div>
                       <hr>
+                      <!-- Modal Mensajes -->
+                      <div class="modal fade" id="mensajes<?php echo $id_articulo;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title"><?php echo ucwords($row['TITLE']);?></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="container">
+                                  <?php
+                                  $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+                                  $sql="SELECT NOMBRE,TEXTO,DATE FROM MENSAJESBLOG WHERE ARTICULOID=$id_articulo";
+                                  $result=$conn->query($sql);
+                                  if($result->num_rows>0){
+                                    while($row=$result->fetch_assoc()){
+                                      $nombre_user=$row['NOMBRE'];
+                                      $texto=$row['TEXTO'];
+                                      $date=$row['DATE'];
+                                      $aux=substr($date,5,2);
+                                      if($aux<10){$aux="0".$aux;}
+                                      $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4)." a las ".substr($date,11,2).":".substr($date,14,2);
+                                      ?>
+                                      <div class="row">
+                                        <div class="col-12">
+                                          <h6><b><?php echo $nombre_user;?></b></h6>
+                                          </div>
+                                        <p>
+                                          <?php echo $texto;?><br>
+                                          <small class="text-muted"><?php echo $fecha;?></small>
+                                        </p>
+                                      </div>
+                                      <hr>
+                                      <?php
+                                    }
+                                  }
+                                   ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <!-- Modal Eliminar -->
                       <div class="modal fade" id="eli<?php echo $id_articulo;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">

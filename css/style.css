@@ -4239,7 +4239,20 @@ h6 {
 
 /*Vista producto detallado
 ============================================================================================ */
-
+.container-img-product-detalles{
+  background-color:#ffffff;
+  position:relative;
+  height:80vh;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.img-product-detalles{
+  max-height:77vh!important;
+  object-fit:contain;
+  object-position:center center;
+}
 .vista_productos_detalles_main{
   border: 1px solid grey;
   border-top: none;
