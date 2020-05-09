@@ -20,7 +20,7 @@ if(isset($_FILES['images'])){
   if($result->num_rows>0){
     while($row=$result->fetch_assoc()){
       $ruta_imagen=$row['URLIMAGEN'];
-      unlink("../../imagen/$ruta_imagen");
+      unlink("../../img/banner/$ruta_imagen");
       $eliminar=$conn->query("DELETE FROM IMAGENES WHERE `URLIMAGEN`='$ruta_imagen';");
       if($conn->query($sql)===TRUE){}
     }

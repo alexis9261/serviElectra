@@ -22,10 +22,10 @@
   <ul class="navbar-nav float-right">
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="/imagen/logo.png" alt="user" class="rounded-circle" width="31">
+        <img src="../img/logo.png" alt="user" class="rounded-circle" width="31">
       </a>
       <div class="dropdown-menu dropdown-menu-right user-dd animated">
-        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#closeSesion"><i class="ti-export m-r-5 m-l-5"></i>Cerrar sesión</a>
+        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#closeSesion">Cerrar sesión</a>
       </div>
     </li>
   </ul>

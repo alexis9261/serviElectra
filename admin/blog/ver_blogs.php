@@ -17,7 +17,7 @@ if(isset($_GET['delete']) && !empty($_GET['delete'])){
   if($conn->query($sql)===TRUE){$respuesta=1;}else{$respuesta=2;}
 }
 #paginacion
-$perpage=25;
+$perpage=7;
 if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
 $start=($curpage*$perpage) - $perpage;
 #necesito el total de elementos
@@ -62,36 +62,38 @@ $previouspage=$curpage - 1;
                 <div class="card-body">
                   <h4 class="card-title">Blogs en la página</h4>
                 </div>
+                <div class="container">
                 <?php
                 $sql="SELECT * FROM ARTICLESBLOG LIMIT $start,$perpage";
                 $result=$conn->query($sql);
+                $x=1;
                 if($result->num_rows>0){
-                  ?>
-                  <div class="container">
-                    <?php
-                    $x=1;
                     while($row=$result->fetch_assoc()){
                       $id_articulo=$row['IDARTICULO'];
+                      $imagen=$row['IMAGE'];
+                      $fecha=$row['DATE'];
+                      $titulo=$row['TITLE'];
+                      $autor=$row['AUTOR'];
                       ?>
                       <div class="row align-items-center">
                         <strong class="col-1"><?php echo $x;?></strong>
-                        <div class="col-1 "><img src="img/<?php echo $row['IMAGE'];?>" width="35px"></div>
-                        <div class="col-9">
+                        <div class="col-1"><img src="img/<?php echo $imagen;?>" width="35px"></div>
+                        <div class="col-8">
                           <div class="row">
                             <div class="col-9 text-dark">
-                              <a href="/es/actualidad/article.php?id=<?php echo $id_articulo;?>" target="_blank">
-                                <?php echo ucwords($row['TITLE']);?>
+                              <a href="../../single-blog.php?id=<?php echo $id_articulo;?>" target="_blank">
+                                <?php echo ucwords($titulo);?>
                               </a>
                             </div>
                             <div class="col-3 ml-auto">
-                              <small><?php echo $row['DATE'];?></small>
+                              <small><?php echo $fecha;?></small>
                             </div>
                           </div>
                           <div class="row ml-1">
-                            <small><?php echo ucwords($row['AUTOR']);?></small>
+                            <small><?php echo ucwords($autor);?></small>
                           </div>
                         </div>
-                        <div class="col-1">
+                        <div class="col-2 ml-auto text-left">
                           <a href="javascript:void(0)" data-toggle="modal" data-target="#mensajes<?php echo $id_articulo;?>"  title="Mensajes">
                             <svg aria-hidden="true" width="15px" focusable="false" data-prefix="fas" data-icon="comment-alt" class="svg-inline--fa fa-comment-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 9.8 11.2 15.5 19.1 9.7L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64z"></path></svg>
                           </a>
@@ -118,13 +120,13 @@ $previouspage=$curpage - 1;
                               <div class="container">
                                   <?php
                                   $meses=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-                                  $sql="SELECT NOMBRE,TEXTO,DATE FROM MENSAJESBLOG WHERE ARTICULOID=$id_articulo";
-                                  $result=$conn->query($sql);
-                                  if($result->num_rows>0){
-                                    while($row=$result->fetch_assoc()){
-                                      $nombre_user=$row['NOMBRE'];
-                                      $texto=$row['TEXTO'];
-                                      $date=$row['DATE'];
+                                  $sql2="SELECT NOMBRE,TEXTO,DATE FROM MENSAJESBLOG WHERE ARTICULOID=$id_articulo";
+                                  $result2=$conn->query($sql2);
+                                  if($result2->num_rows>0){
+                                    while($row2=$result2->fetch_assoc()){
+                                      $nombre_user=$row2['NOMBRE'];
+                                      $texto=$row2['TEXTO'];
+                                      $date=$row2['DATE'];
                                       $aux=substr($date,5,2);
                                       if($aux<10){$aux="0".$aux;}
                                       $fecha=substr($date,8,2)." ".$meses[intval($aux)]." del ".substr($date,0,4)." a las ".substr($date,11,2).":".substr($date,14,2);
@@ -141,6 +143,10 @@ $previouspage=$curpage - 1;
                                       <hr>
                                       <?php
                                     }
+                                  }else {
+                                    ?>
+                                    <strong>No hay mensajes en este articulo</strong>
+                                    <?php
                                   }
                                    ?>
                               </div>
@@ -208,14 +214,14 @@ $previouspage=$curpage - 1;
                         </ul>
                       </nav>
                     </center>
-                  </div>
-                <?php }else{ ?>
-                  <div class="card">
-                    <div class="card-title text-center">
-                      <h5>Sin articulos en la pagina</h5>
+                  <?php }else{ ?>
+                    <div class="card">
+                      <div class="card-title text-center">
+                        <h5>Sin articulos en la pagina</h5>
+                      </div>
                     </div>
-                  </div>
-                <?php } ?>
+                  <?php } ?>
+                </div>
               </div>
             </div>
           </div>

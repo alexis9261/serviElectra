@@ -448,7 +448,44 @@ button:focus {
   margin-top: -6px;
   right: 20px;
 }
-
+#carouselBanner .owl-nav .owl-next{
+  position: absolute;
+  left: auto;
+  right: 2rem;
+}
+#carouselBanner .owl-prev{
+  position: absolute;
+  right: auto;
+  left: 2rem;
+}
+#carouselBanner .owl-nav{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+#carouselBanner .owl-nav img{
+  left:2rem;
+  color: #aaa;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #fff;
+  opacity: 0;
+  border-radius: 50%;
+  outline: none;
+  transition: opacity 2s;
+}
+#carouselBanner .owl-nav .owl-next.disabled, .owl-prev.disabled{
+  color: #888;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #f1f1f1!important;
+  opacity: 1!important;
+  border-radius: 50%;
+  outline: none;
+}
+#carouselBanner:hover .owl-nav img{
+  opacity: 0.15;
+}
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /* Home Banner Area css
@@ -467,7 +504,6 @@ button:focus {
 }
 
 .home_banner_area .banner_inner .overlay {
-  background: url(../img/banner/home-banner.jpg) no-repeat scroll center center;
   position: absolute;
   left: 0;
   right: 0;

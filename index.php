@@ -21,6 +21,8 @@ date_default_timezone_set('America/Caracas');
   <!-- main css -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 </head>
 <body>
   <!-- Amarilllo #fff500
@@ -29,17 +31,54 @@ date_default_timezone_set('America/Caracas');
 <?php include 'common/navbar.php';?>
 <!--================Home Banner Area =================-->
 <section class="home_banner_area">
-  <div class="banner_inner d-flex align-items-center">
-    <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
-    <div class="container">
-      <div class="banner_content text-center">
-        <h3>Resistencias <span>Eléctricas</span></h3>
-        <p><strong>Ponemos a su disposición nuestro servicio de diseño y fabricación a la medida de todo tipo de resistencias eléctricas calefactoras y sensores de temperatura.</strong> </p>
-        <a class="black_btn" href="productos.php">Ver los productos</a>
-      </div>
-    </div>
+  <div class="owl-carousel" id="carouselBanner" style="display: block!important;">
+    <?php
+    $sql="SELECT * FROM `IMAGENESBANNER`";
+    $result=$conn->query($sql);
+    if($result->num_rows>0){
+      while($row=$result->fetch_assoc()){
+        $imagenBanner=$row['IMAGEN'];
+        $titulo=$row['TITULO'];
+        $titulo=explode(" ",$titulo);
+        $ultimaPalabra=array_pop($titulo);
+        $titulo=implode(" ",$titulo);
+        $resumen=nl2br($row['RESUMEN']);
+        $boton=$row['NOMBREBOTON'];
+        $urlBoton=$row['URLBOTON'];
+        ?>
+        <div class="item">
+          <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="" style="background: url(../img/banner/<?php echo $imagenBanner;?>) no-repeat scroll center center;"></div>
+            <div class="container">
+              <div class="banner_content text-center">
+                <h3><?php echo $titulo ?> <span><?php echo $ultimaPalabra;?></span></h3>
+                <p><strong><?php echo $resumen ?></strong> </p>
+                <a class="black_btn" href="<?php echo $urlBoton;?>"><?php echo $boton;?></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php
+      }
+    }
+    ?>
   </div>
 </section>
+<script>
+$('#carouselBanner').owlCarousel({
+  loop:true,
+  nav:true,
+  autoplay: false,
+  dots: false,
+  navText: ['<img src="img/arrow_left.svg"/>', '<img src="img/arrow_right.svg"/>'],
+  responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1,
+    }
+  }
+});
+</script>
 <!--================End Home Banner Area =================-->
 
 <!--================Categorias Area =================-->
@@ -258,7 +297,6 @@ date_default_timezone_set('America/Caracas');
 <?php include 'common/footer.php'; ?>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/stellar.js"></script>
@@ -266,7 +304,6 @@ date_default_timezone_set('America/Caracas');
 <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
 <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
 <script src="vendors/isotope/isotope-min.js"></script>
-<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 <script src="js/jquery.ajaxchimp.min.js"></script>
 <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
 <script src="vendors/counter-up/jquery.counterup.js"></script>

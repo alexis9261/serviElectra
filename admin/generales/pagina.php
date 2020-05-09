@@ -22,6 +22,11 @@ if($result->num_rows>0){
     }
   }
 }
+if (isset($_GET['b'])) {
+  $actualizacion=$_GET['b'];
+}else {
+  $actualizacion="a";
+}
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -60,131 +65,355 @@ if($result->num_rows>0){
           <div class="col-12">
             <div class="card">
               <div class="card-body">
-                <!-- Imagenes Banner ppal -->
-                <form enctype="multipart/form-data" id="formBanner" method="post">
+                <!-- Imagenes Banner ppal 1 -->
                 <div class="container mb-3">
-                  <div class="row align-items-center">
-                    <div class="col-4">
-                      <h4 class="card-title mb-0">Imagenes Banner Principal</h4>
-                      <span class="card-subtitle">Van en la imagen principal de la pagina.</span>
+                  <form action="imagenesBanner.php" enctype="multipart/form-data" id="form1erBanner" method="post">
+                  <div class="row">
+                    <div class="col-auto">
+                      <h4 class="card-title mb-0 d-inline">1er Banner </h4>
                     </div>
-                      <div class="col-4">
-                        <div class="input-group">
-                          <?php
-                          $sql="SELECT * FROM CONFIGURACION WHERE `ATRIBUTO`='cantidadBanner'";
-                          $result=$conn->query($sql);
-                          if($result->num_rows>0){
-                            $rowConfig=$result->fetch_assoc();
-                            $cantidadBanner=$rowConfig['VALOR'];
+                    <div class="col-auto ml-auto">
+                      <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <div class="row">
+                        <?php
+                        $sql="SELECT * FROM `IMAGENESBANNER` WHERE TIPO=1";
+                        $result=$conn->query($sql);
+                        if($result->num_rows>0){
+                          while($row=$result->fetch_assoc()){
+                            $imagenBanner1=$row['IMAGEN'];
+                            $titulo=$row['TITULO'];
+                            $resumen=$row['RESUMEN'];
+                            $boton=$row['NOMBREBOTON'];
+                            $urlBoton=$row['URLBOTON'];
                           }
-                          ?>
-                          <div class="input-group-append">
-                            <span class="input-group-text" data-toggle="tooltip" title="cantidad de imagenes en el banner"><b>Nro Imagenes en el Banner</b></span>
-                          </div>
-                          <input type="number" class="form-control" step="1" value="<?php echo $cantidadBanner;?>" style="max-width: 100px" id='cantidad-img-banner' name="cantidadBanner" max="8" min="1">
-                        </div>
-                      </div>
-                      <div class="col-auto ml-auto">
-                        <button type="submit" class="btn btn-outline-primary">Guardar Imagenes</button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-auto">
-                        <label class="btn btn-link" for="filesBanner">Seleccionar Imagenes</label>
-                        <input type="file" name="images[]" id="filesBanner" multiple hidden="hidden"/>
-                      </div>
-                    </div>
-                    <div class="row mt-2" id="image-holder">
-                      <?php
-                      $result=$conn->query("SELECT * FROM IMAGENES WHERE `TIPO`='1'");
-                      if($result->num_rows>0){
-                        while($rowImg = $result->fetch_assoc()){
-                          $imagenBanner= $rowImg['URLIMAGEN'];
-                          ?>
-                          <div class='container-img-banner-admin col-12 mb-2'>
-                            <img class='img-banner-admin' src='<?php echo "/imagen/$imagenBanner";?>' width="100%"/>
-                          </div>
-                          <?php
                         }
-                      }
-                      ?>
-                    </div>
-                </div>
-              </form>
-                <hr>
-                </div>
-                <hr>
-                <!-- Video -->
-                <div class="container mb-3">
-                  <div class="row mb-2">
-                    <h4 class="card-title mb-0 ml-3">Video de  compañia </h4>
-                  </div>
-                  <div class="row mb-2">
-                    <div class="col-12">
-                      <div class="input-group">
-                        <div class="input-group-append">
-                          <span class="input-group-text" data-toggle="tooltip" title=""><b>Enlace del video</b></span>
+                         ?>
+                        <div class="col-6">
+                          <div>
+                            <?php if (isset($imagenBanner1)){ ?>
+                              <img id="imgTempBanner1" width="100%" src="/img/banner/<?php echo $imagenBanner1;?>">
+                              <img id="img1erbanner" width="100%">
+                            <?php }else { ?>
+                              <img id="img1erbanner" width="100%">
+                            <?php } ?>
+                          </div>
+                          <div class="d-inline">
+                            <label class="btn btn-link" for="file-upload-1er-banner">Seleccionar Imagen</label>
+                            <input id="file-upload-1er-banner" type="file" accept="image/*" hidden="hidden" name='banner'/>
+                          </div>
                         </div>
-                        <input type="url" class="form-control text-secondary" placeholder="Enlace del video" id="url_video" value="<?php echo $url_video?>">
+                        <div class="col-6">
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 25 caracteres"><b>Titulo</b></span>
+                              </div>
+                              <?php if (isset($titulo)){ ?>
+                                <input type="text" name="tituloBanner" class="form-control text-secondary" placeholder="Coloca una frase" maxlength="25" required value="<?php echo $titulo;?>">
+                              <?php }else { ?>
+                                <input type="text" name="tituloBanner" class="form-control text-secondary" placeholder="Coloca una frase" maxlength="25" required>
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 180 caracteres"><b>Pequeño Resumen</b></span>
+                              </div>
+                              <?php if (isset($resumen)){ ?>
+                                <textarea class="form-control text-secondary" name="resumenBanner" rows="2" maxlength="180"><?php echo $resumen;?></textarea>
+                              <?php }else { ?>
+                                <textarea class="form-control text-secondary" name="resumenBanner" rows="2" maxlength="180"></textarea>
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 25 caracteres"><b>Nombre del Boton</b></span>
+                              </div>
+                              <?php if (isset($boton)){ ?>
+                                <input type="text" name="botonBanner" class="form-control text-secondary" placeholder="Nombre del boton" maxlength="25" value="<?php echo $boton;?>">
+                              <?php }else { ?>
+                                <input type="text" name="botonBanner" class="form-control text-secondary" placeholder="Nombre del boton" maxlength="25">
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="A donde se enviara al dar click en el boton"><b>Redireccion del Boton</b></span>
+                              </div>
+                              <?php if (isset($urlBoton)){ ?>
+                                <input type="text" name="urlBoton" class="form-control text-secondary" placeholder="Url del boton" maxlength="255" value="<?php echo $urlBoton;?>">
+                              <?php }else { ?>
+                                <input type="text" name="urlBoton" class="form-control text-secondary" placeholder="Url del boton" maxlength="255">
+                              <?php } ?>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <button type="button mr-auto" class="btn btn-outline-primary" id="submit_video">Guardar Video</button>
+                  <input type="hidden" name="tipo" value="1">
+                  </form>
                 </div>
                 <hr>
-                <!-- Preview Imagen Producto -->
+                <!-- Preview 1er Banner -->
                 <script>
-                  function readFile(input) {
-                    $("#file-preview").remove();
-                    if (input.files && input.files[0]) {
-                      var reader = new FileReader();
-                      reader.onload = function (e) {
-                        var filePreview = document.createElement('img');
-                        filePreview.id = 'file-preview';
-                        filePreview.setAttribute("width", "50%");
-                        //e.target.result contents the base64 data from the image uploaded
-                        filePreview.src = e.target.result;
-                        var previewZone = document.getElementById('file-preview-zone');
-                        previewZone.appendChild(filePreview);
-                      }
-                      reader.readAsDataURL(input.files[0]);
+                  const $seleccionArchivos1 = document.querySelector("#file-upload-1er-banner"),
+                  $imagenPrevisualizacion1 = document.querySelector("#img1erbanner");
+                  $seleccionArchivos1.addEventListener("change", () => {
+                    const imagen1 = document.getElementById("imgTempBanner1");
+                    if(imagen1){
+                      const padre1 = imagen1.parentNode;
+                      padre1.removeChild(imagen1);
                     }
-                  }
-                  var fileUpload = document.getElementById('file-upload');
-                  fileUpload.onchange = function (e) {
-                    var imgPath=$(this)[0].value;
-                    var extn=imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-                    if (extn=="png" || extn=="jpg" || extn=="jpeg") {
-                      readFile(e.srcElement);
-                    }else {
-                      const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-                      toast({type:'error',title:"¡Desbes subir imagenes tipo jpg, jpge o png"})
+                    const archivos1 = $seleccionArchivos1.files;
+                    if (!archivos1 || !archivos1.length) {
+                      $imagenPrevisualizacion1.src = "";
+                      return;
                     }
-                  }
+                    const primerArchivo1 = archivos1[0];
+                    const objectURL = URL.createObjectURL(primerArchivo1);
+                    $imagenPrevisualizacion1.src = objectURL;
+                  });
                 </script>
-                <!-- Enviar Producto -->
-                <script>
-                  $(document).ready(function(e){
-                    $("#formProduct").on('submit', function(e){
-                      e.preventDefault();
-                      $.ajax({
-                        type: 'POST',
-                        url: 'ajax_product_mes.php',
-                        data: new FormData(this),
-                        contentType: false,
-                        cache: false,
-                        processData:false,
-                        success: function(respuesta){
-                          if(respuesta=='1'){
-                            const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-                            toast({type:'success',title:"¡El producto fue guardado exitosamente!"})
-                          }else{
-                            const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-                            toast({type:'error',title:"Hubo un error! \n Vuelve a intentarlo."})
+                <!-- Imagenes Banner ppal 2 -->
+                <div class="container mb-3">
+                  <form action="imagenesBanner.php" enctype="multipart/form-data" id="form1erBanner" method="post">
+                  <div class="row">
+                    <div class="col-auto">
+                      <h4 class="card-title mb-0 d-inline">2do Banner </h4>
+                    </div>
+                    <div class="col-auto ml-auto">
+                      <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <div class="row">
+                        <?php
+                        $sql="SELECT * FROM `IMAGENESBANNER` WHERE TIPO=2";
+                        $result=$conn->query($sql);
+                        if($result->num_rows>0){
+                          while($row=$result->fetch_assoc()){
+                            $imagenBanner2=$row['IMAGEN'];
+                            $titulo2=$row['TITULO'];
+                            $resumen2=$row['RESUMEN'];
+                            $boton2=$row['NOMBREBOTON'];
+                            $urlBoton2=$row['URLBOTON'];
                           }
                         }
-                      });
-                    });
+                         ?>
+                        <div class="col-6">
+                          <div>
+                            <?php if (isset($imagenBanner2)){ ?>
+                              <img id="imgTempBanner2" width="100%" src="/img/banner/<?php echo $imagenBanner2;?>">
+                              <img id="img2dobanner" width="100%">
+                            <?php }else { ?>
+                              <img id="img2dobanner" width="100%">
+                            <?php } ?>
+                          </div>
+                          <div class="d-inline">
+                            <label class="btn btn-link" for="file-upload-2do-banner">Seleccionar Imagen</label>
+                            <input id="file-upload-2do-banner" type="file" accept="image/*" hidden="hidden" name='banner'/>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 25 caracteres"><b>Titulo</b></span>
+                              </div>
+                              <?php if (isset($titulo2)){ ?>
+                                <input type="text" name="tituloBanner" class="form-control text-secondary" placeholder="Coloca una frase" maxlength="25" required value="<?php echo $titulo2;?>">
+                              <?php }else { ?>
+                                <input type="text" name="tituloBanner" class="form-control text-secondary" placeholder="Coloca una frase" maxlength="25" required>
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 180 caracteres"><b>Pequeño Resumen</b></span>
+                              </div>
+                              <?php if (isset($resumen2)){ ?>
+                                <textarea class="form-control text-secondary" name="resumenBanner" rows="2" maxlength="180"><?php echo $resumen2;?></textarea>
+                              <?php }else { ?>
+                                <textarea class="form-control text-secondary" name="resumenBanner" rows="2" maxlength="180"></textarea>
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 25 caracteres"><b>Nombre del Boton</b></span>
+                              </div>
+                              <?php if (isset($boton2)){ ?>
+                                <input type="text" name="botonBanner" class="form-control text-secondary" placeholder="Nombre del boton" maxlength="25" value="<?php echo $boton2;?>">
+                              <?php }else { ?>
+                                <input type="text" name="botonBanner" class="form-control text-secondary" placeholder="Nombre del boton" maxlength="25">
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="A donde se enviara al dar click en el boton"><b>Redireccion del Boton</b></span>
+                              </div>
+                              <?php if (isset($urlBoton2)){ ?>
+                                <input type="text" name="urlBoton" class="form-control text-secondary" placeholder="Url del boton" maxlength="255" value="<?php echo $urlBoton2;?>">
+                              <?php }else { ?>
+                                <input type="text" name="urlBoton" class="form-control text-secondary" placeholder="Url del boton" maxlength="255">
+                              <?php } ?>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="tipo" value="2">
+                  </form>
+                </div>
+                <hr>
+                <!-- Preview 2do Banner -->
+                <script>
+                  const $seleccionArchivos2 = document.querySelector("#file-upload-2do-banner"),
+                  $imagenPrevisualizacion2 = document.querySelector("#img2dobanner");
+                  $seleccionArchivos2.addEventListener("change", () => {
+                    const imagen2 = document.getElementById("imgTempBanner2");
+                    if(imagen2){
+                      const padre2 = imagen2.parentNode;
+                      padre2.removeChild(imagen2);
+                    }
+                    const archivos2 = $seleccionArchivos2.files;
+                    if (!archivos2 || !archivos2.length) {
+                      $imagenPrevisualizacion2.src = "";
+                      return;
+                    }
+                    const primerArchivo2 = archivos2[0];
+                    const objectURL = URL.createObjectURL(primerArchivo2);
+                    $imagenPrevisualizacion2.src = objectURL;
+                  });
+                </script>
+                <!-- Imagenes Banner ppal 3 -->
+                <div class="container mb-3">
+                  <form action="imagenesBanner.php" enctype="multipart/form-data" id="form1erBanner" method="post">
+                  <div class="row">
+                    <div class="col-auto">
+                      <h4 class="card-title mb-0 d-inline">3er Banner </h4>
+                    </div>
+                    <div class="col-auto ml-auto">
+                      <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <div class="row">
+                        <?php
+                        $sql="SELECT * FROM `IMAGENESBANNER` WHERE TIPO=3";
+                        $result=$conn->query($sql);
+                        if($result->num_rows>0){
+                          while($row=$result->fetch_assoc()){
+                            $imagenBanner3=$row['IMAGEN'];
+                            $titulo3=$row['TITULO'];
+                            $resumen3=$row['RESUMEN'];
+                            $boton3=$row['NOMBREBOTON'];
+                            $urlBoton3=$row['URLBOTON'];
+                          }
+                        }
+                         ?>
+                        <div class="col-6">
+                          <div>
+                            <?php if (isset($imagenBanner3)){ ?>
+                              <img id="imgTempBanner3" width="100%" src="/img/banner/<?php echo $imagenBanner3;?>">
+                              <img id="img3erbanner" width="100%">
+                            <?php }else { ?>
+                              <img id="img3erbanner" width="100%">
+                            <?php } ?>
+                          </div>
+                          <div class="d-inline">
+                            <label class="btn btn-link" for="file-upload-3er-banner">Seleccionar Imagen</label>
+                            <input id="file-upload-3er-banner" type="file" accept="image/*" hidden="hidden" name='banner'/>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 25 caracteres"><b>Titulo</b></span>
+                              </div>
+                              <?php if (isset($titulo3)){ ?>
+                                <input type="text" name="tituloBanner" class="form-control text-secondary" placeholder="Coloca una frase" maxlength="25" required value="<?php echo $titulo3;?>">
+                              <?php }else { ?>
+                                <input type="text" name="tituloBanner" class="form-control text-secondary" placeholder="Coloca una frase" maxlength="25" required>
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 180 caracteres"><b>Pequeño Resumen</b></span>
+                              </div>
+                              <?php if (isset($resumen3)){ ?>
+                                <textarea class="form-control text-secondary" name="resumenBanner" rows="2" maxlength="180"><?php echo $resumen3;?></textarea>
+                              <?php }else { ?>
+                                <textarea class="form-control text-secondary" name="resumenBanner" rows="2" maxlength="180"></textarea>
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="Maximo 25 caracteres"><b>Nombre del Boton</b></span>
+                              </div>
+                              <?php if (isset($boton3)){ ?>
+                                <input type="text" name="botonBanner" class="form-control text-secondary" placeholder="Nombre del boton" maxlength="25" value="<?php echo $boton3;?>">
+                              <?php }else { ?>
+                                <input type="text" name="botonBanner" class="form-control text-secondary" placeholder="Nombre del boton" maxlength="25">
+                              <?php } ?>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="input-group">
+                              <div class="input-group-append">
+                                <span class="input-group-text" data-toggle="tooltip" title="A donde se enviara al dar click en el boton"><b>Redireccion del Boton</b></span>
+                              </div>
+                              <?php if (isset($urlBoton3)){ ?>
+                                <input type="text" name="urlBoton" class="form-control text-secondary" placeholder="Url del boton" maxlength="255" value="<?php echo $urlBoton3;?>">
+                              <?php }else { ?>
+                                <input type="text" name="urlBoton" class="form-control text-secondary" placeholder="Url del boton" maxlength="255">
+                              <?php } ?>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="tipo" value="3">
+                  </form>
+                </div>
+                <hr>
+                <!-- Preview 3er Banner -->
+                <script>
+                  const $seleccionArchivos3 = document.querySelector("#file-upload-3er-banner"),
+                  $imagenPrevisualizacion3 = document.querySelector("#img3erbanner");
+                  $seleccionArchivos3.addEventListener("change", () => {
+                    const imagen3 = document.getElementById("imgTempBanner3");
+                    if(imagen3){
+                      const imagen3 = imagen3.parentNode;
+                      padre3.removeChild(imagen3);
+                    }
+                    const archivos3 = $seleccionArchivos3.files;
+                    if (!archivos3 || !archivos3.length) {
+                      $imagenPrevisualizacion3.src = "";
+                      return;
+                    }
+                    const primerArchivo3 = archivos3[0];
+                    const objectURL = URL.createObjectURL(primerArchivo3);
+                    $imagenPrevisualizacion3.src = objectURL;
                   });
                 </script>
                 <!-- redes sociales -->
@@ -264,84 +493,6 @@ if($result->num_rows>0){
           toast({type:'error',title:"Hubo un error! \n Vuelve a intentarlo."})
         }
       }
-    });
-  </script>
-  <!-- Video -->
-  <script>
-    $(document).on('click',"#submit_video",function(){
-      var url_video=$("#url_video").val();
-      $.post('ajax_video.php',{url_video:url_video},verificar,'text');
-      function verificar(text){
-        if(text=="1"){
-          const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-          toast({type:'success',title:"¡El video se guardó correctamente !"})
-        }else{
-          const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-          toast({type:'error',title:"Hubo un error! \n Vuelve a intentarlo."})
-        }
-      }
-    });
-  </script>
-  <!-- Imagenes Banner -->
-  <script>
-    $("#filesBanner").on('change',function(){
-      var cant_images=$("#cantidad-img-banner").val();
-      var countFiles=$(this)[0].files.length;
-      var imgPath=$(this)[0].value;
-      var extn=imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-      var image_holder=$("#image-holder");image_holder.empty();
-      if(extn=="png" || extn=="jpg" || extn=="jpeg"){
-        if(typeof (FileReader)!='undefined'){
-          if(countFiles>cant_images){countFiles=cant_images;}
-          for(var i=0;i<countFiles;i++){
-            var reader=new FileReader();
-            reader.onload=function(e){
-              let aux=Math.floor(Math.random() * (50 - 2)) + 2;
-              var enlace="<div class='input-group mb-3 contenedor-enlaces-banner"+aux+"'><div class='input-group-prepend'></div><div class='input-group-prepend'></div></div>";
-              $("<div class='container-img-banner-admin col-12 mb-2'><img class='img-banner-admin' src='"+e.target.result+"' width='100%'/></div>"+enlace).appendTo(image_holder);
-            }
-            reader.readAsDataURL($(this)[0].files[i]);
-          }
-        }else{alert("This browser does not support FileReader.");}
-      }else{
-        const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-        toast({type:'error',title:"¡Desbes subir imagenes tipo jpg, jpge o png"})
-      }
-    });
-    //al cambiar la cantidad de imagenes
-    $("#cantidad-img-banner").on('change', function(e){
-      $("#image-holder").empty();
-    });
-  </script>
-  <!-- Enviar Banner -->
-  <script>
-    $(document).ready(function(e){
-      $("#formBanner").on('submit',function(e){
-        $("#loader_now").click();
-        e.preventDefault();
-        var formData=new FormData(this)
-        var array_enlaces= new Array();
-        var array_targets=new Array();
-        $.ajax({
-          type: 'POST',
-          url: 'ajax_images_banner.php',
-          data: formData,
-          contentType: false,
-          cache: false,
-          processData:false,
-          success: function(respuesta){
-            if (respuesta=='1') {
-              setTimeout ("$('button#close_loader').click();", 500);
-              const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-              toast({type:'success',title:"¡Fueron actualizadas las imagenes exitosamente!"})
-            }else {
-              setTimeout ("$('button#close_loader').click();", 500);
-              const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
-              toast({type:'error',title:"Hubo un error! \n Vuelve a intentarlo."})
-            }
-          }
-        });
-      });
     });
   </script>
 </div>
