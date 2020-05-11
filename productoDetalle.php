@@ -36,39 +36,39 @@
               <img class="img-product-detalles" src="admin/productos/img/<?php echo $row['IMAGEN'] ?>">
             </div>
           </div>
-        <div class="col-md-5">
-          <div class="row">
-            <div class="col-12">
-              <p class="text-muted" style="font-family:'Gotham';">
-                <?php
-                $sql="SELECT * FROM CATEGORIAS WHERE IDCATEGORIA = $idcat";
-                $resultCat = $conn->query($sql);
-                if($resultCat->num_rows > 0){
-                  while($rowCat=$resultCat->fetch_assoc()){ ?>
-                    Categoria: <strong><?php echo $rowCat['CATEGORIA'] ?></strong>
-                  <?php }
-                } ?>
-              </p>
-              <h2 class="lead" style="font-size:1.5rem;color:#002169;font-weight:500;font-family:'Gotham';"><?php echo $row['TITULO'] ?></h2>
+          <div class="col-md-5">
+            <div class="row">
+              <div class="col-12">
+                <p class="text-muted" style="font-family:'Gotham';">
+                  <?php
+                  $sql="SELECT * FROM CATEGORIAS WHERE IDCATEGORIA = $idcat";
+                  $resultCat = $conn->query($sql);
+                  if($resultCat->num_rows > 0){
+                    while($rowCat=$resultCat->fetch_assoc()){ ?>
+                      Categoria: <strong><?php echo $rowCat['CATEGORIA'] ?></strong>
+                    <?php }
+                  } ?>
+                </p>
+                <h2 class="lead" style="font-size:1.5rem;color:#002169;font-weight:500;font-family:'Gotham';"><?php echo $row['TITULO'] ?></h2>
+              </div>
+              <div class="col-12 mb-4">
+                <h3 class="lead d-inline" style="font-size:1.8rem;color:#222222;font-weight:300;">Bs. <?=number_format($row['PRECIO'],'2', ',', '.')?></h3>
+              </div>
             </div>
-            <div class="col-12 mb-4">
-              <h3 class="lead d-inline" style="font-size:1.8rem;color:#222222;font-weight:300;">Bs. <?=number_format($row['PRECIO'],'2', ',', '.')?></h3>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-auto">
-              <a href="productos.php" class="btn vista_productos_card_boton">ver más productos</a>
+            <div class="row mt-3">
+              <div class="col-auto">
+                <a href="productos.php" class="btn vista_productos_card_boton">ver más productos</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <h2 class="mb-3" style="color:#222222;font-family:'Gotham';"><strong>Descripción</strong></h2>
-        <p style="font-family:'Gotham';"><?php echo nl2br($row['DESCRIPCION']) ?></p>
-      </div>
+        <div class="row">
+          <h2 class="mb-3" style="color:#222222;font-family:'Gotham';"><strong>Descripción</strong></h2>
+          <p style="font-family:'Gotham';"><?php echo nl2br($row['DESCRIPCION']) ?></p>
+        </div>
+      <?php } ?>
     <?php } ?>
-  <?php } ?>
-</section>
+  </section>
 <section class="product_area my-5">
   <div class="container">
     <div class="row mb-4">
@@ -100,8 +100,7 @@
     </div>
   </div>
 </section>
-<?php include 'common/footer.php'; ?>
-
+<?php include 'common/footer.php';?>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-3.2.1.min.js"></script>

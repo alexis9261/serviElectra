@@ -34,7 +34,7 @@ $previouspage=$curpage - 1;
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-	<?php include 'common/navbar.php';?>
+  <?php include 'common/navbar.php';?>
   <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
       <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
@@ -49,10 +49,10 @@ $previouspage=$curpage - 1;
       </div>
     </div>
   </section>
-	<section class="container vista_productos_main mt-1">
-		<h1 class="vista_producto_main_title text-center my-5">Algunos de nuestros productos</h1>
+  <section class="container vista_productos_main mt-1">
+    <h1 class="vista_producto_main_title text-center my-5">Algunos de nuestros productos</h1>
     <div class="productos_container_main mt-3">
-    <?php
+      <?php
       if(isset($_GET['cat'])){
         $categoriaID = $_GET['cat'];
         $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
@@ -76,68 +76,66 @@ $previouspage=$curpage - 1;
               <a href="productoDetalle.php?detalle=<?php echo $row['IDPRODUCTO'] ?>" class="btn vista_productos_card_boton">ver producto</a>
             </div>
           </div>
-      </div>
-      <?php }?>
-    <?php }else { ?>
-      <p>
-        <strong>No se encontraron productos.</strong>
-      </p>
-      <strong class="text-muted mb-5">Busca en otras categorias o has una busqueda general.</strong>
-      <br>
-      <br>
-      <br>
-      <br>
+        <?php }
+       }else { ?>
+        <p>
+          <strong>No se encontraron productos.</strong>
+        </p>
+        <strong class="text-muted mb-5">Busca en otras categorias o has una busqueda general.</strong>
+        <br>
+        <br>
+        <br>
+        <br>
       <?php } ?>
     </div>
-    <nav class="blog-pagination justify-content-center d-flex">
-      <ul class="pagination">
-        <?php if($curpage!=$startpage){ ?>
-          <li class="page-item">
-            <a href="?page=<?php echo $startpage;?>" class="page-link" aria-label="Previous">
-              <span aria-hidden="true">
-                <span class="lnr lnr-chevron-left"></span>
-              </span>
-            </a>
-          </li>
-        <?php } ?>
-        <?php if($curpage>=2){ ?>
-          <li class="page-item"><a href="?page=<?php echo $previouspage;?>" class="page-link"><?php echo $previouspage;?></a></li>
-        <?php } ?>
-        <li class="page-item"><a href="?page=<?php echo $curpage;?>" class="page-link"><?php echo $curpage;?></a></li>
-        <?php if($curpage!=$endpage){ ?>
-          <li class="page-item"><a href="?page=<?php echo $nextpage;?>" class="page-link"><?php echo $nextpage;?></a></li>
-        <?php } ?>
-        <?php if($curpage!=$endpage){ ?>
-          <li class="page-item">
-            <a href="?page=<?php echo $endpage;?>" class="page-link" aria-label="Next">
-              <span aria-hidden="true">
-                <span class="lnr lnr-chevron-right"></span>
-              </span>
-            </a>
-          </li>
-        <?php } ?>
-      </ul>
-    </nav>
   </section>
-  <?php include 'common/footer.php'; ?>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/stellar.js"></script>
-  <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-  <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-  <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-  <script src="vendors/isotope/isotope-min.js"></script>
-  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="js/jquery.ajaxchimp.min.js"></script>
-  <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-  <script src="vendors/counter-up/jquery.counterup.js"></script>
-  <script src="js/mail-script.js"></script>
-  <script src="js/theme.js"></script>
-  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
-  <script src="js/suscripcion.js"></script>
+  <nav class="blog-pagination justify-content-center d-flex">
+    <ul class="pagination">
+      <?php if($curpage!=$startpage){ ?>
+        <li class="page-item">
+          <a href="?page=<?php echo $startpage;?>" class="page-link" aria-label="Previous">
+            <span aria-hidden="true">
+              <span class="lnr lnr-chevron-left"></span>
+            </span>
+          </a>
+        </li>
+      <?php } ?>
+      <?php if($curpage>=2){ ?>
+        <li class="page-item"><a href="?page=<?php echo $previouspage;?>" class="page-link"><?php echo $previouspage;?></a></li>
+      <?php } ?>
+      <li class="page-item"><a href="?page=<?php echo $curpage;?>" class="page-link"><?php echo $curpage;?></a></li>
+      <?php if($curpage!=$endpage){ ?>
+        <li class="page-item"><a href="?page=<?php echo $nextpage;?>" class="page-link"><?php echo $nextpage;?></a></li>
+      <?php } ?>
+      <?php if($curpage!=$endpage){ ?>
+        <li class="page-item">
+          <a href="?page=<?php echo $endpage;?>" class="page-link" aria-label="Next">
+            <span aria-hidden="true">
+              <span class="lnr lnr-chevron-right"></span>
+            </span>
+          </a>
+        </li>
+      <?php } ?>
+    </ul>
+  </nav>
+<?php include 'common/footer.php';?>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="vendors/isotope/isotope-min.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+<script src="vendors/counter-up/jquery.counterup.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/theme.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
+<script src="js/suscripcion.js"></script>
 </body>
 </html>
