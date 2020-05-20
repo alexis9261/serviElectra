@@ -41,8 +41,10 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
               $id_producto=$row['IDPRODUCTO'];
               $titulo=ucwords($row['TITULO']);
               $id_categoria=$row['IDCATEGORIA'];
-              $descripcion=ucwords($row['DESCRIPCION']);
-              $precio=$row['PRECIO'];
+              $descripcion=$row['DESCRIPCION'];
+              $caracteristicas=$row['CARACTERISTICAS'];
+              $aplicaciones=$row['APLICACIONES'];
+              $ventajas=$row['VENTAJAS'];
               $imagen=$row['IMAGEN'];
               ?>
               <div class="container-fluid">
@@ -88,15 +90,27 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
                         } ?>
                       </select>
                     </div>
-                    <div class="input-group mb-3 col-12 col-md-3 ml-auto">
+                    <!--div class="input-group mb-3 col-12 col-md-3 ml-auto">
                       <div class="input-group-append">
                         <span class="input-group-text"><b>Precio</b></span>
                       </div>
                       <input type="number" name="precio" class="form-control text-dark" required maxlength="25" value="<?php echo $precio;?>">
-                    </div>
+                    </div-->
                     <span class="col-12 ml-3 mb-2"><b>Descripción</b></span>
                     <div class="input-group mb-3 col-12">
                       <textarea class="form-control" name="descripcion" rows="12" type="text" required placeholder="La descripcion del producto..."><?php echo $descripcion;?></textarea>
+                    </div>
+                    <span class="col-12 ml-3 mb-2"><b>Caracteristicas técnicas</b></span>
+                    <div class="input-group mb-3 col-12">
+                      <textarea class="form-control" name="caracteristicas" rows="8" type="text" required ><?php echo $caracteristicas;?></textarea>
+                    </div>
+                    <span class="col-12 ml-3 mb-2"><b>Aplicaciones</b></span>
+                    <div class="input-group mb-3 col-12">
+                      <textarea class="form-control" name="aplicaciones" rows="8" type="text" required><?php echo $aplicaciones;?></textarea>
+                    </div>
+                    <span class="col-12 ml-3 mb-2"><b>Ventajas</b></span>
+                    <div class="input-group mb-3 col-12">
+                      <textarea class="form-control" name="ventajas" rows="8" type="text" required><?php echo $ventajas;?></textarea>
                     </div>
                     <div class="col-12"><h5>Imagen Actual</h5></div>
                     <div class="col-12 text-center">

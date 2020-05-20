@@ -43,7 +43,7 @@ function buscar(){document.search1.submit()}
             <li><a target="_blank" href="<?php echo $youtube;?>"><i class="fa fa-youtube"></i></a></li>
           <?php } ?>
         </ul>
-        <a class="dn_btn ml-3" href="productos.php" style="color:#002169">Ver Precios</a>
+        <a class="dn_btn ml-3" href="https://wa.me/584244215217" target="_blank" style="color:#002169">Ver Precios</a>
       </div>
     </div>
   </div>
@@ -59,19 +59,19 @@ function buscar(){document.search1.submit()}
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
           <ul class="nav navbar-nav menu_nav ml-auto">
             <?php if(isset($home)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="index.php"><strong>Inicio</strong> </a></li>
+              <li class="nav-item active"><a class="nav-link" href="index.php"><strong>INICIO</strong> </a></li>
             <?php }else{ ?>
-              <li class="nav-item"><a class="nav-link" href="index.php"><strong>Inicio</strong> </a></li>
+              <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong> </a></li>
             <?php } ?>
             <li class="nav-item submenu dropdown">
-              <a href="productos.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Categorias</strong> </a>
+                <a href="productos.php" class="nav-link dropdown-toggle" data-toggle="dropdown"><strong>PRODUCTOS</strong> </a>
               <ul class="dropdown-menu">
                 <?php
                 $sql="SELECT * FROM `CATEGORIAS`";
                 $result=$conn->query($sql);
                 if($result->num_rows>0){
                   while($row=$result->fetch_assoc()){
-                    $categoria=$row['CATEGORIA'];
+                    $categoria=strtoupper($row['CATEGORIA']);
                     $idCat=$row['IDCATEGORIA'];
                     ?>
                     <li class="nav-item"><a class="nav-link" href="productos.php?cat=<?php echo $idCat;?>"><strong><?php echo $categoria;?></strong> </a></li>
@@ -80,11 +80,6 @@ function buscar(){document.search1.submit()}
                 } ?>
               </ul>
             </li>
-            <?php if(isset($productos)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
-            <?php }else{ ?>
-              <li class="nav-item"><a class="nav-link" href="productos.php"><strong>Productos</strong> </a></li>
-            <?php } ?>
             <li class="nav-item submenu dropdown">
               <a href="nosotros.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Nosotros</strong> </a>
               <ul class="dropdown-menu">
@@ -93,14 +88,14 @@ function buscar(){document.search1.submit()}
               </ul>
             </li>
             <?php if(isset($blog)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="blog.php"><strong>Noticias</strong> </a></li>
+              <li class="nav-item active"><a class="nav-link" href="blog.php"><strong>NOTICIAS</strong> </a></li>
             <?php }else{ ?>
-              <li class="nav-item"><a class="nav-link" href="blog.php"><strong>Noticias</strong> </a></li>
+              <li class="nav-item"><a class="nav-link" href="blog.php"><strong>NOTICIAS</strong> </a></li>
             <?php } ?>
             <?php if(isset($contacto)){ ?>
-              <li class="nav-item active"><a class="nav-link" href="contacto.php"><strong>Contacto</strong> </a></li>
+              <li class="nav-item active"><a class="nav-link" href="contacto.php"><strong>CONTACTO</strong> </a></li>
             <?php }else{ ?>
-              <li class="nav-item"><a class="nav-link" href="contacto.php"><strong>Contacto</strong> </a></li>
+              <li class="nav-item"><a class="nav-link" href="contacto.php"><strong>CONTACTO</strong> </a></li>
             <?php } ?>
           </ul>
         </div>

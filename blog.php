@@ -54,8 +54,22 @@ $previouspage=$curpage - 1;
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <title>ServiElectra</title>
+  <title>Servielectra</title>
   <!-- Bootstrap CSS -->
+  <style media="screen">
+  @font-face{
+    font-family: "Gotham";
+    src: url("fonts/gotham-regular.otf");
+  }
+  @font-face{
+    font-family: "Gotham Ligth";
+    src: url("fonts/gotham-thin.ttf");
+  }
+  @font-face{
+    font-family: "Gotham Bold";
+    src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
+  }
+  </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -92,9 +106,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-1.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=11"><h5>Resistencias</h5></a>
-                <div class="border_line"></div>
-                <p>Infomarción sobre resistencias eléctricas</p>
+                <a href="blog.php?id=11"><h5>RESISTENCIAS</h5></a>
               </div>
             </div>
           </div>
@@ -104,9 +116,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-2.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=12"><h5>Sensores</h5></a>
-                <div class="border_line"></div>
-                <p>Articulos relacionados a los sensores</p>
+                <a href="blog.php?id=12"><h5>SENSORES</h5></a>
               </div>
             </div>
           </div>
@@ -116,9 +126,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-3.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=13"><h5>Control</h5></a>
-                <div class="border_line"></div>
-                <p>Todo sobre el control industrial</p>
+                <a href="blog.php?id=13"><h5>CONTROL</h5></a>
               </div>
             </div>
           </div>
@@ -128,9 +136,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-4.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=14"><h5>Electricidad</h5></a>
-                <div class="border_line"></div>
-                <p>Ariculos de electricidad en general</p>
+                <a href="blog.php?id=14"><h5>ELECTRICIDAD</h5></a>
               </div>
             </div>
           </div>
@@ -166,15 +172,15 @@ $previouspage=$curpage - 1;
                 <article class="row blog_item">
                   <div class="col-md-3">
                     <div class="blog_info text-right">
-                      <div class="post_tag">
+                      <!--div class="post_tag">
                         <?php foreach ($keywords_array as $keyword){ ?>
                           <a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?>,</a>
                         <?php } ?>
-                      </div>
+                      </div-->
                       <ul class="blog_meta list">
                         <li><a href="#"><?php echo $autor;?><i class="lnr lnr-user"></i></a></li>
                         <li><a href="#"><?php echo $fecha;?><i class="lnr lnr-calendar-full"></i></a></li>
-                        <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                        <!--li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li-->
                       </ul>
                     </div>
                   </div>
@@ -234,7 +240,7 @@ $previouspage=$curpage - 1;
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="lnr lnr-magnifier"></i></button>
                   </span>
-                </div><!-- /input-group -->
+                </div>
               </form>
               <div class="br"></div>
             </aside>
@@ -257,7 +263,7 @@ $previouspage=$curpage - 1;
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget post_category_widget">
-              <h4 class="widget_title">Catgorias de los artículos</h4>
+              <h4 class="widget_title">CATEGORÍA DE ARTÍCULOS</h4>
               <ul class="list cat-list">
                 <?php
                 $sql="SELECT * FROM `CATEGORIAS`";
@@ -287,7 +293,7 @@ $previouspage=$curpage - 1;
               <div class="br"></div>
             </aside>
             <aside class="single-sidebar-widget newsletter_widget">
-              <h4 class="widget_title">Suscripción</h4>
+              <h4 class="widget_title" style="background: #002169;color: #fff500;font-family:'Gotham Bold';">SUSCRIPCIÓN</h4>
               <p>
                 Suscribete a nosotros y te enviaremos información relevante
                 sobre artículos tecnológicos y de electricidad en general
@@ -303,7 +309,7 @@ $previouspage=$curpage - 1;
               </div>
               <div class="br"></div>
             </aside>
-            <aside class="single-sidebar-widget tag_cloud_widget">
+            <!--aside class="single-sidebar-widget tag_cloud_widget">
               <h4 class="widget_title">Etiquetas</h4>
               <ul class="list">
                 <?php
@@ -324,7 +330,7 @@ $previouspage=$curpage - 1;
                   <li><a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?></a></li>
                 <?php } ?>
               </ul>
-            </aside>
+            </aside-->
           </div>
         </div>
       </div>

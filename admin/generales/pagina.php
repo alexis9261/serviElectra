@@ -95,7 +95,7 @@ if (isset($_GET['b'])) {
                             <?php if (isset($imagenBanner1)){ ?>
                               <img id="imgTempBanner1" width="100%" src="/img/banner/<?php echo $imagenBanner1;?>">
                               <img id="img1erbanner" width="100%">
-                            <?php }else { ?>
+                            <?php }else{ ?>
                               <img id="img1erbanner" width="100%">
                             <?php } ?>
                           </div>

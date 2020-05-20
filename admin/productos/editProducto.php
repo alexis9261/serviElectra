@@ -7,8 +7,10 @@ if(isset($_POST['id'])){
   $id_producto=$_POST['id'];
   $titulo=$_POST['title'];
   $descripcion=$_POST['descripcion'];
-  $precio=$_POST['precio'];
   $id_categoria=$_POST['idcategoria'];
+  $caracteristicas=$_POST['caracteristicas'];
+  $aplicaciones=$_POST['aplicaciones'];
+  $ventajas=$_POST['ventajas'];
   if(isset($_FILES['imagen']) && $_FILES['imagen']['error']==0){
     $imagen=$_FILES['imagen'];
       //elimino la imagen anterior
@@ -30,11 +32,11 @@ if(isset($_POST['id'])){
           if($resultado){$respuesta=1;}else{$respuesta=3;}}else{$respuesta=4;}
         }else{$respuesta=5;}
         if($respuesta==1){
-          $sql="UPDATE `PRODUCTOS` SET `TITULO`='$titulo',`DESCRIPCION`='$descripcion',`IDCATEGORIA`='$id_categoria',`PRECIO`='$precio',`IMAGEN`='$name_archivo' WHERE IDPRODUCTO='$id_producto';";
+          $sql="UPDATE `PRODUCTOS` SET `TITULO`='$titulo',`DESCRIPCION`='$descripcion',`IDCATEGORIA`='$id_categoria',`CARACTERISTICAS`='$caracteristicas',`APLICACIONES`='$aplicaciones',`VENTAJAS`='$ventajas',`IMAGEN`='$name_archivo' WHERE IDPRODUCTO='$id_producto';";
           if($conn->query($sql)===TRUE){$respuesta=1;}
         }
   }else{
-    $sql="UPDATE `PRODUCTOS` SET `TITULO`='$titulo',`DESCRIPCION`='$descripcion',`IDCATEGORIA`='$id_categoria',`PRECIO`='$precio' WHERE IDPRODUCTO='$id_producto';";
+    $sql="UPDATE `PRODUCTOS` SET `TITULO`='$titulo',`DESCRIPCION`='$descripcion',`IDCATEGORIA`='$id_categoria',`CARACTERISTICAS`='$caracteristicas',`APLICACIONES`='$aplicaciones',`VENTAJAS`='$ventajas' WHERE IDPRODUCTO='$id_producto';";
     if($conn->query($sql)===TRUE){$respuesta=1;}
   }
 }

@@ -1,7 +1,7 @@
 <?php
 $home="active";
 date_default_timezone_set('America/Caracas');
- ?>
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,8 +9,22 @@ date_default_timezone_set('America/Caracas');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <title>ServiElectra</title>
+  <title>Servielectra</title>
   <!-- Bootstrap CSS -->
+  <style media="screen">
+  @font-face{
+    font-family: "Gotham";
+    src: url("fonts/gotham-regular.otf");
+  }
+  @font-face{
+    font-family: "Gotham Ligth";
+    src: url("fonts/gotham-thin.ttf");
+  }
+  @font-face{
+    font-family: "Gotham Bold";
+    src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
+  }
+  </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -25,8 +39,8 @@ date_default_timezone_set('America/Caracas');
   <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 </head>
 <body>
-  <!-- Amarilllo #fff500
-  Azul #002169
+  <!-- Amarilllo #fff500 \ rgba(250, 183, 0, 0.85)
+  Azul #002169 \ rgba(0, 33, 105, 1)
 -->
 <?php include 'common/navbar.php';?>
 <!--================Home Banner Area =================-->
@@ -65,55 +79,54 @@ date_default_timezone_set('America/Caracas');
   </div>
 </section>
 <script>
-$('#carouselBanner').owlCarousel({
-  loop:true,
-  nav:true,
-  autoplay: false,
-  dots: false,
-  navText: ['<img src="img/arrow_left.svg"/>', '<img src="img/arrow_right.svg"/>'],
-  responsiveClass: true,
-  responsive: {
-    0: {
-      items: 1,
+  $('#carouselBanner').owlCarousel({
+    loop:true,
+    nav:true,
+    autoplay: false,
+    dots: false,
+    navText: ['<img src="img/arrow_left.svg"/>', '<img src="img/arrow_right.svg"/>'],
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+      }
     }
-  }
-});
+  });
 </script>
 <!--================End Home Banner Area =================-->
 
 <!--================Categorias Area =================-->
-<section class="services_area py-4 mt-3">
+<section class="services_area py-4 mt-4">
   <div class="container">
     <div class="main_title mb-3">
-      <h2>Categorias Principales</h2>
-      <p>Fabricación de Resistencias Eléctricas y Sensores Termocuplas/RTD</p>
+      <h2>NUESTROS SERVICIOS</h2>
     </div>
     <div class="row services_inner">
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
           <a href="productos.php?cat=11"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=11"><h4>Resistencias</h4></a>
+          <a href="productos.php?cat=11"><h4>RESISTENCIAS</h4></a>
           <p>Fabricación de resistencias eléctricas a la medida para el sector industrial, comercial y residencial.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
           <a href="productos.php?cat=12"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=12"><h4>Sensores</h4></a>
+          <a href="productos.php?cat=12"><h4>SENSORES</h4></a>
           <p>Fabricación de sensores de temperatura a la medida: Termopares y RTD PT100.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
           <a href="productos.php?cat=13"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=13"><h4>Control</h4></a>
+          <a href="productos.php?cat=13"><h4>CONTROL</h4></a>
           <p>Venta y distribución de materiales eléctricos para el control y la automatización de procesos.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
           <a href="productos.php?cat=14"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=14"><h4>Electricidad</h4></a>
+          <a href="productos.php?cat=14"><h4>ELECTRICIDAD</h4></a>
           <p>Material especializado para altas temperaturas. Cables, terminales, borneras, aisladores y más.</p>
         </div>
       </div>
@@ -122,66 +135,88 @@ $('#carouselBanner').owlCarousel({
 </section>
 <!--================End Services Area =================-->
 <!--================Products Area =================-->
-<section class="product_area mb-5">
+<section class="clients_logo_area p_120">
   <div class="container">
     <div class="main_title">
-      <h2>Algunos de nuestros productos</h2>
+      <h2>NUESTROS PRODUCTOS</h2>
       <p>Todos nuestros productos estan adaptados a los requerimientos del sector comercial y empresarial</p>
     </div>
-    <div class="row products_cards">
+    <div class="owl-carousel" id="products_slider" style="position:relative;">
       <?php
-        $sql="SELECT * FROM PRODUCTOS LIMIT 4";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0){
-          while($row=$result->fetch_assoc()){
-            $imagen=$row['IMAGEN'];
-        ?>
-        <div class="col-lg-3 col-sm-6">
-          <div class="product_card_item">
-            <div class="card_img">
-              <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
-              <a href="productoDetalle.php?detalle=<?php echo $row['IDPRODUCTO'] ?>" class="product_card_hover">
-                <h3 class="product_card_title"><?php echo ucwords($row['TITULO']); ?></h3>
-              </a>
-            </div>
-            <div class="product_card_name text-center py-4">
-              <h3><?php echo ucwords($row['TITULO']); ?></h3>
+      $sql="SELECT * FROM PRODUCTOS LIMIT 12";
+      $result = $conn->query($sql);
+      if($result->num_rows > 0){
+        while($row=$result->fetch_assoc()){
+          $id_p=$row['IDPRODUCTO'];
+          $imagen=$row['IMAGEN'];
+          ?>
+          <div class="item">
+            <div class="product_card_item">
+              <div class="card_img">
+                <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
+              </div>
+              <div class="product_card_name text-center py-3" style="background-color:#fff500">
+                <a href="productoDetalle.php?detalle=<?php echo $id_p;?>"><h3><?php echo ucwords($row['TITULO']);?></h3></a>
+              </div>
             </div>
           </div>
-        </div>
+        <?php } ?>
       <?php } ?>
-    <?php } ?>
     </div>
   </div>
 </section>
+<script>
+  $('#products_slider').owlCarousel({
+    loop:true,
+    margin: 20,
+    items: 5,
+    autoplay: false,
+    responsiveClass: true,
+    nav: true,
+    navText: ['<img src="img/arrow_left_product.svg"/>', '<img src="img/arrow_right_product.svg"/>'],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 2,
+      },
+      575: {
+        items: 3,
+      },
+      768: {
+        items: 4,
+      },
+      992: {
+        items: 5,
+      }
+    }
+  })
+</script>
 <!--================Metricas Area =================-->
 <section class="counter_area">
   <div class="container">
-    <div class="row m0 counter_inner">
-      <div class="counter_item">
-        <h4 class="counter">596</h4>
-        <p>Projects Completed</p>
+    <div class="row m0 counter_inner justify-content-center">
+      <div class="counter_item text-center">
+        <span>+</span><h4 class="counter d-inline">550</h4>
+        <p>Clientes satisfechos</p>
       </div>
-      <div class="counter_item">
-        <h4 class="counter">552</h4>
-        <p>Really Happy Clients</p>
+      <div class="counter_item text-center">
+        <span>+</span><h4 class="counter d-inline">5800</h4>
+        <p>Piezas fabricadas</p>
       </div>
-      <div class="counter_item">
-        <h4 class="counter">5962</h4>
-        <p>Total Tasks Completed</p>
+      <div class="counter_item text-center">
+        <span>+</span><h4 class="counter d-inline">4960</h4>
+        <p>Tazas de café tomadas</p>
       </div>
-      <div class="counter_item">
-        <h4 class="counter">1009</h4>
-        <p>Cups of Coffee Taken</p>
-      </div>
-      <div class="counter_item">
-        <h4 class="counter">435</h4>
-        <p>In House Professionals</p>
+      <div class="counter_item text-center">
+        <h4 class="counter d-inline">15</h4>
+        <p>Profesionales en casa</p>
       </div>
     </div>
   </div>
 </section>
-<!--================Feature Area =================-->
+<!--================Info Area =================-->
 <section class="feature_area p_120 pb-5">
   <div class="container">
     <div class="main_title">
@@ -268,7 +303,7 @@ $('#carouselBanner').owlCarousel({
           <?php
         }
       }
-       ?>
+      ?>
     </div>
   </div>
 </section>

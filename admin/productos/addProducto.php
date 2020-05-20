@@ -16,12 +16,14 @@ if(isset($_FILES['imagen'])){
     }else{$respuesta=5;}
   }
 }
-if($iscreated && isset($_POST['title'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria'])){
+if($iscreated && isset($_POST['title'],$_POST['descripcion'],$_POST['caracteristicas'],$_POST['aplicaciones'],$_POST['ventajas'],$_POST['categoria'])){
 $titulo=$_POST['title'];
 $descripcion=$_POST['descripcion'];
 $idcategoria=$_POST['categoria'];
-$precio=$_POST['precio'];
-$sql="INSERT INTO `PRODUCTOS` (`TITULO`,`DESCRIPCION`,`IDCATEGORIA`,`PRECIO`,`IMAGEN`) VALUES ('$titulo','$descripcion','$idcategoria','$precio','$name_archivo');";
+$caracteristicas=$_POST['caracteristicas'];
+$aplicaciones=$_POST['aplicaciones'];
+$ventajas=$_POST['ventajas'];
+$sql="INSERT INTO `PRODUCTOS` (`TITULO`,`DESCRIPCION`,`IDCATEGORIA`,`CARACTERISTICAS`,`APLICACIONES`,`VENTAJAS`,`IMAGEN`) VALUES ('$titulo','$descripcion','$idcategoria','$caracteristicas','$aplicaciones','$ventajas','$name_archivo');";
 if($conn->query($sql)===TRUE){$respuesta=1;}else{$respuesta=6;}
 }else{$respuesta=7;}
 $conn->close();

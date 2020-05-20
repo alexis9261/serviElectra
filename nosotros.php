@@ -8,8 +8,22 @@ $nosotros="active";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <title>ServiElectra</title>
+  <title>Servielectra</title>
   <!-- Bootstrap CSS -->
+  <style media="screen">
+  @font-face{
+    font-family: "Gotham";
+    src: url("fonts/gotham-regular.otf");
+  }
+  @font-face{
+    font-family: "Gotham Ligth";
+    src: url("fonts/gotham-thin.ttf");
+  }
+  @font-face{
+    font-family: "Gotham Bold";
+    src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
+  }
+  </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">

@@ -76,13 +76,10 @@ $previouspage=$curpage - 1;
                       <div class="row align-items-center">
                         <strong class="col-1"><?php echo $x;?></strong>
                         <div class="col-1 "><img src="img/<?php echo $row['IMAGEN'];?>" width="35px"></div>
-                        <div class="col-6 text-dark">
+                        <div class="col-8 text-dark">
                           <a href="../../producto.php?id=<?php echo $id_producto;?>" target="_blank">
                             <?php echo ucwords($row['TITULO']);?>
                           </a>
-                        </div>
-                        <div class="col-2 ml-auto">
-                          <small><?php echo $row['PRECIO'];?></small>
                         </div>
                         <div class="col-1">
                           <a href="edit.php?id=<?php echo $id_producto;?>" title="Editar">

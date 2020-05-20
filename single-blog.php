@@ -52,6 +52,20 @@ if($result->num_rows>0){
   <link rel="icon" href="img/favicon.png" type="image/png">
   <title>Servielectra</title>
   <!-- Bootstrap CSS -->
+  <style media="screen">
+  @font-face{
+    font-family: "Gotham";
+    src: url("fonts/gotham-regular.otf");
+  }
+  @font-face{
+    font-family: "Gotham Ligth";
+    src: url("fonts/gotham-thin.ttf");
+  }
+  @font-face{
+    font-family: "Gotham Bold";
+    src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
+  }
+  </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -115,15 +129,15 @@ if($result->num_rows>0){
                 </div>
                 <div class="col-lg-3  col-md-3">
                   <div class="blog_info text-right">
-                    <div class="post_tag">
+                    <!--div class="post_tag">
                       <?php foreach ($keywords_array as $keyword){ ?>
                         <a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?>,</a>
                       <?php } ?>
-                    </div>
+                    </div-->
                     <ul class="blog_meta list">
                       <li><a href="#"><?php echo $autor;?><i class="lnr lnr-user"></i></a></li>
                       <li><a href="#"><?php echo $fecha;?><i class="lnr lnr-calendar-full"></i></a></li>
-                      <li><a href="#"><?php echo $total_mensajes;?> Comments<i class="lnr lnr-bubble"></i></a></li>
+                      <!--li><a href="#"><?php echo $total_mensajes;?> Comments<i class="lnr lnr-bubble"></i></a></li-->
                     </ul>
                     <ul class="social-links">
                       <?php if($facebook!=""){ ?>
@@ -206,7 +220,7 @@ if($result->num_rows>0){
               </div>
             </div>
           </div>
-          <div class="comments-area">
+          <!--div class="comments-area">
             <h4><?php echo $total_mensajes;?> Comments</h4>
             <?php
             $sql="SELECT * FROM MENSAJESBLOG WHERE ARTICULOID=$id_blog";
@@ -259,7 +273,7 @@ if($result->num_rows>0){
               <input type="hidden" name="id" value="<?php echo $id_blog;?>">
               <button type="submit" class="primary-btn submit_btn">Publicar mi comentario</button>
             </form>
-          </div>
+          </div-->
         </div>
         <div class="col-lg-4">
           <div class="blog_right_sidebar">
@@ -270,7 +284,7 @@ if($result->num_rows>0){
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="lnr lnr-magnifier"></i></button>
                   </span>
-                </div><!-- /input-group -->
+                </div>
               </form>
               <div class="br"></div>
             </aside>
@@ -293,7 +307,7 @@ if($result->num_rows>0){
               <div class="br"></div>
             </aside>
             <aside class="single_sidebar_widget post_category_widget">
-              <h4 class="widget_title">Catgorias de los artículos</h4>
+              <h4 class="widget_title">CATEGORÍA DE ARTÍCULOS</h4>
               <ul class="list cat-list">
                 <?php
                 $sql="SELECT * FROM `CATEGORIAS`";
@@ -323,7 +337,7 @@ if($result->num_rows>0){
               <div class="br"></div>
             </aside>
             <aside class="single-sidebar-widget newsletter_widget">
-              <h4 class="widget_title">Suscripción</h4>
+              <h4 class="widget_title" style="background: #002169;color: #fff500;font-family:'Gotham Bold';">SUSCRIPCIÓN</h4>
               <p>
                 Suscribete a nosotros y te enviaremos información relevante
                 sobre artículos tecnológicos y de electricidad en general
@@ -339,7 +353,7 @@ if($result->num_rows>0){
               </div>
               <div class="br"></div>
             </aside>
-            <aside class="single-sidebar-widget tag_cloud_widget">
+            <!--aside class="single-sidebar-widget tag_cloud_widget">
               <h4 class="widget_title">Etiquetas</h4>
               <ul class="list">
                 <?php
@@ -354,12 +368,13 @@ if($result->num_rows>0){
                     }
                   }
                 }
+                $array_keywords=array_unique($array_keywords);
                 foreach($array_keywords as $keyword){
                   ?>
                   <li><a href="blog.php?keyword=<?php echo $keyword;?>"><?php echo $keyword;?></a></li>
                 <?php } ?>
               </ul>
-            </aside>
+            </aside-->
           </div>
         </div>
       </div>

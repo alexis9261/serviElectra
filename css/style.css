@@ -44,19 +44,9 @@ Table of Content:
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Poppins:200,300,400,500,600,700|Roboto:300,400,500,700");
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
-@font-face{
-  font-family: "Gotham";
-  src: url("fonts/gotham-medium.ttf");
-}
-@font-face{
-  font-family: "Gotham Ligth";
-  src: url("fonts/gotham-thin.ttf");
-}
-@font-face{
-  font-family: "Gotham Bold";
-  src: url("fonts/gotham-ultra.ttf");
-}
+
 .search_menu {
+  font-family: 'Gotham';
   width: 150px;
   box-sizing: border-box;
   border: 1px solid #fff500;
@@ -150,7 +140,7 @@ button:focus {
 }
 
 .main_title h2 {
-  font-family: "Gotham Bold", sans-serif;
+  font-family: "Gotham Bold";
   font-size: 36px;
   color: #222222;
   margin-bottom: 12px;
@@ -192,7 +182,7 @@ button:focus {
 }
 
 .header_area .navbar .nav .nav-item .nav-link {
-  font: 500 12px/100px "Poppins", sans-serif;
+  font: 500 12px/100px "Gotham Bold", sans-serif;
   text-transform: uppercase;
   color: #222222;
   padding: 0px;
@@ -226,7 +216,7 @@ button:focus {
     position: absolute;
     top: 120%;
     left: 0px;
-    min-width: 300px;
+    min-width: 325px;
     text-align: left;
     opacity: 0;
     -webkit-transition: all 300ms ease-in;
@@ -401,7 +391,7 @@ button:focus {
   background: #fff500;
   padding: 0px 19px;
   font-size: 12px;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham";
   font-weight: 500;
   color: #fff;
   -webkit-transition: all 300ms linear 0s;
@@ -519,7 +509,7 @@ button:focus {
 
 .home_banner_area .banner_inner .banner_content h5 {
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 14px;
   font-weight: normal;
   margin-bottom: 15px;
@@ -547,7 +537,7 @@ button:focus {
 .home_banner_area .banner_inner .banner_content p {
   font-size: 14px;
   line-height: 24px;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham";
   font-weight: normal;
   max-width: 500px;
   margin: auto;
@@ -645,7 +635,7 @@ button:focus {
 .banner_area .banner_inner .banner_content h2 {
   color: #fff;
   font-size: 48px;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham Bold", sans-serif;
   margin-bottom: 0px;
   font-weight: 500;
 }
@@ -874,13 +864,13 @@ button:focus {
   max-width: 100%;
 }
 
-.categories_post .categories_details {
+.categories_post .categories_details{
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  background: rgba(34, 34, 34, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 34, 34, 0);
   color: #fff;
   -webkit-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -898,11 +888,12 @@ button:focus {
 
 .categories_post .categories_details h5 {
   margin-bottom: 0px;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 26px;
   text-transform: uppercase;
   color: #fff;
   position: relative;
+  display: none;
 }
 
 .categories_post .categories_details p {
@@ -920,9 +911,11 @@ button:focus {
 }
 
 .categories_post:hover .categories_details {
-  background: rgba(250, 183, 0, 0.85);
+  background: rgba(0, 33, 105, 0.9);
 }
-
+.categories_post:hover .categories_details h5 {
+  display: block;
+}
 /*============ blog_left_sidebar css ==============*/
 .blog_item {
   margin-bottom: 40px;
@@ -989,7 +982,7 @@ button:focus {
 }
 
 .blog_details h2:hover {
-  color: #fff500;
+  color: #002169;
 }
 
 .blog_details p {
@@ -1013,11 +1006,12 @@ button:focus {
 }
 
 .blog_right_sidebar .widget_title {
-  font-size: 18px;
+  font-family: 'Gotham';
+  font-size: 16px;
   line-height: 25px;
   background: #fff500;
   text-align: center;
-  color: #fff;
+  color: #002169;
   padding: 8px 0px;
   margin-bottom: 30px;
 }
@@ -1025,30 +1019,31 @@ button:focus {
 .blog_right_sidebar .search_widget .input-group .form-control {
   font-size: 14px;
   line-height: 29px;
-  border: 0px;
+  border: 1px solid #002169;
   width: 100%;
   font-weight: 300;
-  color: #fff;
+  color: #222222;
   padding-left: 20px;
   border-radius: 45px;
   z-index: 0;
-  background: #fff500;
+  background: #fff;
+  padding-right: 40px;
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control.placeholder {
-  color: #fff;
+  color: #222222;
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control:-moz-placeholder {
-  color: #fff;
+  color: #222222;
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control::-moz-placeholder {
-  color: #fff;
+  color: #222222;
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control::-webkit-input-placeholder {
-  color: #fff;
+  color: #222222;
 }
 
 .blog_right_sidebar .search_widget .input-group .form-control:focus {
@@ -1064,9 +1059,10 @@ button:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
   font-size: 14px;
-  color: #fff;
+  color: #002169;
   padding: 0px;
-  top: 50%;
+  top: 55%;
+  cursor: pointer;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -1124,6 +1120,7 @@ button:focus {
   color:#fff500;
 }
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3 {
+  font-family: 'Gotham';
   font-size: 14px;
   line-height: 20px;
   color: #222222;
@@ -1134,10 +1131,11 @@ button:focus {
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3:hover {
-  color: #fff500;
+  color: #002169;
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body p {
+  font-family: 'Gotham';
   font-size: 12px;
   line-height: 21px;
   margin-bottom: 0px;
@@ -1232,8 +1230,8 @@ button:focus {
 }
 
 .blog_right_sidebar .newsletter_widget .bbtns {
-  background: #fff500;
-  color: #fff;
+  background: #002169;
+  color: #fff500;
   font-size: 12px;
   line-height: 38px;
   display: inline-block;
@@ -3465,7 +3463,7 @@ h6 {
   display: inline-block;
   background: #fff500;
   padding: 0px 50px;
-  color: #fff;
+  color: #002169;
   font-family: "Gotham", sans-serif;
   font-size: 13px;
   font-weight: 500;
@@ -3484,7 +3482,7 @@ h6 {
 
 .submit_btn:hover {
   background: transparent;
-  color: #fff500;
+  color: #002169;
 }
 
 .white_bg_btn {
@@ -3510,19 +3508,19 @@ h6 {
 
 .white_bg_btn:hover {
   background: #fff500;
-  color: #fff;
+  color: #002169;
   border-color: #fff500;
 }
 
 .black_btn {
   padding: 0px 44px;
   line-height: 50px;
-  background: #222222;
-  color: #fff500;
+  background: #fff500;
+  color: #002169;
   display: inline-block;
   border-radius: 5px;
-  font-size: 13px;
-  font-family: "Gotham", sans-serif;
+  font-size: 15px;
+  font-family: "Gotham Bold";
   font-weight: 500;
   -webkit-transition: all 300ms linear 0s;
   -o-transition: all 300ms linear 0s;
@@ -3530,8 +3528,8 @@ h6 {
 }
 
 .black_btn:hover {
-  background: #fff500;
-  color: #222222;
+  background: #222222;
+  color: #fff500;
 }
 
 .ab_btn {
@@ -3635,11 +3633,12 @@ h6 {
 
 .testi_item .media .media-body p {
   margin-bottom: 20px;
+  font-family: 'Gotham';
 }
 
 .testi_item .media .media-body h4 {
   color: #222222;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham";
   font-weight: 500;
   font-size: 20px;
   -webkit-transition: all 300ms linear 0s;
@@ -3652,7 +3651,7 @@ h6 {
   font-size: 14px;
   color: #777777;
   font-weight: normal;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham";
 }
 
 .testi_item:hover .media {
@@ -3692,14 +3691,14 @@ h6 {
 
 .services_item h4 {
   font-size: 20px;
-  font-family: "Gotham", sans-serif;
+  font-family:'Gotham Bold';
   color: #222222;
   margin-bottom: 18px;
 }
 
 .services_item p {
   font-size: 14px;
-  font-family: #777777;
+  font-family:'Gotham';
   line-height: 24px;
 }
 
@@ -3903,10 +3902,15 @@ h6 {
   flex: 0 0 20%;
   max-width: 20%;
 }
-
+.counter_item span {
+  font-size: 48px;
+  font-family: "Gotham Bold";
+  font-weight: 500;
+  color: #222222;
+}
 .counter_item h4 {
   font-size: 48px;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham Bold";
   font-weight: 500;
   color: #222222;
 }
@@ -3914,9 +3918,10 @@ h6 {
 .counter_item p {
   margin-bottom: 0px;
   color: #222222;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham";
   font-size: 14px;
 }
+
 
 /* End Counter Area css
 ============================================================================================ */
@@ -3941,7 +3946,7 @@ h6 {
 
 .feature_item h4 {
   font-size: 18px;
-  font-family: "Gotham", sans-serif;
+  font-family: "Gotham";
   font-weight: 500;
   color: #222222;
   margin-bottom: 20px;
@@ -3959,6 +3964,7 @@ h6 {
 
 .feature_item p {
   margin-bottom: 0px;
+  font-family: "Gotham";
 }
 
 .feature_item:hover {
@@ -3968,7 +3974,7 @@ h6 {
 }
 
 .feature_item:hover h4 {
-  color: #fff500;
+  color: #002169;
 }
 
 /* End Feature Area css
@@ -4002,6 +4008,7 @@ h6 {
 
 .single-footer-widget p {
   margin-bottom: 0px;
+  font-family: 'Gotham';
 }
 
 .single-footer-widget .instafeed {
@@ -4023,12 +4030,13 @@ h6 {
 
 .single-footer-widget input {
   width: 100%;
+  font-family: 'Gotham';
   border: 1px solid #333333;
   font-size: 13px;
   line-height: 40px;
   padding-right: 40px;
   height: 40px;
-  color: #999999;
+  color: #222222;
   border-radius: 20px;
   background: #fff;
   padding-left: 20px;
@@ -4151,7 +4159,6 @@ h6 {
 
 .card_img{
   position: relative;
-  cursor: pointer;
 }
 
 .product_card_img{
@@ -4186,7 +4193,7 @@ h6 {
 
 .product_card_name h3 {
   margin-bottom: 5px;
-  color: #222222;
+  color: #002169;
   font-family: "Gotham Bold", sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -4278,14 +4285,15 @@ h6 {
 .container-img-product-detalles{
   background-color:#ffffff;
   position:relative;
-  height:80vh;
+  height:60vh;
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
   justify-content:center;
 }
 .img-product-detalles{
-  max-height:77vh!important;
+  max-height:57vh!important;
+  max-width: 100%;
   object-fit:contain;
   object-position:center center;
 }
@@ -4395,6 +4403,10 @@ h6 {
 
 }
 
+.img_otras_img_products{
+  max-width:90%!important;
+  max-height: 90%!important;
+}
 
 .whatsapp_div{
   display:scroll;
@@ -4417,7 +4429,31 @@ h6 {
   opacity: 1;
 }
 
-
+.card_categorias h2{
+  color: #002169;
+  font-size: 22px;
+  font-family: 'Gotham Bold';
+}
+#products_slider .owl-nav{
+  position: absolute;
+  top:-30px;
+  right: 0;
+}
+#products_slider .owl-nav .owl-next{
+  display: inline;
+  background-color: #222222;
+  color:#fff;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+#products_slider .owl-nav .owl-prev{
+  display: inline;
+  background-color: #222222;
+  color:#fff;
+  padding: 5px 0;
+  border-radius: 5px;
+  margin-right: 5px;
+}
 /*---------------------------------------------------- */
 
 

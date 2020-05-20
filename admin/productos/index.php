@@ -69,15 +69,27 @@ if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
                   <?php } ?>
                 </select>
               </div>
-              <div class="input-group mb-3 col-12 col-md-3 ml-auto">
+              <!--div class="input-group mb-3 col-12 col-md-3 ml-auto">
                 <div class="input-group-append">
                   <span class="input-group-text"><b>Precio</b></span>
                 </div>
                 <input type="number" name="precio" class="form-control text-dark" required maxlength="25">
-              </div>
+              </div-->
               <span class="col-12 ml-3 mb-2"><b>Descripción</b></span>
               <div class="input-group mb-3 col-12">
-                <textarea class="form-control" name="descripcion" rows="12" type="text" required placeholder="La descripcion del producto..."></textarea>
+                <textarea class="form-control" name="descripcion" rows="8" type="text" required placeholder="La descripcion del producto..."></textarea>
+              </div>
+              <span class="col-12 ml-3 mb-2"><b>Caracteristicas técnicas</b></span>
+              <div class="input-group mb-3 col-12">
+                <textarea class="form-control" name="caracteristicas" rows="8" type="text" required ></textarea>
+              </div>
+              <span class="col-12 ml-3 mb-2"><b>Aplicaciones</b></span>
+              <div class="input-group mb-3 col-12">
+                <textarea class="form-control" name="aplicaciones" rows="8" type="text" required></textarea>
+              </div>
+              <span class="col-12 ml-3 mb-2"><b>Ventajas</b></span>
+              <div class="input-group mb-3 col-12">
+                <textarea class="form-control" name="ventajas" rows="8" type="text" required></textarea>
               </div>
               <div class="col-12">
                 <small>La imagen debe ser de máximo 2 Megas</small>
