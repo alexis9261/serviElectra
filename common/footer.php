@@ -46,7 +46,7 @@ if($result->num_rows>0){
         <div class="single-footer-widget">
           <h6 class="footer_title">Suscribete</h6>
           <p>Suscribete en nuestro sitio y te mantendremos al tanto de todas nuestras ofertas.</p>
-          <div>
+          <div class="mt-3">
             <div class="input-group d-flex flex-row">
               <input name="correo" id="correo_footer" placeholder="Tu correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico '" required="" type="email">
               <button class="btn sub-btn" id="suscripcion"><span class="lnr lnr-arrow-right"></span></button>
@@ -59,13 +59,13 @@ if($result->num_rows>0){
     <div class="row footer-bottom d-flex align-items-center pt-4">
       <div class="col-auto footer-social align-self-center">
           <?php if($facebook!=""){ ?>
-            <a target="_blank" href="<?php echo $facebook;?>"><i class="fa fa-facebook"></i></a>
+            <a target="_blank" href="<?php echo $facebook;?>"><i class="fa fa-facebook" id="facebook_footer"></i></a>
           <?php }if($twitter!=""){ ?>
-            <a target="_blank" href="<?php echo $twitter;?>"><i class="fa fa-twitter"></i></a>
+            <a target="_blank" href="<?php echo $twitter;?>"><i class="fa fa-twitter" id="twitter_footer"></i></a>
           <?php }if($instagram!=""){ ?>
-            <a target="_blank" href="<?php echo $instagram;?>"><i class="fa fa-instagram"></i></a>
+            <a target="_blank" href="<?php echo $instagram;?>"><i class="fa fa-instagram" id="instagram_footer"></i></a>
           <?php }if($youtube!=""){ ?>
-            <a target="_blank" href="<?php echo $youtube;?>"><i class="fa fa-youtube"></i></a>
+            <a target="_blank" href="<?php echo $youtube;?>"><i class="fa fa-youtube" id="youtube_footer"></i></a>
           <?php } ?>
       </div>
     </div>

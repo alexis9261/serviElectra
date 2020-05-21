@@ -32,7 +32,11 @@ function buscar(){document.search1.submit()}
         </form>
       </div>
       <div class="float-right">
-        <ul class="list header_social d-inline">
+        <span class="datos_navbar_menu">
+          <a class="dn_btn " href="https://wa.me/584244215217" target="_blank" style="color:#002169"> <img class="pb-1 mr-1" src="img/whatsapp_nav.svg" width="12px">+58 424 421 52 17</a>
+          <a class="dn_btn mx-2" href="mailto:info@servielectra.com.ve" target="_blank" style="color:#002169"><img class="mr-1" src="img/correo.svg" width="15px">info@servielectra.com.ve</a>
+        </span>
+        <ul class="list header_social d-inline ml-1">
           <?php if($facebook!=""){ ?>
             <li><a target="_blank" href="<?php echo $facebook;?>"><i class="fa fa-facebook"></i></a></li>
           <?php } if($twitter!=""){ ?>

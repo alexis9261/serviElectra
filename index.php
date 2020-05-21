@@ -96,8 +96,8 @@ date_default_timezone_set('America/Caracas');
 <!--================End Home Banner Area =================-->
 
 <!--================Categorias Area =================-->
-<section class="services_area py-4 mt-4">
-  <div class="container">
+<section class="services_area pb-4 pt-5 mt-5">
+  <div class="container mt-4">
     <div class="main_title mb-3">
       <h2>NUESTROS SERVICIOS</h2>
     </div>
@@ -268,7 +268,6 @@ date_default_timezone_set('America/Caracas');
   <div class="container">
     <div class="main_title">
       <h2>Algunos artículos de interes</h2>
-      <p>Acá podrás ver información sobre tecnologia, ciencia, ambiente y muchas cosas más.</p>
     </div>
     <div class="testi_slider owl-carousel">
       <?php

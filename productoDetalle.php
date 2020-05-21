@@ -29,82 +29,10 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
   .border_ligth{
     border: 1px solid #ddd;
   }
-  .testimonials_area .owl-prev, .testimonials_area .owl-next {
-    position: absolute;
-    right: 10px!important;
-    background: #fff;
-    font-size: 20px!important;
-    color: #c1c1c1;
-    padding-left: 8px!important;
-    padding-right: 8px!important;
-    -webkit-transition: all 300ms linear 0s;
-    -o-transition: all 300ms linear 0s;
-    transition: all 300ms linear 0s;
-    cursor: pointer;
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1)!important;
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1)!important;
-    z-index: 100!important;
-  }
 
-  .testimonials_area .owl-prev:hover, .testimonials_area .owl-next:hover {
-    color: #222222;
+  #facebook_footer, #twitter_footer, #instagram_footer, #youtube_footer{
+    margin-top: 8px!important;
   }
-
-  .testimonials_area .owl-prev {
-    bottom: 50%;
-    padding-top: 15px;
-    padding-bottom: 10px;
-  }
-
-  .testimonials_area .owl-prev:before {
-    content: "";
-    width: 28px;
-    background: #e8e8e8;
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    bottom: 0px;
-    height: 1px;
-  }
-
-  .testimonials_area .owl-next {
-    top: 50%;
-    padding-top: 10px;
-    padding-bottom: 15px;
-  }
-
-  #testi_slider {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .testi_item {
-    padding: 0px!important;
-  }
-
-  .testi_item .media {
-    border: 0px!important;
-    border-radius: 0px!important;
-    width: auto!important;
-    padding: 0!important;
-    -webkit-transition: all 300ms linear 0s;
-    -o-transition: all 300ms linear 0s;
-    transition: all 300ms linear 0s;
-  }
-
-  .testi_item .media .d-flex {
-    padding-right: 0px!important;
-  }
-
-  .testi_item:hover .media {
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255,1)!important;
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1)!important;
-    background: #fff;
-    border-color: #fff;
-  }
-
   </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -146,7 +74,7 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
               <div class="col-md-5">
                 <div class="row">
                   <div class="col-12">
-                    <p class="text-muted" style="font-family:'Gotham';">
+                    <!--p class="text-muted" style="font-family:'Gotham';">
                       <?php
                       $sql="SELECT * FROM CATEGORIAS WHERE IDCATEGORIA = $idcat";
                       $resultCat = $conn->query($sql);
@@ -155,7 +83,7 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
                           Categoria: <strong><?php echo $rowCat['CATEGORIA'] ?></strong>
                         <?php }
                       } ?>
-                    </p>
+                    </p-->
                     <h2 class="lead" style="font-size:1.5rem;color:#002169;font-weight:500;font-family:'Gotham';"><?php echo $titulo;?></h2>
                   </div>
                 </div>
@@ -170,40 +98,37 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
               <h2 class="mb-3" style="color:#222222;font-family:'Gotham';"><strong>Descripción</strong></h2>
               <p style="font-family:'Gotham';"><?php echo nl2br($descripcion) ?></p>
             </div>
-            <section class="testimonials_area mt-3">
-              <div class="container">
-                <div class="owl-carousel py-4" id="testi_slider">
+            <!-- Coarusel otras imagenes -->
+            <section class="my-5">
+                <div class="owl-carousel" id="otros_productos_detalles" style="position:relative;">
                   <?php
-                  $sql="SELECT IMAGEN FROM PRODUCTOS WHERE NOT IDPRODUCTO=$detalle LIMIT 12";
+                  $sql="SELECT * FROM PRODUCTOS WHERE NOT IDPRODUCTO=$detalle LIMIT 12";
                   $result=$conn->query($sql);
                   if($result->num_rows>0){
                     while($row=$result->fetch_assoc()){
+                      $id_p=$row['IDPRODUCTO'];
                       $imagen=$row['IMAGEN'];
                       ?>
                       <div class="item">
-                        <div class="testi_item">
-                          <div class="media">
-                            <img src="admin/productos/img/<?php echo $imagen ?>" alt="">
+                        <div class="product_card_item">
+                          <div class="card_img">
+                            <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
                           </div>
                         </div>
                       </div>
                     <?php } ?>
                   <?php } ?>
                 </div>
-              </div>
             </section>
             <script>
-              $('#testi_slider').owlCarousel({
+              $('#otros_productos_detalles').owlCarousel({
                 loop:true,
-                margin: 5,
-                items: 2,
-                nav: true,
+                margin: 20,
+                items: 5,
                 autoplay: false,
-                smartSpeed: 1500,
-                dots:true,
-                navContainer: '.testimonials_area',
-                navText: ['<i class="lnr lnr-arrow-up"></i>','<i class="lnr lnr-arrow-down"></i>'],
                 responsiveClass: true,
+                nav: true,
+                navText: ['<img src="img/arrow_left_product.svg"/>', '<img src="img/arrow_right_product.svg"/>'],
                 responsive: {
                   0: {
                     items: 2,
@@ -303,7 +228,7 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
             <div class="form-group d-flex flex-row">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                  <div class="input-group-text correo_icon_sidebar"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
                 <input type="text" class="form-control" id="correo_blog" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
               </div>

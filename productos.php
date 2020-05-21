@@ -38,6 +38,9 @@ $previouspage=$curpage - 1;
   .border_ligth{
     border: 1px solid #ddd;
   }
+  #facebook_footer, #twitter_footer, #instagram_footer, #youtube_footer{
+    margin-top: 8px!important;
+  }
   </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -280,7 +283,7 @@ $previouspage=$curpage - 1;
             <div class="form-group d-flex flex-row">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                  <div class="input-group-text correo_icon_sidebar"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
                 <input type="text" class="form-control" id="correo_blog" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
               </div>

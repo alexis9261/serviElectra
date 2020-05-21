@@ -210,8 +210,13 @@ button:focus {
   margin: 0px;
   background: #fff;
 }
-
+@media (max-width: 992px){
+  .datos_navbar_menu{
+    display: none;
+  }
+}
 @media (min-width: 992px) {
+
   .header_area .navbar .nav .nav-item.submenu ul {
     position: absolute;
     top: 120%;
@@ -4453,6 +4458,30 @@ h6 {
   padding: 5px 0;
   border-radius: 5px;
   margin-right: 5px;
+}
+#otros_productos_detalles .owl-nav{
+  position: absolute;
+  top:-30px;
+  right: 0;
+}
+#otros_productos_detalles .owl-nav .owl-next{
+  display: inline;
+  background-color: #222222;
+  color:#fff;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+#otros_productos_detalles .owl-nav .owl-prev{
+  display: inline;
+  background-color: #222222;
+  color:#fff;
+  padding: 5px 0;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+.correo_icon_sidebar{
+  height: 100%!important;
+  padding-top: 12px!important;
 }
 /*---------------------------------------------------- */
 
