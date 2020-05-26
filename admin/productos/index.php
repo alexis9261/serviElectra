@@ -92,13 +92,14 @@ if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
                 <textarea class="form-control" name="ventajas" rows="8" type="text" required></textarea>
               </div>
               <div class="col-12">
+                <h4>Imagen Principal</h4>
                 <small>La imagen debe ser de máximo 2 Megas</small>
               </div>
               <div class="col-12">
-                <label class="btn btn-link" for="file-upload">Seleccionar Imagen</label>
+                <label class="btn btn-link" for="file-upload">Seleccionar Imagen Principal</label>
                 <input id="file-upload" type="file" accept="image/*" hidden="hidden" name='imagen' onchange="ValidarImagen(this);" required/>
               </div>
-              <div class="col-12 text-center" id="file-preview-zone">
+              <div class="col-6 text-center" id="file-preview-zone">
               </div>
               <!-- Preview Imagen -->
               <script>
@@ -125,7 +126,7 @@ if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
                     reader.onload=function(e){
                       var filePreview=document.createElement('img');
                       filePreview.id='file-preview';
-                      filePreview.setAttribute("width","60%");
+                      filePreview.setAttribute("width","80%");
                       filePreview.src=e.target.result;
                       var previewZone=document.getElementById('file-preview-zone');
                       previewZone.appendChild(filePreview);
@@ -134,9 +135,50 @@ if(isset($_GET['r'])){$nuevo=$_GET['r'];}else{$nuevo=3;}
                   }
                 }
               </script>
-            </div>
-            <div class="row justify-content-center my-3">
-              <button type="submit" class="btn btn-outline-primary px-5">Agregar</button>
+              <!-- Otras Imagenes del producto -->
+              <div class="col-12">
+                <hr>
+              </div>
+              <div class="col-12">
+                <h4 class="card-title mb-0 d-inline">Otras Imagenes del producto</h4>
+                <span class="card-subtitle d-block mt-1">Máx. 6 Fotos. <small title="Recomendado" data-toggle="tooltip">1080x1080 px</small></span>
+              </div>
+              <div class="col-12">
+                <label class="btn btn-link" for="imagenesOtras">Seleccionar Imagenes</label>
+                <input type="file" name="imagenesOtras[]" id="imagenesOtras" multiple hidden="hidden"/>
+              </div>
+              <div class="col-12 mt-2">
+                <div class="row" id="images-otras">
+                </div>
+              </div>
+            <!-- Imagenes Instagram -->
+            <script>
+              $("#imagenesOtras").on('change',function(){
+                var countFiles=$(this)[0].files.length;
+                var imgPath=$(this)[0].value;
+                var extn=imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+                $("#images-otras").empty();
+                var image_holder=$("#images-otras");
+                image_holder.empty();
+                if (extn=="png" || extn=="jpg" || extn=="jpeg"){
+                  if(typeof (FileReader)!='undefined'){
+                    if(countFiles>6){countFiles=6;}
+                    for(var i=0;i<countFiles;i++){
+                      var reader=new FileReader();
+                      reader.onload=function(e){
+                        $("<div class='col-2 mb-3'><img width='80%' src='"+e.target.result+"'/></div>").appendTo(image_holder);
+                      }
+                      reader.readAsDataURL($(this)[0].files[i]);
+                    }
+                  }else{alert("This browser does not support FileReader.");}
+                }else{
+                  const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
+                  toast({type:'error',title:"¡Desbes subir imagenes tipo jpg, jpge o png"})
+                }
+              });
+            </script>
+            <div class="col-12 justify-content-center my-3">
+              <button type="submit" class="btn btn-outline-primary px-5">Agregar Producto</button>
             </div>
           </form>
         </div>

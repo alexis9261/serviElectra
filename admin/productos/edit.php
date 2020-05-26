@@ -112,15 +112,47 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
                     <div class="input-group mb-3 col-12">
                       <textarea class="form-control" name="ventajas" rows="8" type="text" required><?php echo $ventajas;?></textarea>
                     </div>
-                    <div class="col-12"><h5>Imagen Actual</h5></div>
-                    <div class="col-12 text-center">
-                      <img class="p-0 m-0" width="50%" src="img/<?php echo $imagen;?>"/>
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-6">
+                          <h5>Imagen Principal Actual</h5>
+                          <div class="row justify-content-center">
+                            <img class="p-0 m-0" width="50%" src="img/<?php echo $imagen;?>"/>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <label class="btn btn-link" for="file-upload">Seleccionar Nueva Imagen Principal</label>
+                          <input type="file" accept="image/*" hidden="hidden" name="imagen" onchange="ValidarImagen(this);" id="file-upload"/>
+                          <div class="row justify-content-center" id="file-preview-zone"></div>
+                        </div>
+                      </div>
                     </div>
                     <div class="col-12"><hr></div>
-                    <div class="col-12 text-center" id="file-preview-zone"></div>
+
                     <div class="col-12">
-                      <label class="btn btn-link" for="file-upload">Seleccionar Nueva Imagen</label>
-                      <input type="file" accept="image/*" hidden="hidden" name="imagen" onchange="ValidarImagen(this);" id="file-upload"/>
+                      <h4 class="card-title mb-0 d-inline">Otras Imagenes del producto</h4>
+                      <span class="card-subtitle d-block mt-1">Máx. 6 Fotos. <small title="Recomendado" data-toggle="tooltip">1080x1080 px</small></span>
+                    </div>
+                    <div class="col-12">
+                      <label class="btn btn-link" for="imagenesOtras">Seleccionar Imagenes</label>
+                      <input type="file" name="imagenesOtras[]" id="imagenesOtras" multiple hidden="hidden"/>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <div class="row" id="images-otras">
+                        <?php
+                        $result=$conn->query("SELECT IMAGEN FROM IMAGENESPRODUCTO WHERE `PRODUCTOID`=$id_producto");
+                        if($result->num_rows>0){
+                          while($row=$result->fetch_assoc()){
+                            $otra_imagen=$row['IMAGEN'];
+                            ?>
+                            <div class='col-2 mb-3'>
+                              <img width='80%' src='img/<?php echo $otra_imagen;?>'/>
+                            </div>
+                            <?php
+                          }
+                        }
+                        ?>
+                      </div>
                     </div>
                   </div>
                   <div class="row justify-content-center mb-3">
@@ -163,6 +195,32 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
                     reader.readAsDataURL(input.files[0]);
                   }
                 }
+              </script>
+              <!-- Imagenes Instagram -->
+              <script>
+                $("#imagenesOtras").on('change',function(){
+                  var countFiles=$(this)[0].files.length;
+                  var imgPath=$(this)[0].value;
+                  var extn=imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+                  $("#images-otras").empty();
+                  var image_holder=$("#images-otras");
+                  image_holder.empty();
+                  if (extn=="png" || extn=="jpg" || extn=="jpeg"){
+                    if(typeof (FileReader)!='undefined'){
+                      if(countFiles>6){countFiles=6;}
+                      for(var i=0;i<countFiles;i++){
+                        var reader=new FileReader();
+                        reader.onload=function(e){
+                          $("<div class='col-2 mb-3'><img width='80%' src='"+e.target.result+"'/></div>").appendTo(image_holder);
+                        }
+                        reader.readAsDataURL($(this)[0].files[i]);
+                      }
+                    }else{alert("This browser does not support FileReader.");}
+                  }else{
+                    const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
+                    toast({type:'error',title:"¡Desbes subir imagenes tipo jpg, jpge o png"})
+                  }
+                });
               </script>
               <?php
             }

@@ -57,6 +57,7 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
         $result=$conn->query($sql);
         if($result->num_rows > 0){
           while($row=$result->fetch_assoc()){
+            $id_producto=$row['IDPRODUCTO'];
             $idcat=$row['IDCATEGORIA'];
             $titulo=$row['TITULO'];
             $descripcion=$row['DESCRIPCION'];
@@ -102,11 +103,9 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
             <section class="my-5">
                 <div class="owl-carousel" id="otros_productos_detalles" style="position:relative;">
                   <?php
-                  $sql="SELECT * FROM PRODUCTOS WHERE NOT IDPRODUCTO=$detalle LIMIT 12";
-                  $result=$conn->query($sql);
+                  $result=$conn->query("SELECT IMAGEN FROM IMAGENESPRODUCTO WHERE `PRODUCTOID`=$id_producto");
                   if($result->num_rows>0){
                     while($row=$result->fetch_assoc()){
-                      $id_p=$row['IDPRODUCTO'];
                       $imagen=$row['IMAGEN'];
                       ?>
                       <div class="item">

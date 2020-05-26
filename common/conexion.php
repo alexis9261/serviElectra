@@ -1,9 +1,9 @@
 <?php
 //servidor
-/*$servername="db5000266937.hosting-data.io";
+$servername="";
 $username="dbu241881";
-$dbname="dbs260499";
-$password="Eurochem12345*";*/
+$dbname="serviele_servielectra";
+$password="Eurochem12345*";
 //localhost
 // $servername="localhost";
 // $username="id13562744_servielectrauser";
@@ -11,10 +11,10 @@ $password="Eurochem12345*";*/
 // $dbname="id13562744_servielectra";
 
 
-$servername="localhost";
+/*$servername="localhost";
 $username="root";
 $password='';
-$dbname="servielectra";
+$dbname="servielectra";*/
 // Create connection
 $conn=new mysqli($servername,$username,$password,$dbname);
 $conn->set_charset("utf8");

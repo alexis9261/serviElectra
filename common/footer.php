@@ -28,10 +28,13 @@ if($result->num_rows>0){
 <footer class="footer-area p_120 pb-5">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3  col-md-6 col-sm-6">
+      <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="single-footer-widget ab_wd">
           <h6 class="footer_title">Sobre Nosotros</h6>
           <p>Somos fábrica de resistencias eléctricas y sensores para medición de temperatura.</p>
+        </div>
+        <div class="mt-4">
+          <img src="img/hecho.png" alt="" width="50%">
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
