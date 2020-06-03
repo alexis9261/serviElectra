@@ -106,7 +106,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-1.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=11"><h5>RESISTENCIAS</h5></a>
+                <a href="blog.php?id=1"><h5>RESISTENCIAS</h5></a>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-2.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=12"><h5>SENSORES</h5></a>
+                <a href="blog.php?id=2"><h5>SENSORES</h5></a>
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-3.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=13"><h5>CONTROL</h5></a>
+                <a href="blog.php?id=4"><h5>CONTROL</h5></a>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ $previouspage=$curpage - 1;
             <img src="img/icon/service-icon-4.png" alt="post" width="100%">
             <div class="categories_details">
               <div class="categories_text">
-                <a href="blog.php?id=14"><h5>ELECTRICIDAD</h5></a>
+                <a href="blog.php?id=3"><h5>ELECTRICIDAD</h5></a>
               </div>
             </div>
           </div>

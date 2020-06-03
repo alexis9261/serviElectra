@@ -1,9 +1,9 @@
 <?php
 //servidor
-$servername="";
-$username="dbu241881";
+/*$servername="localhost";
+$username="serviele_user";
 $dbname="serviele_servielectra";
-$password="Eurochem12345*";
+$password="sPD]g?aW*-.}";*/
 //localhost
 // $servername="localhost";
 // $username="id13562744_servielectrauser";
@@ -11,10 +11,10 @@ $password="Eurochem12345*";
 // $dbname="id13562744_servielectra";
 
 
-/*$servername="localhost";
+$servername="localhost";
 $username="root";
 $password='';
-$dbname="servielectra";*/
+$dbname="servielectra";
 // Create connection
 $conn=new mysqli($servername,$username,$password,$dbname);
 $conn->set_charset("utf8");
@@ -24,5 +24,5 @@ if($conn->connect_error){die("Connection failed: ".$conn->connect_error);}
 //$root_folder="http://localhost/Rouxa/";
 //--para servidor--
 //$root_folder=""; // prints '/home/public_html/'
-$nombrePagina="Eurochem";
+$nombrePagina="Servielectra";
 $imageLogo="logo.png";

@@ -143,45 +143,45 @@ $previouspage=$curpage - 1;
             <?php }else { ?>
               <div class="row border_ligth">
                 <div class="col-3 pl-0">
-                  <a href="productos.php?cat=11">
+                  <a href="productos.php?cat=1">
                   <img src="img/icon/service-icon-1.png" alt="" width="100%">
                   </a>
                 </div>
                 <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=11"><h2>RESISTENCIAS CALEFACTORAS</h2></a>
+                  <a href="productos.php?cat=1"><h2>RESISTENCIAS CALEFACTORAS</h2></a>
                   <p>Fabricación de resistencias eléctricas a la medida para el sector industrial, comercial y residencial.</p>
                 </div>
               </div>
               <div class="row border_ligth mt-2">
                 <div class="col-3 pl-0">
-                  <a href="productos.php?cat=12">
+                  <a href="productos.php?cat=2">
                   <img src="img/icon/service-icon-2.png" alt="" width="100%">
                   </a>
                 </div>
                 <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=12"><h2>SENSORES DE TEMPERATURA</h2></a>
+                  <a href="productos.php?cat=2"><h2>SENSORES DE TEMPERATURA</h2></a>
                   <p>Fabricación de sensores de temperatura a la medida: Termopares y RTD PT100.</p>
                 </div>
               </div>
               <div class="row border_ligth mt-2">
                 <div class="col-3 pl-0">
-                  <a href="productos.php?cat=14">
+                  <a href="productos.php?cat=4">
                     <img src="img/icon/service-icon-3.png" alt="" width="100%">
                     </a>
                 </div>
                 <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=14"><h2>CONTROL Y AUTOMATIZACIÓN</h2></a>
+                  <a href="productos.php?cat=4"><h2>CONTROL Y AUTOMATIZACIÓN</h2></a>
                   <p>Venta y distribución de materiales eléctricos para el control y la automatización de procesos.</p>
                 </div>
               </div>
               <div class="row border_ligth mt-2">
                 <div class="col-3 pl-0">
-                  <a href="productos.php?cat=13">
+                  <a href="productos.php?cat=3">
                   <img src="img/icon/service-icon-4.png" alt="" width="100%">
                   </a>
                 </div>
                 <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=13"><h2>ELECTRICIDAD</h2></a>
+                  <a href="productos.php?cat=3"><h2>ELECTRICIDAD</h2></a>
                   <p>Material especializado para altas temperaturas. Cables, terminales, borneras, aisladores y más.</p>
                 </div>
               </div>

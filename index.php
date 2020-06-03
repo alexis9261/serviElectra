@@ -104,29 +104,29 @@ date_default_timezone_set('America/Caracas');
     <div class="row services_inner">
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=11"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=11"><h4>RESISTENCIAS</h4></a>
+          <a href="productos.php?cat=1"><img src="img/icon/service-icon-1.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=1"><h4>RESISTENCIAS</h4></a>
           <p>Fabricación de resistencias eléctricas a la medida para el sector industrial, comercial y residencial.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=12"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=12"><h4>SENSORES</h4></a>
+          <a href="productos.php?cat=2"><img src="img/icon/service-icon-2.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=2"><h4>SENSORES</h4></a>
           <p>Fabricación de sensores de temperatura a la medida: Termopares y RTD PT100.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=13"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=13"><h4>CONTROL</h4></a>
+          <a href="productos.php?cat=4"><img src="img/icon/service-icon-3.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=4"><h4>CONTROL</h4></a>
           <p>Venta y distribución de materiales eléctricos para el control y la automatización de procesos.</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="services_item">
-          <a href="productos.php?cat=14"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
-          <a href="productos.php?cat=14"><h4>ELECTRICIDAD</h4></a>
+          <a href="productos.php?cat=3"><img src="img/icon/service-icon-4.png" width="75%" style="border-radius:50%;border:solid 2px #eee;" alt=""></a>
+          <a href="productos.php?cat=3"><h4>ELECTRICIDAD</h4></a>
           <p>Material especializado para altas temperaturas. Cables, terminales, borneras, aisladores y más.</p>
         </div>
       </div>
