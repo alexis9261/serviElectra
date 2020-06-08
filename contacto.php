@@ -82,8 +82,8 @@ $contacto="active";
           </div>
           <div class="info_item">
             <i class="lnr lnr-envelope"></i>
-            <h6><a href="mailto:ventas@Servielectra.com.ve">ventas@Servielectra.com.ve</a></h6>
-            <h6><a href="mailto:info@Servielectra.com.ve">info@Servielectra.com.ve</a></h6>
+            <h6><a href="mailto:ventas@Servielectra.com.ve">ventas@servielectra.com.ve</a></h6>
+            <h6><a href="mailto:info@Servielectra.com.ve">info@servielectra.com.ve</a></h6>
             <p>¡Estamos atentos a tus inquietudes!</p>
           </div>
         </div>

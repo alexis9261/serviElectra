@@ -54,7 +54,7 @@ function buscar(){document.search1.submit()}
   <div class="main_menu">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="" width="50%"/></a>
+        <a class="navbar-brand logo-responsive-navbar" href="index.php"><img src="img/logo.png" alt="" width="50%"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -68,7 +68,7 @@ function buscar(){document.search1.submit()}
               <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong> </a></li>
             <?php } ?>
             <li class="nav-item submenu dropdown">
-                <a href="productos.php" class="nav-link dropdown-toggle" data-toggle="dropdown"><strong>PRODUCTOS</strong> </a>
+                <a href="productos.php" onclick="productos()" class="nav-link dropdown-toggle" data-toggle="dropdown"><strong>PRODUCTOS</strong> </a>
               <ul class="dropdown-menu">
                 <?php
                 $sql="SELECT * FROM `CATEGORIAS`";
@@ -85,7 +85,7 @@ function buscar(){document.search1.submit()}
               </ul>
             </li>
             <li class="nav-item submenu dropdown">
-              <a href="nosotros.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Nosotros</strong> </a>
+              <a href="nosotros.php" onclick="nosotros()" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Nosotros</strong> </a>
               <ul class="dropdown-menu">
                 <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>La Empresa</strong> </a></li>
                 <li class="nav-item"><a class="nav-link" href="condiciones.php"><strong>Condiciones Generales de Venta</strong> </a></li>
@@ -107,3 +107,15 @@ function buscar(){document.search1.submit()}
     </nav>
   </div>
 </header>
+
+
+<script type="text/javascript">
+  function productos() {
+    window.location.href ="productos.php"
+  }
+
+  function nosotros() {
+    window.location.href ="nosotros.php"
+
+  }
+</script>

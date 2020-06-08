@@ -85,7 +85,7 @@
 		display: block;
 		width: 25px;
 		height: 3px;
-		background: #fab700;
+		background: #0b0bff;
 		margin: auto;
 		margin-bottom: 4px;
 		transition: all 400ms linear;
@@ -412,4 +412,7 @@
 		max-width: 100%;
 		text-align: center;
 	}
+
+
+	
 }

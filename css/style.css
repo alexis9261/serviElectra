@@ -570,9 +570,10 @@ button:focus {
 }
 
 .blog_banner .banner_inner .overlay {
-  background: url(../img/banner/blog.jpg) no-repeat scroll center center;
+  background: url(../img/banner/industria-venezolana.jpg) no-repeat scroll center center;
   opacity: .5;
   height: 125%;
+  background-size: cover;
   position: absolute;
   left: 0px;
   top: 0px;
@@ -3993,8 +3994,9 @@ h6 {
 
 .about_inner .ab_left_text h4 {
   font-size: 36px;
+  font-weight: bold;
   font-family: "Gotham", sans-serif;
-  color: #222222;
+  color: #1f3b7a;
   margin-bottom: 22px;
 }
 
@@ -4485,6 +4487,30 @@ h6 {
 }
 /*---------------------------------------------------- */
 
+
+@media (min-width: 350px){
+  .logo-responsive-navbar{
+    width: 87%;
+  }
+}
+
+@media (min-width: 990px){
+  .logo-responsive-navbar {
+    width: 35%;
+  }
+}
+
+.about_content_black{
+  color: #000;
+  font-weight: bold;
+}
+
+.about_principios{
+  padding: 0;
+  margin: 0;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
 
 /*---------------------------------------------------- */
 
