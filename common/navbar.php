@@ -23,6 +23,16 @@ if($result->num_rows>0){
 <script>
 function buscar(){document.search1.submit()}
 </script>
+<script type="text/javascript">
+  function productos() {
+    window.location.href ="productos.php"
+  }
+
+  function nosotros() {
+    window.location.href ="nosotros.php"
+
+  }
+</script>
 <header class="header_area">
   <div class="top_menu row m0">
     <div class="container">
@@ -107,15 +117,3 @@ function buscar(){document.search1.submit()}
     </nav>
   </div>
 </header>
-
-
-<script type="text/javascript">
-  function productos() {
-    window.location.href ="productos.php"
-  }
-
-  function nosotros() {
-    window.location.href ="nosotros.php"
-
-  }
-</script>

@@ -176,6 +176,12 @@ $nosotros="active";
         <div class="item">
           <img src="img/clients-logo/c-logo-5.png" alt="">
         </div>
+        <div class="item">
+          <img src="img/clients-logo/c-logo-7.png" alt="">
+        </div>
+        <div class="item">
+          <img src="img/clients-logo/c-logo-6.png" alt="">
+        </div>
       </div>
     </div>
   </section>

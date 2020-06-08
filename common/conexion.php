@@ -13,7 +13,7 @@ $password="sPD]g?aW*-.}";*/
 
 $servername="localhost";
 $username="root";
-$password='admin';
+$password='';
 $dbname="servielectra";
 // Create connection
 $conn=new mysqli($servername,$username,$password,$dbname);
