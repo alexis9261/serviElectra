@@ -44,10 +44,10 @@ $nosotros="active";
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.php">Inicio</a>
-            <a href="nosotros.php">Condiciones Generales de Venta</a>
+            <a href="index.php"  style="color:#002169!important">Inicio</a>
+            <a href="nosotros.php"  style="color:#002169!important">Condiciones Generales de Venta</a>
           </div>
-          <h2>Condiciones Generales de Venta</h2>
+          <h2  style="color:#002169!important">Condiciones Generales de Venta</h2>
         </div>
       </div>
     </div>

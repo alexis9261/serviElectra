@@ -28,7 +28,7 @@ function buscar(){document.search1.submit()}
     <div class="container">
       <div class="float-left">
         <form action="productos.php" method="get" id="search1">
-          <input class="search_menu ml-auto mt-2" type="text" name="producto" placeholder="Buscar.." onkeypress="if (event.keyCode == 13) buscar()">
+          <input class="search_menu ml-auto mt-2" type="text" name="producto" placeholder="Buscar..." onkeypress="if (event.keyCode == 13) buscar()">
         </form>
       </div>
       <div class="float-right">

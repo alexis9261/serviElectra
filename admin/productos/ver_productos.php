@@ -155,7 +155,7 @@ $previouspage=$curpage - 1;
                 <?php }else{ ?>
                   <div class="card">
                     <div class="card-title text-center">
-                      <h5>Sin articulos en la pagina</h5>
+                      <h5>Sin productos en la página</h5>
                     </div>
                   </div>
                 <?php } ?>

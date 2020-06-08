@@ -44,10 +44,10 @@ $nosotros="active";
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.php">Inicio</a>
-            <a href="nosotros.php">Nosotros</a>
+            <a href="index.php" style="color:#002169!important">Inicio</a>
+            <a href="nosotros.php" style="color:#002169!important">Nosotros</a>
           </div>
-          <h2>Nosotros</h2>
+          <h2 style="color:#002169!important">Nosotros</h2>
         </div>
       </div>
     </div>

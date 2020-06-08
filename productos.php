@@ -54,6 +54,11 @@ $previouspage=$curpage - 1;
   <link rel="stylesheet" href="css/responsive.css">
     <script src="js/jquery-3.2.1.min.js"></script>
       <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+      <style media="screen">
+      .banner_area .banner_inner .overlay {
+        background: url(../img/banner/productos.jpg) no-repeat scroll center center;
+      }
+      </style>
 </head>
 <body>
   <?php include 'common/navbar.php';?>
@@ -63,10 +68,10 @@ $previouspage=$curpage - 1;
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.php">Inicio</a>
-            <a href="nosotros.php">Productos</a>
+            <a href="index.php" style="color:#002169!important">Inicio</a>
+            <a href="nosotros.php" style="color:#002169!important">Productos</a>
           </div>
-          <h2>Nuestros Productos</h2>
+          <h2 style="color:#002169!important">Nuestros Productos</h2>
         </div>
       </div>
     </div>
