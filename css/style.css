@@ -3994,8 +3994,9 @@ h6 {
 
 .about_inner .ab_left_text h4 {
   font-size: 36px;
+  font-weight: bold;
   font-family: "Gotham", sans-serif;
-  color: #222222;
+  color: #1f3b7a;
   margin-bottom: 22px;
 }
 
@@ -4497,6 +4498,18 @@ h6 {
   .logo-responsive-navbar {
     width: 35%;
   }
+}
+
+.about_content_black{
+  color: #000;
+  font-weight: bold;
+}
+
+.about_principios{
+  padding: 0;
+  margin: 0;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 /*---------------------------------------------------- */

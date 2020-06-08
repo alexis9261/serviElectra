@@ -59,7 +59,63 @@ $nosotros="active";
       <div class="row about_inner">
         <div class="col-lg-6">
           <div class="ab_left_text">
-            <h4>Nosotros <br />Nuestra Historia <br />Misión & Visión</h4>
+           <!--  <h4>Nosotros <br />Nuestra Historia <br />Misión & Visión</h4> -->
+           <div class="nosotros_contenido_client">
+             <h4>Nosotros</h4>
+             <p>
+               <strong class="about_content_black">SERVIELECTRA VE</strong>, es una empresa especializada en calentamiento
+               eléctrico, conformada por un equipo
+               de ingeniería, capaz de brindar asesoría correcta y personalizada
+               desarrollando la mejor opción en todos
+               los proyectos del ramo.
+             </p>
+           </div>
+           <div class="nosotros_contenido_client">
+             <h4 class="title-nosotros">Visión</h4>
+             <p>
+               <strong class="about_content_black">“Ser la referencia nacional en calentamiento
+               eléctrico y soluciones industriales”.</strong>
+               Ponemos a su disposición nuestro servicio
+               de diseño y fabricación a la medida de todo
+               tipo de resistencias eléctricas calefactoras
+               y sensores de temperatura.
+               También ofrecemos el suministro e instalación
+               de materiales y equipos eléctricos para
+               la industria.
+             </p>
+           </div>
+           <div class="nosotros_contenido_client">
+             <h4>Misión</h4>
+             <p>
+               <strong class="about_content_black">“Ser aliados comerciales de todo el aparato
+               productor del país proveyendo soluciones
+               térmicas y eléctricas para asegurar la
+               producción nacional”.</strong>
+               El compromiso principal de nuestro equipo
+               de trabajo es satisfacer las necesidades de
+               nuestros clientes, garantizando la efectividad
+               y calidad de nuestros productos y servicios
+               en general.
+             </p>
+           </div>
+           <div class="nosotros_contenido_client">
+             <h4>Nuestros principios</h4>
+             <ul class="about_principios">
+               <li>El <strong class="about_content_black">compromiso</strong> con nuestros clientes y aliados</li>
+               <li>
+                La <strong class="about_content_black">responsabilidad</strong> en cada una de las entregas
+                y proyectos.
+               </li>
+               <li><strong class="about_content_black">Honestidad</strong> y <strong class="about_content_black">transparencia</strong>, ante todo.</li>
+               <li>Una <strong class="about_content_black">buena comunicación</strong> es la clave.</li>
+               <li>
+                  Sentido de <strong class="about_content_black">investigación e innovación</strong>,
+                  estamos siempre aprendiendo.
+               </li>
+               <li>La <strong class="about_content_black">convicción</strong> de trabajo constante por un mejor país.</li>
+               <li>Y la <strong class="about_content_black">pasión</strong> que tenemos por lo que hacemos.</li>
+             </ul>
+           </div>
             <p>Servielectra VE C.A. diseña y fabrica resistencias eléctricas
                calefactoras y sensores para medición de temperatura, también
                 distribuye y suministra Material Eléctrico de las mejores
