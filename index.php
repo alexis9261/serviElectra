@@ -317,13 +317,16 @@ date_default_timezone_set('America/Caracas');
         <img src="img/clients-logo/c-logo-2.png" alt="">
       </div>
       <div class="item">
-        <img src="img/clients-logo/c-logo-3.png" alt="">
-      </div>
-      <div class="item">
         <img src="img/clients-logo/c-logo-4.png" alt="">
       </div>
       <div class="item">
         <img src="img/clients-logo/c-logo-5.png" alt="">
+      </div>
+      <div class="item">
+        <img src="img/clients-logo/c-logo-7.png" style="width: 156px; height: 60px; " alt="">
+      </div>
+      <div class="item">
+        <img src="img/clients-logo/c-logo-6.png" style="width: 156px; height: 60px; " alt="">
       </div>
     </div>
   </div>

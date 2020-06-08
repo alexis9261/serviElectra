@@ -79,31 +79,27 @@ $nosotros="active";
 
   <!--================Counter Area =================-->
   <section class="counter_area">
-    <div class="container">
-      <div class="row m0 counter_inner">
-        <div class="counter_item">
-          <h4 class="counter">596</h4>
-          <p>Projects Completed</p>
-        </div>
-        <div class="counter_item">
-          <h4 class="counter">552</h4>
-          <p>Really Happy Clients</p>
-        </div>
-        <div class="counter_item">
-          <h4 class="counter">5962</h4>
-          <p>Total Tasks Completed</p>
-        </div>
-        <div class="counter_item">
-          <h4 class="counter">1009</h4>
-          <p>Cups of Coffee Taken</p>
-        </div>
-        <div class="counter_item">
-          <h4 class="counter">435</h4>
-          <p>In House Professionals</p>
-        </div>
+  <div class="container">
+    <div class="row m0 counter_inner justify-content-center">
+      <div class="counter_item text-center">
+        <span>+</span><h4 class="counter d-inline">550</h4>
+        <p>Clientes satisfechos</p>
+      </div>
+      <div class="counter_item text-center">
+        <span>+</span><h4 class="counter d-inline">5800</h4>
+        <p>Piezas fabricadas</p>
+      </div>
+      <div class="counter_item text-center">
+        <span>+</span><h4 class="counter d-inline">4960</h4>
+        <p>Tazas de café tomadas</p>
+      </div>
+      <div class="counter_item text-center">
+        <h4 class="counter d-inline">15</h4>
+        <p>Profesionales en casa</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <!--================End Counter Area =================-->
   <!--================Clients Logo Area =================-->
   <section class="clients_logo_area p_120">
