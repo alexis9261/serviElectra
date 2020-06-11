@@ -62,7 +62,7 @@ date_default_timezone_set('America/Caracas');
         ?>
         <div class="item">
           <div class="banner_inner d-flex align-items-center">
-            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="" style="background: url(../img/banner/<?php echo $imagenBanner;?>) no-repeat scroll center center;"></div>
+            <div class="overlay" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="" style="background: url(../img/banner/<?php echo $imagenBanner;?>) no-repeat center center;"></div>
             <div class="container">
               <div class="banner_content text-center">
                 <h3><?php echo $titulo ?> <span><?php echo $ultimaPalabra;?></span></h3>
@@ -135,7 +135,7 @@ date_default_timezone_set('America/Caracas');
 </section>
 <!--================End Services Area =================-->
 <!--================Products Area =================-->
-<section class="clients_logo_area p_120">
+<section class="clients_logo_area p_120" style="background: #f9f9ff!important;">
   <div class="container">
     <div class="main_title">
       <h2>NUESTROS PRODUCTOS</h2>

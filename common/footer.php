@@ -47,8 +47,8 @@ if($result->num_rows>0){
       </div>
       <div class="col-lg-5 col-md-6 col-sm-6 offset-lg-1">
         <div class="single-footer-widget">
-          <h6 class="footer_title">Suscribete</h6>
-          <p>Suscribete en nuestro sitio y te mantendremos al tanto de todas nuestras ofertas.</p>
+          <h6 class="footer_title">Suscríbete</h6>
+          <p>Suscríbete en nuestro sitio y te mantendremos al tanto de todas nuestras ofertas.</p>
           <div class="mt-3">
             <div class="input-group d-flex flex-row">
               <input name="correo" id="correo_footer" placeholder="Tu correo electrónico" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico '" required="" type="email">

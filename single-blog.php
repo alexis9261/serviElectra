@@ -339,7 +339,7 @@ if($result->num_rows>0){
             <aside class="single-sidebar-widget newsletter_widget">
               <h4 class="widget_title" style="background: #002169;color: #fff500;font-family:'Gotham Bold';">SUSCRIPCIÓN</h4>
               <p>
-                Suscribete a nosotros y te enviaremos información relevante
+                Suscríbete a nosotros y te enviaremos información relevante
                 sobre artículos tecnológicos y de electricidad en general
               </p>
               <div class="form-group d-flex flex-row">
@@ -411,8 +411,8 @@ if($result->num_rows>0){
       $.get('ajax_suscripcion.php',{email:email},verificar,'text');
       function verificar(respuesta){
         if (respuesta==1){
-          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3000});
-          toast({type:'success',title:'¡Gracias por suscribirte! \n Estaremos enviandote información relevante'});
+          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:5000});
+          toast({type:'success',title:'¡Gracias por suscribirte! \n Pronto recibirás información de interés sobre nuestros productos y servicios.'});
           $("#correo_footer").val("");
         }else {
           const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});

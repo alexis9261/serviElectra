@@ -57,7 +57,7 @@ function buscar(){document.search1.submit()}
             <li><a target="_blank" href="<?php echo $youtube;?>"><i class="fa fa-youtube"></i></a></li>
           <?php } ?>
         </ul>
-        <a class="dn_btn ml-3" href="https://wa.me/584244215217" target="_blank" style="color:#002169">Ver Precios</a>
+        <a class="dn_btn_price ml-3" href="https://wa.me/584244215217" target="_blank">Ver Precios</a>
       </div>
     </div>
   </div>

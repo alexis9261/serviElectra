@@ -388,7 +388,26 @@ button:focus {
   color: #fff;
   border-color: #fff500;
 }
-
+.dn_btn_price{
+  line-height: 28px;
+  border: 1px solid #002169;
+  display: inline-block;
+  background: #002169;
+  padding: 0px 19px;
+  font-size: 12px;
+  font-family: "Gotham Bold";
+  color: #fff500!important;
+  -webkit-transition: all 300ms linear 0s;
+  -o-transition: all 300ms linear 0s;
+  transition: all 300ms linear 0s;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+.dn_btn_price:hover{
+  background: transparent;
+  color: #002169!important;
+  border-color: #002169;
+}
 .top_menu .dn_btn {
   line-height: 28px;
   border: 1px solid #fff500;

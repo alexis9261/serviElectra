@@ -107,9 +107,9 @@ $previouspage=$curpage - 1;
                 <?php }
               }else { ?>
                 <p>
-                  <strong>No se encontraron productos.</strong>
+                  <span style="font-family:'Gotham Ligth';font-size:1.25rem;">No se encontraron productos.</span>
                 </p>
-                <strong class="text-muted mb-5">Busca en otras categorias o has una busqueda general.</strong>
+                <span class="text-muted mb-5" style="font-family:'Gotham Ligth';font-size:1.25rem;">Busca en otras categorías o haz una búsqueda general.</span>
                 <br>
                 <br>
                 <br>
@@ -282,7 +282,7 @@ $previouspage=$curpage - 1;
           <aside class="single-sidebar-widget newsletter_widget">
             <h4 class="widget_title" style="background: #002169;color: #fff500;font-family:'Gotham Bold';">SUSCRIPCIÓN</h4>
             <p>
-              Suscribete a nosotros y te enviaremos información relevante
+              Suscríbete a nosotros y te enviaremos información relevante
               sobre artículos tecnológicos y de electricidad en general
             </p>
             <div class="form-group d-flex flex-row">

@@ -221,7 +221,7 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
           <aside class="single-sidebar-widget newsletter_widget">
             <h4 class="widget_title" style="background: #002169;color: #fff500;font-family:'Gotham Bold';">SUSCRIPCIÓN</h4>
             <p>
-              Suscribete a nosotros y te enviaremos información relevante
+              Suscríbete a nosotros y te enviaremos información relevante
               sobre artículos tecnológicos y de electricidad en general
             </p>
             <div class="form-group d-flex flex-row">
