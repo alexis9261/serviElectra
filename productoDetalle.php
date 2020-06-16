@@ -1,11 +1,12 @@
 <?php
-if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
+if (isset($_GET['detalle']) && !empty($_GET['detalle'])) {
   $detalle = $_GET['detalle'];
-}else {
+} else {
   header('Location: https://servielectraapp.000webhostapp.com/');
 }
- ?>
+?>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -14,25 +15,31 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
   <title>Servielectra</title>
   <!-- Bootstrap CSS -->
   <style media="screen">
-  @font-face{
-    font-family: "Gotham";
-    src: url("fonts/gotham-regular.otf");
-  }
-  @font-face{
-    font-family: "Gotham Ligth";
-    src: url("fonts/gotham-thin.ttf");
-  }
-  @font-face{
-    font-family: "Gotham Bold";
-    src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
-  }
-  .border_ligth{
-    border: 1px solid #ddd;
-  }
+    @font-face {
+      font-family: "Gotham";
+      src: url("fonts/gotham-regular.otf");
+    }
 
-  #facebook_footer, #twitter_footer, #instagram_footer, #youtube_footer{
-    margin-top: 8px!important;
-  }
+    @font-face {
+      font-family: "Gotham Ligth";
+      src: url("fonts/gotham-thin.ttf");
+    }
+
+    @font-face {
+      font-family: "Gotham Bold";
+      src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
+    }
+
+    .border_ligth {
+      border: 1px solid #ddd;
+    }
+
+    #facebook_footer,
+    #twitter_footer,
+    #instagram_footer,
+    #youtube_footer {
+      margin-top: 8px !important;
+    }
   </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -47,25 +54,26 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 </head>
+
 <body>
-  <?php include 'common/navbar.php';?>
+  <?php include 'common/navbar.php'; ?>
   <section class="container">
     <div class="row">
       <div class="col-lg-8">
         <?php
-        $sql="SELECT * FROM PRODUCTOS WHERE IDPRODUCTO=$detalle";
-        $result=$conn->query($sql);
-        if($result->num_rows > 0){
-          while($row=$result->fetch_assoc()){
-            $id_producto=$row['IDPRODUCTO'];
-            $idcat=$row['IDCATEGORIA'];
-            $titulo=$row['TITULO'];
-            $descripcion=$row['DESCRIPCION'];
-            $caracteristicas=$row['CARACTERISTICAS'];
-            $aplicaciones=$row['APLICACIONES'];
-            $ventajas=$row['VENTAJAS'];
-            $imagenPpal=$row['IMAGEN'];
-            ?>
+        $sql = "SELECT * FROM PRODUCTOS WHERE IDPRODUCTO=$detalle";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $id_producto = $row['IDPRODUCTO'];
+            $idcat = $row['IDCATEGORIA'];
+            $titulo = $row['TITULO'];
+            $descripcion = $row['DESCRIPCION'];
+            $caracteristicas = $row['CARACTERISTICAS'];
+            $aplicaciones = $row['APLICACIONES'];
+            $ventajas = $row['VENTAJAS'];
+            $imagenPpal = $row['IMAGEN'];
+        ?>
             <div class="row align-items-center mb-2">
               <div class="col-md-7">
                 <div class="container-img-product-detalles">
@@ -77,51 +85,54 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
                   <div class="col-12">
                     <!--p class="text-muted" style="font-family:'Gotham';">
                       <?php
-                      $sql="SELECT * FROM CATEGORIAS WHERE IDCATEGORIA = $idcat";
+                      $sql = "SELECT * FROM CATEGORIAS WHERE IDCATEGORIA = $idcat";
                       $resultCat = $conn->query($sql);
-                      if($resultCat->num_rows > 0){
-                        while($rowCat=$resultCat->fetch_assoc()){ ?>
+                      if ($resultCat->num_rows > 0) {
+                        while ($rowCat = $resultCat->fetch_assoc()) { ?>
                           Categoria: <strong><?php echo $rowCat['CATEGORIA'] ?></strong>
                         <?php }
                       } ?>
                     </p-->
-                    <h2 class="lead" style="font-size:1.5rem;color:#002169;font-weight:500;font-family:'Gotham';"><?php echo $titulo;?></h2>
+                    <h2 class="lead" style="font-size:1.5rem;color:#002169;font-weight:500;font-family:'Gotham';"><?php echo $titulo; ?></h2>
                   </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-auto">
-                    <a href="productos.php" class="btn vista_productos_card_boton">Ver precios</a>
+                    <a href="https://wa.me/584244215217" target="_blank" class="btn vista_productos_card_boton">Ver precios</a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row px-2 mt-1">
               <h2 class="mb-3" style="color:#222222;font-family:'Gotham';"><strong>Descripción</strong></h2>
+            </div>
+            <div class="row px-2 mt-1">
               <p style="font-family:'Gotham';"><?php echo nl2br($descripcion) ?></p>
             </div>
+
             <!-- Coarusel otras imagenes -->
             <section class="my-5">
-                <div class="owl-carousel" id="otros_productos_detalles" style="position:relative;">
-                  <?php
-                  $result=$conn->query("SELECT IMAGEN FROM IMAGENESPRODUCTO WHERE `PRODUCTOID`=$id_producto");
-                  if($result->num_rows>0){
-                    while($row=$result->fetch_assoc()){
-                      $imagen=$row['IMAGEN'];
-                      ?>
-                      <div class="item">
-                        <div class="product_card_item">
-                          <div class="card_img">
-                            <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
-                          </div>
+              <div class="owl-carousel" id="otros_productos_detalles" style="position:relative;">
+                <?php
+                $result = $conn->query("SELECT IMAGEN FROM IMAGENESPRODUCTO WHERE `PRODUCTOID`=$id_producto");
+                if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                    $imagen = $row['IMAGEN'];
+                ?>
+                    <div class="item">
+                      <div class="product_card_item">
+                        <div class="card_img">
+                          <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
                         </div>
                       </div>
-                    <?php } ?>
+                    </div>
                   <?php } ?>
-                </div>
+                <?php } ?>
+              </div>
             </section>
             <script>
               $('#otros_productos_detalles').owlCarousel({
-                loop:true,
+                loop: true,
                 margin: 20,
                 items: 5,
                 autoplay: false,
@@ -152,7 +163,7 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
           </li>
         </ul>
         <div class="tab-content pt-3" id="myTabContent">
-          <div class="tab-pane fade show active" id="caracteristicas" role="tabpanel" aria-labelledby="caracteristicas-tab"><?php echo nl2br($caracteristicas);?></div>
+          <div class="tab-pane fade show active" id="caracteristicas" role="tabpanel" aria-labelledby="caracteristicas-tab"><?php echo nl2br($caracteristicas); ?></div>
           <div class="tab-pane fade" id="aplicaciones" role="tabpanel" aria-labelledby="aplicaciones-tab"><?php echo nl2br($aplicaciones); ?></div>
           <div class="tab-pane fade" id="ventajas" role="tabpanel" aria-labelledby="ventajas-tab"><?php echo nl2br($ventajas); ?></div>
         </div>
@@ -175,13 +186,16 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
             <h4>Servielectra VE, C.A.</h4>
             <p>J-410208686</p>
             <div class="social_icon">
-              <?php if($facebook!=""){ ?>
+              <?php if ($facebook != "") { ?>
                 <a href="#"><i class="fa fa-facebook"></i></a>
-              <?php } if($twitter!=""){ ?>
+              <?php }
+              if ($twitter != "") { ?>
                 <a href="#"><i class="fa fa-twitter"></i></a>
-              <?php } if($instagram!=""){ ?>
+              <?php }
+              if ($instagram != "") { ?>
                 <a href="#"><i class="fa fa-instagram"></i></a>
-              <?php } if($youtube!=""){ ?>
+              <?php }
+              if ($youtube != "") { ?>
                 <a href="#"><i class="fa fa-youtube"></i></a>
               <?php } ?>
             </div>
@@ -192,27 +206,27 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
             <h4 class="widget_title">CATEGORÍA DE ARTÍCULOS</h4>
             <ul class="list cat-list">
               <?php
-              $sql="SELECT * FROM `CATEGORIAS`";
-              $result=$conn->query($sql);
-              if($result->num_rows>0){
-                while($row=$result->fetch_assoc()){
-                  $categoria=$row['CATEGORIA'];
-                  $idCat=$row['IDCATEGORIA'];
-                  $sqla="SELECT COUNT(IDARTICULO) AS CUENTA FROM ARTICLESBLOG WHERE IDCATEGORIA=$idCat;";
-                  $resultado=$conn->query($sqla);
-                  if($resultado->num_rows>0){
-                    while($rowa=$resultado->fetch_assoc()){
-                      $total=$rowa['CUENTA'];
+              $sql = "SELECT * FROM `CATEGORIAS`";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                  $categoria = $row['CATEGORIA'];
+                  $idCat = $row['IDCATEGORIA'];
+                  $sqla = "SELECT COUNT(IDARTICULO) AS CUENTA FROM ARTICLESBLOG WHERE IDCATEGORIA=$idCat;";
+                  $resultado = $conn->query($sqla);
+                  if ($resultado->num_rows > 0) {
+                    while ($rowa = $resultado->fetch_assoc()) {
+                      $total = $rowa['CUENTA'];
                     }
                   }
-                  ?>
+              ?>
                   <li>
-                    <a href="blog.php?id=<?php echo $idCat;?>" class="d-flex justify-content-between">
-                      <p><?php echo $categoria;?></p>
-                      <p><?php echo $total;?></p>
+                    <a href="blog.php?id=<?php echo $idCat; ?>" class="d-flex justify-content-between">
+                      <p><?php echo $categoria; ?></p>
+                      <p><?php echo $total; ?></p>
                     </a>
                   </li>
-                  <?php
+              <?php
                 }
               } ?>
             </ul>
@@ -248,20 +262,22 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
       <div class="row mt-5">
         <div class="owl-carousel" id="products_slider" style="position:relative;">
           <?php
-          $sql="SELECT * FROM PRODUCTOS WHERE NOT IDPRODUCTO=$detalle LIMIT 12";
-          $result=$conn->query($sql);
-          if($result->num_rows>0){
-            while($row=$result->fetch_assoc()){
-              $id_p=$row['IDPRODUCTO'];
-              $imagen=$row['IMAGEN'];
-              ?>
+          $sql = "SELECT * FROM PRODUCTOS WHERE NOT IDPRODUCTO=$detalle LIMIT 12";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              $id_p = $row['IDPRODUCTO'];
+              $imagen = $row['IMAGEN'];
+          ?>
               <div class="item">
                 <div class="product_card_item">
                   <div class="card_img">
                     <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
                   </div>
                   <div class="product_card_name text-center py-3" style="background-color:#fff500">
-                    <a href="productoDetalle.php?detalle=<?php echo $id_p;?>"><h3><?php echo ucwords($row['TITULO']);?></h3></a>
+                    <a href="productoDetalle.php?detalle=<?php echo $id_p; ?>">
+                      <h3><?php echo ucwords($row['TITULO']); ?></h3>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -271,42 +287,43 @@ if(isset($_GET['detalle']) && !empty($_GET['detalle'])){
       </div>
     </div>
   </section>
-<script>
-$('#products_slider').owlCarousel({
-  loop:true,
-  margin: 20,
-  items: 5,
-  autoplay: false,
-  responsiveClass: true,
-  nav: true,
-  navText: ['<img src="img/arrow_left_product.svg"/>', '<img src="img/arrow_right_product.svg"/>'],
-  responsive: {
-    0: {
-      items: 1,
-    },
-    400: {
-      items: 2,
-    },
-    768: {
-      items: 4,
-    }
-  }
-})
-</script>
-<?php include 'common/footer.php';?>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/stellar.js"></script>
-<script src="vendors/lightbox/simpleLightbox.min.js"></script>
-<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-<script src="vendors/isotope/isotope-min.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendors/counter-up/jquery.counterup.js"></script>
-<script src="js/mail-script.js"></script>
-<script src="js/theme.js"></script>
+  <script>
+    $('#products_slider').owlCarousel({
+      loop: true,
+      margin: 20,
+      items: 5,
+      autoplay: false,
+      responsiveClass: true,
+      nav: true,
+      navText: ['<img src="img/arrow_left_product.svg"/>', '<img src="img/arrow_right_product.svg"/>'],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        400: {
+          items: 2,
+        },
+        768: {
+          items: 4,
+        }
+      }
+    })
+  </script>
+  <?php include 'common/footer.php'; ?>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/stellar.js"></script>
+  <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+  <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+  <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+  <script src="vendors/isotope/isotope-min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+  <script src="vendors/counter-up/jquery.counterup.js"></script>
+  <script src="js/mail-script.js"></script>
+  <script src="js/theme.js"></script>
 </body>
+
 </html>

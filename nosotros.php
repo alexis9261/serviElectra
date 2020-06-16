@@ -1,8 +1,9 @@
 <?php
-$nosotros="active";
- ?>
+$nosotros = "active";
+?>
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -11,18 +12,20 @@ $nosotros="active";
   <title>Servielectra</title>
   <!-- Bootstrap CSS -->
   <style media="screen">
-  @font-face{
-    font-family: "Gotham";
-    src: url("fonts/gotham-regular.otf");
-  }
-  @font-face{
-    font-family: "Gotham Ligth";
-    src: url("fonts/gotham-thin.ttf");
-  }
-  @font-face{
-    font-family: "Gotham Bold";
-    src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
-  }
+    @font-face {
+      font-family: "Gotham";
+      src: url("fonts/gotham-regular.otf");
+    }
+
+    @font-face {
+      font-family: "Gotham Ligth";
+      src: url("fonts/gotham-thin.ttf");
+    }
+
+    @font-face {
+      font-family: "Gotham Bold";
+      src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
+    }
   </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -34,9 +37,15 @@ $nosotros="active";
   <!-- main css -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <style media="screen">
+    .banner_area .banner_inner .overlay {
+      background: url(../img/banner/contacto.jpg) no-repeat scroll center center;
+    }
+  </style>
 </head>
+
 <body>
-  <?php include 'common/navbar.php';?>
+  <?php include 'common/navbar.php'; ?>
   <!--================Home Banner Area =================-->
   <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -44,10 +53,10 @@ $nosotros="active";
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.php" style="color:#002169!important">Inicio</a>
-            <a href="nosotros.php" style="color:#002169!important">Nosotros</a>
+            <a href="index.php">Inicio</a>
+            <a href="nosotros.php">Nosotros</a>
           </div>
-          <h2 style="color:#002169!important">Nosotros</h2>
+          <h2>Nosotros</h2>
         </div>
       </div>
     </div>
@@ -59,67 +68,67 @@ $nosotros="active";
       <div class="row about_inner">
         <div class="col-lg-6">
           <div class="ab_left_text">
-           <!--  <h4>Nosotros <br />Nuestra Historia <br />Misión & Visión</h4> -->
-           <div class="nosotros_contenido_client">
-             <h4>Nosotros</h4>
-             <p>
-               <strong class="about_content_black">SERVIELECTRA VE</strong>, es una empresa especializada en calentamiento
-               eléctrico, conformada por un equipo
-               de ingeniería, capaz de brindar asesoría correcta y personalizada
-               desarrollando la mejor opción en todos
-               los proyectos del ramo.
-             </p>
-           </div>
-           <div class="nosotros_contenido_client">
-             <h4 class="title-nosotros">Visión</h4>
-             <p>
-               <strong class="about_content_black">“Ser la referencia nacional en calentamiento
-               eléctrico y soluciones industriales”.</strong>
-               Ponemos a su disposición nuestro servicio
-               de diseño y fabricación a la medida de todo
-               tipo de resistencias eléctricas calefactoras
-               y sensores de temperatura.
-               También ofrecemos el suministro e instalación
-               de materiales y equipos eléctricos para
-               la industria.
-             </p>
-           </div>
-           <div class="nosotros_contenido_client">
-             <h4>Misión</h4>
-             <p>
-               <strong class="about_content_black">“Ser aliados comerciales de todo el aparato
-               productor del país proveyendo soluciones
-               térmicas y eléctricas para asegurar la
-               producción nacional”.</strong>
-               El compromiso principal de nuestro equipo
-               de trabajo es satisfacer las necesidades de
-               nuestros clientes, garantizando la efectividad
-               y calidad de nuestros productos y servicios
-               en general.
-             </p>
-           </div>
-           <div class="nosotros_contenido_client">
-             <h4>Nuestros principios</h4>
-             <ul class="about_principios">
-               <li>El <strong class="about_content_black">compromiso</strong> con nuestros clientes y aliados</li>
-               <li>
-                La <strong class="about_content_black">responsabilidad</strong> en cada una de las entregas
-                y proyectos.
-               </li>
-               <li><strong class="about_content_black">Honestidad</strong> y <strong class="about_content_black">transparencia</strong>, ante todo.</li>
-               <li>Una <strong class="about_content_black">buena comunicación</strong> es la clave.</li>
-               <li>
+            <!--  <h4>Nosotros <br />Nuestra Historia <br />Misión & Visión</h4> -->
+            <div class="nosotros_contenido_client">
+              <h4>Nosotros</h4>
+              <p>
+                <strong class="about_content_black">SERVIELECTRA VE</strong>, es una empresa especializada en calentamiento
+                eléctrico, conformada por un equipo
+                de ingeniería, capaz de brindar asesoría correcta y personalizada
+                desarrollando la mejor opción en todos
+                los proyectos del ramo.
+              </p>
+            </div>
+            <div class="nosotros_contenido_client">
+              <h4 class="title-nosotros">Visión</h4>
+              <p>
+                <strong class="about_content_black">“Ser la referencia nacional en calentamiento
+                  eléctrico y soluciones industriales”.</strong>
+                Ponemos a su disposición nuestro servicio
+                de diseño y fabricación a la medida de todo
+                tipo de resistencias eléctricas calefactoras
+                y sensores de temperatura.
+                También ofrecemos el suministro e instalación
+                de materiales y equipos eléctricos para
+                la industria.
+              </p>
+            </div>
+            <div class="nosotros_contenido_client">
+              <h4>Misión</h4>
+              <p>
+                <strong class="about_content_black">“Ser aliados comerciales de todo el aparato
+                  productor del país proveyendo soluciones
+                  térmicas y eléctricas para asegurar la
+                  producción nacional”.</strong>
+                El compromiso principal de nuestro equipo
+                de trabajo es satisfacer las necesidades de
+                nuestros clientes, garantizando la efectividad
+                y calidad de nuestros productos y servicios
+                en general.
+              </p>
+            </div>
+            <div class="nosotros_contenido_client">
+              <h4>Nuestros principios</h4>
+              <ul class="about_principios">
+                <li>El <strong class="about_content_black">compromiso</strong> con nuestros clientes y aliados</li>
+                <li>
+                  La <strong class="about_content_black">responsabilidad</strong> en cada una de las entregas
+                  y proyectos.
+                </li>
+                <li><strong class="about_content_black">Honestidad</strong> y <strong class="about_content_black">transparencia</strong>, ante todo.</li>
+                <li>Una <strong class="about_content_black">buena comunicación</strong> es la clave.</li>
+                <li>
                   Sentido de <strong class="about_content_black">investigación e innovación</strong>,
                   estamos siempre aprendiendo.
-               </li>
-               <li>La <strong class="about_content_black">convicción</strong> de trabajo constante por un mejor país.</li>
-               <li>Y la <strong class="about_content_black">pasión</strong> que tenemos por lo que hacemos.</li>
-             </ul>
-           </div>
+                </li>
+                <li>La <strong class="about_content_black">convicción</strong> de trabajo constante por un mejor país.</li>
+                <li>Y la <strong class="about_content_black">pasión</strong> que tenemos por lo que hacemos.</li>
+              </ul>
+            </div>
             <p>Servielectra VE C.A. diseña y fabrica resistencias eléctricas
-               calefactoras y sensores para medición de temperatura, también
-                distribuye y suministra Material Eléctrico de las mejores
-                 marcas del mercado.</p>
+              calefactoras y sensores para medición de temperatura, también
+              distribuye y suministra Material Eléctrico de las mejores
+              marcas del mercado.</p>
             <a class="ab_btn" href="#">Ver Nuestros Productos</a>
           </div>
         </div>
@@ -135,27 +144,30 @@ $nosotros="active";
 
   <!--================Counter Area =================-->
   <section class="counter_area">
-  <div class="container">
-    <div class="row m0 counter_inner justify-content-center">
-      <div class="counter_item text-center">
-        <span>+</span><h4 class="counter d-inline">550</h4>
-        <p>Clientes satisfechos</p>
-      </div>
-      <div class="counter_item text-center">
-        <span>+</span><h4 class="counter d-inline">5800</h4>
-        <p>Piezas fabricadas</p>
-      </div>
-      <div class="counter_item text-center">
-        <span>+</span><h4 class="counter d-inline">4960</h4>
-        <p>Tazas de café tomadas</p>
-      </div>
-      <div class="counter_item text-center">
-        <h4 class="counter d-inline">15</h4>
-        <p>Profesionales en casa</p>
+    <div class="container">
+      <div class="row m0 counter_inner justify-content-center">
+        <div class="counter_item text-center">
+          <span>+</span>
+          <h4 class="counter d-inline">550</h4>
+          <p>Clientes satisfechos</p>
+        </div>
+        <div class="counter_item text-center">
+          <span>+</span>
+          <h4 class="counter d-inline">5800</h4>
+          <p>Piezas fabricadas</p>
+        </div>
+        <div class="counter_item text-center">
+          <span>+</span>
+          <h4 class="counter d-inline">4960</h4>
+          <p>Tazas de café tomadas</p>
+        </div>
+        <div class="counter_item text-center">
+          <h4 class="counter d-inline">15</h4>
+          <p>Profesionales en casa</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <!--================End Counter Area =================-->
   <!--================Clients Logo Area =================-->
   <section class="clients_logo_area p_120">
@@ -206,4 +218,5 @@ $nosotros="active";
   <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
   <script src="js/suscripcion.js"></script>
 </body>
+
 </html>

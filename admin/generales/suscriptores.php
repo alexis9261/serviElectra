@@ -25,7 +25,7 @@ $previouspage = $curpage - 1;
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="Eutuxia Web, C.A.">
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagen/logo.png">
+  <link rel="icon" href="../../img/favicon.png" type="image/png">
   <title>ServiElectra - Administración</title>
   <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link href="../../vendors/admin/style.min.css" rel="stylesheet">

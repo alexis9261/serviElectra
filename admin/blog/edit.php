@@ -13,7 +13,7 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Página administrativa de Servielectra">
   <meta name="author" content="Eutuxia Web">
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagen/logo.png">
+  <link rel="icon" href="../../img/favicon.png" type="image/png">
   <title>ServiElectra - Administración</title>
   <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link href="../../vendors/admin/style.min.css" rel="stylesheet">
@@ -39,9 +39,9 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
           if($result->num_rows>0){
             while($row=$result->fetch_assoc()){
               $id_articulo=$row['IDARTICULO'];
-              $titulo=ucwords($row['TITLE']);
-              $descripcion=ucwords($row['DESCRIPTION']);
-              $contenido=ucwords($row['CONTENT']);
+              $titulo=$row['TITLE'];
+              $descripcion=$row['DESCRIPTION'];
+              $contenido=$row['CONTENT'];
               $imagen=$row['IMAGE'];
               $autor=$row['AUTOR'];
               $keywords=$row['KEYWORDS'];

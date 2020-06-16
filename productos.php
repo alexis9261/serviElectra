@@ -68,10 +68,10 @@ $previouspage=$curpage - 1;
       <div class="container">
         <div class="banner_content text-center">
           <div class="page_link">
-            <a href="index.php" style="color:#002169!important">Inicio</a>
-            <a href="nosotros.php" style="color:#002169!important">Productos</a>
+            <a href="index.php">Inicio</a>
+            <a href="nosotros.php">Productos</a>
           </div>
-          <h2 style="color:#002169!important">Nuestros Productos</h2>
+          <h2>Nuestros Productos</h2>
         </div>
       </div>
     </div>

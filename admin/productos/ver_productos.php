@@ -35,9 +35,9 @@ $previouspage=$curpage - 1;
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Página administrativa de Balita">
+  <meta name="description" content="Página administrativa de Servielectra">
   <meta name="author" content="Eutuxia Web">
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagen/logo.png">
+  <link rel="icon" href="../../img/favicon.png" type="image/png">
   <title>ServiElectra - Administración</title>
   <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link href="../../vendors/admin/style.min.css" rel="stylesheet">
@@ -77,7 +77,7 @@ $previouspage=$curpage - 1;
                         <strong class="col-1"><?php echo $x;?></strong>
                         <div class="col-1 "><img src="img/<?php echo $row['IMAGEN'];?>" width="35px"></div>
                         <div class="col-8 text-dark">
-                          <a href="../../producto.php?id=<?php echo $id_producto;?>" target="_blank">
+                          <a href="/productoDetalle.php?detalle=<?php echo $id_producto;?>" target="_blank">
                             <?php echo ucwords($row['TITULO']);?>
                           </a>
                         </div>

@@ -17,6 +17,7 @@ $section="home";
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Página administrativa de Servielectra">
   <meta name="author" content="Eutuxia Web">
+  <link rel="icon" href="../img/favicon.png" type="image/png">
   <title>ServiElectra - Administración</title>
   <link href="../vendors/admin/style.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/font-awesome.min.css">

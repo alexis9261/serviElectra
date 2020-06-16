@@ -66,7 +66,7 @@ date_default_timezone_set('America/Caracas');
             <div class="container">
               <div class="banner_content text-center">
                 <h3><?php echo $titulo ?> <span><?php echo $ultimaPalabra;?></span></h3>
-                <p><strong><?php echo $resumen ?></strong> </p>
+                <p style="font-size:1.25rem;"><strong><?php echo $resumen;?></strong> </p>
                 <a class="black_btn" href="<?php echo $urlBoton;?>"><?php echo $boton;?></a>
               </div>
             </div>
@@ -239,7 +239,7 @@ date_default_timezone_set('America/Caracas');
       <div class="col-lg-4 col-md-6">
         <div class="feature_item">
           <h4><i class="lnr lnr-user"></i>Somos Fabricantes</h4>
-          <p>Diseñamos y fabricamos resistencias eléctricas calefactoras y sensores para medición de temperatura</p>
+          <p>Diseñamos y fabricamos resistencias eléctricas calefactoras y sensores para medición de temperatura.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
@@ -251,7 +251,7 @@ date_default_timezone_set('America/Caracas');
       <div class="col-lg-4 col-md-6">
         <div class="feature_item">
           <h4><i class="lnr lnr-phone"></i>Rápida Respuesta</h4>
-          <p>Atendendemos las urgencias de nuestros clientes para que nunca dejen de producir..</p>
+          <p>Atendendemos las urgencias de nuestros clientes para que nunca dejen de producir.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
@@ -293,7 +293,7 @@ date_default_timezone_set('America/Caracas');
                 </div>
                 <div class="media-body">
                   <p><?php echo substr($desciption,0,175)."...";?></p>
-                  <h4><a class="enlace_home_blog" href="blog.php?<?php echo $id_articulo;?>"><?php echo $titulo;?></a> </h4>
+                  <h4><a class="enlace_home_blog" href="single-blog.php?id=<?php echo $id_articulo;?>"><?php echo $titulo;?></a> </h4>
                   <h5><?php echo $fecha;?></h5>
                 </div>
               </div>

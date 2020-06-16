@@ -13,7 +13,7 @@ if(isset($_GET['e'])){$edicion=$_GET['e'];}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Página administrativa de Servielectra">
   <meta name="author" content="Eutuxia Web">
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagen/logo.png">
+  <link rel="icon" href="../../img/favicon.png" type="image/png">
   <title>ServiElectra - Administración</title>
   <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link href="../../vendors/admin/style.min.css" rel="stylesheet">

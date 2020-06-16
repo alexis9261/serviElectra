@@ -35,9 +35,9 @@ $previouspage=$curpage - 1;
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Página administrativa de Balita">
+  <meta name="description" content="Página administrativa de Servielectra">
   <meta name="author" content="Eutuxia Web">
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagen/logo.png">
+  <link rel="icon" href="../../img/favicon.png" type="image/png">
   <title>ServiElectra - Administración</title>
   <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link href="../../vendors/admin/style.min.css" rel="stylesheet">
@@ -82,7 +82,7 @@ $previouspage=$curpage - 1;
                           <div class="row">
                             <div class="col-9 text-dark">
                               <a href="../../single-blog.php?id=<?php echo $id_articulo;?>" target="_blank">
-                                <?php echo ucwords($titulo);?>
+                                <?php echo $titulo;?>
                               </a>
                             </div>
                             <div class="col-3 ml-auto">
@@ -108,7 +108,7 @@ $previouspage=$curpage - 1;
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title"><?php echo ucwords($row['TITLE']);?></h5>
+                              <h5 class="modal-title"><?php echo $row['TITLE'];?></h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
