@@ -89,7 +89,7 @@ $previouspage=$curpage - 1;
       <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
       <div class="container">
         <div class="blog_b_text text-center">
-          <h2>Noticias </h2>
+          <h2 style="font-family:'Gotham Bold';">Noticias </h2>
           <p>Podrás encontrar noticias tecnologicas, historicas y de actualidad</p>
           <a class="white_bg_btn" href="blog.php">Ver todas</a>
         </div>

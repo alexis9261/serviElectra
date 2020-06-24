@@ -12,7 +12,7 @@ if($result->num_rows>0){
       $facebook=$row['VALOR'];
     }else if($row['ATRIBUTO']=="twitter"){
       $twitter=$row['VALOR'];
-    }else if($row['ATRIBUTO']=="linkedin"){
+    }else if($row['ATRIBUTO']=="youtube"){
       $youtube=$row['VALOR'];
     }else if($row['ATRIBUTO']=="instagram"){
       $instagram=$row['VALOR'];

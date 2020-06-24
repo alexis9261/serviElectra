@@ -3,7 +3,7 @@ include '../common/sesion.php';
 require '../../common/conexion.php';
 $facebook="";
 $twitter="";
-$linkedin="";
+$youtube="";
 $instagram="";
 $sql="SELECT * FROM `CONFIGURACION`";
 $result=$conn->query($sql);
@@ -15,8 +15,8 @@ if($result->num_rows>0){
       $twitter=$row['VALOR'];
     }else if($row['ATRIBUTO']=="instagram"){
       $instagram=$row['VALOR'];
-    }else if($row['ATRIBUTO']=="linkedin"){
-      $linkedin=$row['VALOR'];
+    }else if($row['ATRIBUTO']=="youtube"){
+      $youtube=$row['VALOR'];
     }else if($row['ATRIBUTO']=="video"){
       $url_video=$row['VALOR'];
     }
@@ -433,9 +433,9 @@ if (isset($_GET['b'])) {
                     <div class="col-6">
                       <div class="input-group">
                         <div class="input-group-append">
-                          <span class="input-group-text" data-toggle="tooltip" title=""><b>Linkedin</b></span>
+                          <span class="input-group-text" data-toggle="tooltip" title=""><b>Youtube</b></span>
                         </div>
-                        <input type="text" class="form-control text-secondary" placeholder="Link de Linkedin" id="linkedin" value="<?php if (isset($linkedin)) echo $linkedin; else echo '';?>">
+                        <input type="text" class="form-control text-secondary" placeholder="Link de Youtube" id="youtube" value="<?php if (isset($youtube)) echo $youtube; else echo '';?>">
                       </div>
                     </div>
                   </div>
@@ -481,9 +481,9 @@ if (isset($_GET['b'])) {
     $(document).on('click',"#submit_redes",function(){
       var facebook=$("#facebook").val();
       var twitter=$("#twitter").val();
-      var linkedin=$("#linkedin").val();
+      var youtube=$("#youtube").val();
       var instagram=$("#instagram").val();
-      $.post('ajax_redes.php',{facebook:facebook,twitter:twitter,linkedin:linkedin,instagram:instagram},verificar,'text');
+      $.post('ajax_redes.php',{facebook:facebook,twitter:twitter,youtube:youtube,instagram:instagram},verificar,'text');
       function verificar(text){
         if(text=="1"){
           const toast=swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:4000});
