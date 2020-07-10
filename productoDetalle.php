@@ -115,17 +115,19 @@ if (isset($_GET['detalle']) && !empty($_GET['detalle'])) {
               <div class="owl-carousel" id="otros_productos_detalles" style="position:relative;">
                 <?php
                 $result = $conn->query("SELECT IMAGEN FROM IMAGENESPRODUCTO WHERE `PRODUCTOID`=$id_producto");
-                if ($result->num_rows > 0) {
-                  while ($row = $result->fetch_assoc()) {
-                    $imagen = $row['IMAGEN'];
+                if ($result) {
+                  if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                      $imagen = $row['IMAGEN'];
                 ?>
-                    <div class="item">
-                      <div class="product_card_item">
-                        <div class="card_img">
-                          <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
+                      <div class="item">
+                        <div class="product_card_item">
+                          <div class="card_img">
+                            <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    <?php } ?>
                   <?php } ?>
                 <?php } ?>
               </div>

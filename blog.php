@@ -303,9 +303,9 @@ $previouspage=$curpage - 1;
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="correo_blog" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
+                  <input style="color:#222;" type="text" class="form-control" id="correo_aside" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
                 </div>
-                <a href="#" id="suscripcion_blog" class="bbtns">Suscribirse</a>
+                <a class="bbtns" id="suscripcion_aside" style="cursor:pointer;">Suscribirse</a>
               </div>
               <div class="br"></div>
             </aside>
@@ -357,26 +357,5 @@ $previouspage=$curpage - 1;
   <script src="js/theme.js"></script>
   <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
   <script src="js/suscripcion.js"></script>
-  <script type="text/javascript">
-  $("#suscripcion_blog").click(function(){
-    var email=$("#correo_blog").val();
-    if (email=="") {
-      const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:3500});
-      toast({type:'info',title:'Coloca tu correo electrónico'});
-    }else {
-      $.get('ajax_suscripcion.php',{email:email},verificar,'text');
-      function verificar(respuesta){
-        if (respuesta==1){
-          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:5000});
-          toast({type:'success',title:'¡Gracias por suscribirte! \n Pronto recibirás información de interés sobre nuestros productos y servicios.'});
-          $("#correo_footer").val("");
-        }else {
-          const toast=swal.mixin({toast:true,position:'top',showConfirmButton:false,timer:5000});
-          toast({type:'info',title:'¡Hubo un pequeño problema! \n Inténtalo de nuevo'});
-        }
-      }
-    }
-  });
-  </script>
 </body>
 </html>

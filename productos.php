@@ -1,20 +1,25 @@
 <?php
 include 'common/conexion.php';
-$productos="active";
+$productos = "active";
 #Paginacion
-$perpage=10;
-if(isset($_GET['page']) & !empty($_GET['page'])){$curpage=$_GET['page'];}else{$curpage=1;}
-$start=($curpage*$perpage) - $perpage;
+$perpage = 10;
+if (isset($_GET['page']) & !empty($_GET['page'])) {
+  $curpage = $_GET['page'];
+} else {
+  $curpage = 1;
+}
+$start = ($curpage * $perpage) - $perpage;
 #necesito el total de elementos
-$sql="SELECT * FROM PRODUCTOS";
-$pageres=mysqli_query($conn,$sql);
-$totalres=mysqli_num_rows($pageres);
-$endpage=ceil($totalres/$perpage);
-$startpage=1;
-$nextpage=$curpage + 1;
-$previouspage=$curpage - 1;
+$sql = "SELECT * FROM PRODUCTOS";
+$pageres = mysqli_query($conn, $sql);
+$totalres = mysqli_num_rows($pageres);
+$endpage = ceil($totalres / $perpage);
+$startpage = 1;
+$nextpage = $curpage + 1;
+$previouspage = $curpage - 1;
 ?>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -23,24 +28,31 @@ $previouspage=$curpage - 1;
   <title>Productos</title>
   <!-- Bootstrap CSS -->
   <style media="screen">
-  @font-face{
-    font-family: "Gotham";
-    src: url("fonts/gotham-regular.otf");
-  }
-  @font-face{
-    font-family: "Gotham Ligth";
-    src: url("fonts/gotham-thin.ttf");
-  }
-  @font-face{
-    font-family: "Gotham Bold";
-    src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
-  }
-  .border_ligth{
-    border: 1px solid #ddd;
-  }
-  #facebook_footer, #twitter_footer, #instagram_footer, #youtube_footer{
-    margin-top: 8px!important;
-  }
+    @font-face {
+      font-family: "Gotham";
+      src: url("fonts/gotham-regular.otf");
+    }
+
+    @font-face {
+      font-family: "Gotham Ligth";
+      src: url("fonts/gotham-thin.ttf");
+    }
+
+    @font-face {
+      font-family: "Gotham Bold";
+      src: url("fonts/bold/WEB/HomepageBaukasten-Bold.ttf");
+    }
+
+    .border_ligth {
+      border: 1px solid #ddd;
+    }
+
+    #facebook_footer,
+    #twitter_footer,
+    #instagram_footer,
+    #youtube_footer {
+      margin-top: 8px !important;
+    }
   </style>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -52,16 +64,17 @@ $previouspage=$curpage - 1;
   <!-- main css -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-    <script src="js/jquery-3.2.1.min.js"></script>
-      <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-      <style media="screen">
-      .banner_area .banner_inner .overlay {
-        background: url(../img/banner/productos.jpg) no-repeat scroll center center;
-      }
-      </style>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+  <style media="screen">
+    .banner_area .banner_inner .overlay {
+      background: url(../img/banner/productos.jpg) no-repeat scroll center center;
+    }
+  </style>
 </head>
+
 <body>
-  <?php include 'common/navbar.php';?>
+  <?php include 'common/navbar.php'; ?>
   <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
       <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
@@ -83,29 +96,29 @@ $previouspage=$curpage - 1;
           <?php if (isset($_GET['cat']) || isset($_GET['producto'])) { ?>
             <div class="productos_container_main mt-3">
               <?php
-              if(isset($_GET['cat'])){
+              if (isset($_GET['cat'])) {
                 $categoriaID = $_GET['cat'];
-                $sql="SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
+                $sql = "SELECT * FROM PRODUCTOS WHERE IDCATEGORIA = $categoriaID";
               } elseif (isset($_GET['producto'])) {
                 $search = $_GET['producto'];
-                $sql="SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
+                $sql = "SELECT * FROM PRODUCTOS WHERE TITULO LIKE '%$search%' ";
               }
               $result = $conn->query($sql);
-              if($result->num_rows > 0){
-                while($row=$result->fetch_assoc()){
-                  ?>
+              if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+              ?>
                   <div class="row mb-5">
                     <div class="vista_producto_card_img col-12 col-sm-5 w-100">
                       <img class="img-fluid" src="admin/productos/img/<?php echo $row['IMAGEN']; ?>" alt="" width="100%">
                     </div>
                     <div class="vista_producto_card_information col-12 col-sm-7 ">
                       <h2 class="vista_producto_card_title mb-2"><?php echo ucwords($row['TITULO']); ?></h2>
-                      <p class="vista_producto_card_subtext"> <?php echo substr( $row['DESCRIPCION'],0,120). "...";?> </p>
+                      <p class="vista_producto_card_subtext"> <?php echo substr($row['DESCRIPCION'], 0, 120) . "..."; ?> </p>
                       <a class="btn vista_productos_card_boton" href="productoDetalle.php?detalle=<?php echo $row['IDPRODUCTO'] ?>">ver producto</a>
                     </div>
                   </div>
                 <?php }
-              }else { ?>
+              } else { ?>
                 <p>
                   <span style="font-family:'Gotham Ligth';font-size:1.25rem;">No se encontraron productos.</span>
                 </p>
@@ -118,25 +131,25 @@ $previouspage=$curpage - 1;
             </div>
             <nav class="blog-pagination justify-content-center d-flex">
               <ul class="pagination">
-                <?php if($curpage!=$startpage){ ?>
+                <?php if ($curpage != $startpage) { ?>
                   <li class="page-item">
-                    <a href="?page=<?php echo $startpage;?>" class="page-link" aria-label="Previous">
+                    <a href="?page=<?php echo $startpage; ?>" class="page-link" aria-label="Previous">
                       <span aria-hidden="true">
                         <span class="lnr lnr-chevron-left"></span>
                       </span>
                     </a>
                   </li>
                 <?php } ?>
-                <?php if($curpage>=2){ ?>
-                  <li class="page-item"><a href="?page=<?php echo $previouspage;?>" class="page-link"><?php echo $previouspage;?></a></li>
+                <?php if ($curpage >= 2) { ?>
+                  <li class="page-item"><a href="?page=<?php echo $previouspage; ?>" class="page-link"><?php echo $previouspage; ?></a></li>
                 <?php } ?>
-                <li class="page-item"><a href="?page=<?php echo $curpage;?>" class="page-link"><?php echo $curpage;?></a></li>
-                <?php if($curpage!=$endpage){ ?>
-                  <li class="page-item"><a href="?page=<?php echo $nextpage;?>" class="page-link"><?php echo $nextpage;?></a></li>
+                <li class="page-item"><a href="?page=<?php echo $curpage; ?>" class="page-link"><?php echo $curpage; ?></a></li>
+                <?php if ($curpage != $endpage) { ?>
+                  <li class="page-item"><a href="?page=<?php echo $nextpage; ?>" class="page-link"><?php echo $nextpage; ?></a></li>
                 <?php } ?>
-                <?php if($curpage!=$endpage){ ?>
+                <?php if ($curpage != $endpage) { ?>
                   <li class="page-item">
-                    <a href="?page=<?php echo $endpage;?>" class="page-link" aria-label="Next">
+                    <a href="?page=<?php echo $endpage; ?>" class="page-link" aria-label="Next">
                       <span aria-hidden="true">
                         <span class="lnr lnr-chevron-right"></span>
                       </span>
@@ -145,77 +158,87 @@ $previouspage=$curpage - 1;
                 <?php } ?>
               </ul>
             </nav>
-            <?php }else { ?>
-              <div class="row border_ligth">
-                <div class="col-3 pl-0">
-                  <a href="productos.php?cat=1">
+          <?php } else { ?>
+            <div class="row border_ligth">
+              <div class="col-3 pl-0">
+                <a href="productos.php?cat=1">
                   <img src="img/icon/service-icon-1.png" alt="" width="100%">
-                  </a>
-                </div>
-                <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=1"><h2>RESISTENCIAS CALEFACTORAS</h2></a>
-                  <p>Fabricación de resistencias eléctricas a la medida para el sector industrial, comercial y residencial.</p>
-                </div>
+                </a>
               </div>
-              <div class="row border_ligth mt-2">
-                <div class="col-3 pl-0">
-                  <a href="productos.php?cat=2">
+              <div class="col-9 card_categorias py-3">
+                <a href="productos.php?cat=1">
+                  <h2>RESISTENCIAS CALEFACTORAS</h2>
+                </a>
+                <p>Fabricación de resistencias eléctricas a la medida para el sector industrial, comercial y residencial.</p>
+              </div>
+            </div>
+            <div class="row border_ligth mt-2">
+              <div class="col-3 pl-0">
+                <a href="productos.php?cat=2">
                   <img src="img/icon/service-icon-2.png" alt="" width="100%">
-                  </a>
-                </div>
-                <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=2"><h2>SENSORES DE TEMPERATURA</h2></a>
-                  <p>Fabricación de sensores de temperatura a la medida: Termopares y RTD PT100.</p>
-                </div>
+                </a>
               </div>
-              <div class="row border_ligth mt-2">
-                <div class="col-3 pl-0">
-                  <a href="productos.php?cat=4">
-                    <img src="img/icon/service-icon-3.png" alt="" width="100%">
-                    </a>
-                </div>
-                <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=4"><h2>CONTROL Y AUTOMATIZACIÓN</h2></a>
-                  <p>Venta y distribución de materiales eléctricos para el control y la automatización de procesos.</p>
-                </div>
+              <div class="col-9 card_categorias py-3">
+                <a href="productos.php?cat=2">
+                  <h2>SENSORES DE TEMPERATURA</h2>
+                </a>
+                <p>Fabricación de sensores de temperatura a la medida: Termopares y RTD PT100.</p>
               </div>
-              <div class="row border_ligth mt-2">
-                <div class="col-3 pl-0">
-                  <a href="productos.php?cat=3">
+            </div>
+            <div class="row border_ligth mt-2">
+              <div class="col-3 pl-0">
+                <a href="productos.php?cat=4">
+                  <img src="img/icon/service-icon-3.png" alt="" width="100%">
+                </a>
+              </div>
+              <div class="col-9 card_categorias py-3">
+                <a href="productos.php?cat=4">
+                  <h2>CONTROL Y AUTOMATIZACIÓN</h2>
+                </a>
+                <p>Venta y distribución de materiales eléctricos para el control y la automatización de procesos.</p>
+              </div>
+            </div>
+            <div class="row border_ligth mt-2">
+              <div class="col-3 pl-0">
+                <a href="productos.php?cat=3">
                   <img src="img/icon/service-icon-4.png" alt="" width="100%">
-                  </a>
-                </div>
-                <div class="col-9 card_categorias py-3">
-                  <a href="productos.php?cat=3"><h2>ELECTRICIDAD</h2></a>
-                  <p>Material especializado para altas temperaturas. Cables, terminales, borneras, aisladores y más.</p>
-                </div>
+                </a>
               </div>
-              <div class="row mt-5 pt-4">
-                <!--================ Carousel Productos =================-->
-                <div class="owl-carousel" id="products_slider" style="position:relative;">
-                  <?php
-                  $sql="SELECT * FROM PRODUCTOS LIMIT 12";
-                  $result=$conn->query($sql);
-                  if($result->num_rows>0){
-                    while($row=$result->fetch_assoc()){
-                      $id_p=$row['IDPRODUCTO'];
-                      $imagen=$row['IMAGEN'];
-                      ?>
-                      <div class="item">
-                        <div class="product_card_item">
-                          <div class="card_img">
-                            <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
-                          </div>
-                          <div class="product_card_name text-center py-3" style="background-color:#fff500">
-                            <a href="productoDetalle.php?detalle=<?php echo $id_p;?>"><h3><?php echo ucwords($row['TITULO']);?></h3></a>
-                          </div>
+              <div class="col-9 card_categorias py-3">
+                <a href="productos.php?cat=3">
+                  <h2>ELECTRICIDAD</h2>
+                </a>
+                <p>Material especializado para altas temperaturas. Cables, terminales, borneras, aisladores y más.</p>
+              </div>
+            </div>
+            <div class="row mt-5 pt-4">
+              <!--================ Carousel Productos =================-->
+              <div class="owl-carousel" id="products_slider" style="position:relative;">
+                <?php
+                $sql = "SELECT * FROM PRODUCTOS LIMIT 12";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                    $id_p = $row['IDPRODUCTO'];
+                    $imagen = $row['IMAGEN'];
+                ?>
+                    <div class="item">
+                      <div class="product_card_item">
+                        <div class="card_img">
+                          <img class="product_card_img w-100" src="admin/productos/img/<?php echo $imagen ?>" alt="">
+                        </div>
+                        <div class="product_card_name text-center py-3" style="background-color:#fff500">
+                          <a href="productoDetalle.php?detalle=<?php echo $id_p; ?>">
+                            <h3><?php echo ucwords($row['TITULO']); ?></h3>
+                          </a>
                         </div>
                       </div>
-                    <?php } ?>
+                    </div>
                   <?php } ?>
-                </div>
+                <?php } ?>
               </div>
-            <?php } ?>
+            </div>
+          <?php } ?>
         </section>
       </div>
       <div class="col-lg-4 mt-5">
@@ -236,13 +259,16 @@ $previouspage=$curpage - 1;
             <h4>Servielectra VE, C.A.</h4>
             <p>J-410208686</p>
             <div class="social_icon">
-              <?php if($facebook!=""){ ?>
+              <?php if ($facebook != "") { ?>
                 <a href="#"><i class="fa fa-facebook"></i></a>
-              <?php } if($twitter!=""){ ?>
+              <?php }
+              if ($twitter != "") { ?>
                 <a href="#"><i class="fa fa-twitter"></i></a>
-              <?php } if($instagram!=""){ ?>
+              <?php }
+              if ($instagram != "") { ?>
                 <a href="#"><i class="fa fa-instagram"></i></a>
-              <?php } if($youtube!=""){ ?>
+              <?php }
+              if ($youtube != "") { ?>
                 <a href="#"><i class="fa fa-youtube"></i></a>
               <?php } ?>
             </div>
@@ -253,27 +279,27 @@ $previouspage=$curpage - 1;
             <h4 class="widget_title">CATEGORÍA DE ARTÍCULOS</h4>
             <ul class="list cat-list">
               <?php
-              $sql="SELECT * FROM `CATEGORIAS`";
-              $result=$conn->query($sql);
-              if($result->num_rows>0){
-                while($row=$result->fetch_assoc()){
-                  $categoria=$row['CATEGORIA'];
-                  $idCat=$row['IDCATEGORIA'];
-                  $sqla="SELECT COUNT(IDARTICULO) AS CUENTA FROM ARTICLESBLOG WHERE IDCATEGORIA=$idCat;";
-                  $resultado=$conn->query($sqla);
-                  if($resultado->num_rows>0){
-                    while($rowa=$resultado->fetch_assoc()){
-                      $total=$rowa['CUENTA'];
+              $sql = "SELECT * FROM `CATEGORIAS`";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                  $categoria = $row['CATEGORIA'];
+                  $idCat = $row['IDCATEGORIA'];
+                  $sqla = "SELECT COUNT(IDARTICULO) AS CUENTA FROM ARTICLESBLOG WHERE IDCATEGORIA=$idCat;";
+                  $resultado = $conn->query($sqla);
+                  if ($resultado->num_rows > 0) {
+                    while ($rowa = $resultado->fetch_assoc()) {
+                      $total = $rowa['CUENTA'];
                     }
                   }
-                  ?>
+              ?>
                   <li>
-                    <a href="blog.php?id=<?php echo $idCat;?>" class="d-flex justify-content-between">
-                      <p><?php echo $categoria;?></p>
-                      <p><?php echo $total;?></p>
+                    <a href="blog.php?id=<?php echo $idCat; ?>" class="d-flex justify-content-between">
+                      <p><?php echo $categoria; ?></p>
+                      <p><?php echo $total; ?></p>
                     </a>
                   </li>
-                  <?php
+              <?php
                 }
               } ?>
             </ul>
@@ -288,11 +314,11 @@ $previouspage=$curpage - 1;
             <div class="form-group d-flex flex-row">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <div class="input-group-text correo_icon_sidebar"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                  <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
-                <input type="text" class="form-control" id="correo_blog" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'">
+                <input style="color:#222;" type="text" class="form-control" placeholder="Inserta tu correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Inserta tu correo'" id="correo_aside">
               </div>
-              <a href="#" id="suscripcion_blog" class="bbtns">Suscribirse</a>
+              <a class="bbtns" id="suscripcion_aside" style="cursor:pointer;">Suscribirse</a>
             </div>
             <div class="br"></div>
           </aside>
@@ -300,7 +326,7 @@ $previouspage=$curpage - 1;
       </div>
     </div>
   </div>
-  <?php include 'common/footer.php';?>
+  <?php include 'common/footer.php'; ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
@@ -317,29 +343,30 @@ $previouspage=$curpage - 1;
   <script src="vendors/counter-up/jquery.counterup.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/theme.js"></script>
-  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
   <script src="js/suscripcion.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js'></script>
   <script>
-  $('#products_slider').owlCarousel({
-    loop:true,
-    margin: 20,
-    items: 5,
-    autoplay: false,
-    responsiveClass: true,
-    nav: true,
-    navText: ['<img src="img/arrow_left_product.svg"/>', '<img src="img/arrow_right_product.svg"/>'],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 2,
-      },
-      768: {
-        items: 4,
+    $('#products_slider').owlCarousel({
+      loop: true,
+      margin: 20,
+      items: 5,
+      autoplay: false,
+      responsiveClass: true,
+      nav: true,
+      navText: ['<img src="img/arrow_left_product.svg"/>', '<img src="img/arrow_right_product.svg"/>'],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        400: {
+          items: 2,
+        },
+        768: {
+          items: 4,
+        }
       }
-    }
-  })
+    })
   </script>
 </body>
+
 </html>
